@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Banned on r/ACT for trying to advertise our [KAR³L user study](https://nbalepur.github.io/assets/html/KARL.html)
+Banned on r/ACT for trying to advertise our [KAR³L user study](https://nbalepur.github.io/assets/html/KARL.html) 😭
