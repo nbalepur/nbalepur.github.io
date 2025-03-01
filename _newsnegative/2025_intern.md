@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Did not get intern/fellow offers after interviewing at Meta, Cohere, and Anthropic
+Didn't get intern/fellow offers after interviewing at Meta, Cohere, and Anthropic
