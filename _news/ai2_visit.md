@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Two exciting life updates! I plan to join: 1) [Ai2](https://allenai.org/) (Semantic Scholar) as a summer intern working on help users with scientific QA; and 2) NYU as a visiting researcher (AY 25-26) with [Eunsol Choi](https://eunsol.github.io/) to live with my amazing partner in NYC :) 
+Two exciting life updates! I plan to join: 1) [Ai2](https://allenai.org/) (Semantic Scholar) as a summer intern working on helpful scientific QA systems; and 2) NYU as a visiting researcher (AY 25-26) with [Eunsol Choi](https://eunsol.github.io/) to live with my amazing partner in NYC :) 
