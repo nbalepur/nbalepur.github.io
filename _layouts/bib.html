@@ -151,6 +151,11 @@
             {%- if entry.tldr %}
             <a class="tldr btn btn-sm z-depth-0" role="button">TL;DR</a>
           {%- endif %}
+
+          {%- if entry.thoughts %}
+            <a class="abstract btn btn-sm z-depth-0" role="button">Thoughts</a>
+          {%- endif %}
+                
           {%- if entry.arxiv %}
             <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
           {%- endif %}
@@ -243,6 +248,13 @@
           <!-- Hidden tldr block -->
           <div class="tldr hidden">
             <p>{{ entry.tldr }}</p>
+          </div>
+          {%- endif -%}
+
+            {% if thoughts -%}
+          <!-- Hidden thoughts block -->
+          <div class="thoughts hidden">
+            <p>{{ entry.thoughts }}</p>
           </div>
           {%- endif -%}
               
