@@ -725,6 +725,14 @@ footer.sticky-bottom {
       div.tldr.hidden.open {
         border-color: var(--global-text-color);
       }
+
+      div.thoughts.hidden {
+        border: dashed 1px var(--global-bg-color);
+      }
+
+      div.thoughts.hidden.open {
+        border-color: var(--global-text-color);
+      }
     }
   }
 }
