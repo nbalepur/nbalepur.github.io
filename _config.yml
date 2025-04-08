@@ -180,7 +180,7 @@ collections:
 announcements:
   enabled: true
   scrollable: true
-  limit:
+  limit: 5
 
 latest_posts:
   enabled: true
