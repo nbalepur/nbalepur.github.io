@@ -37,32 +37,57 @@
   pdf="https://arxiv.org/pdf/2501.11549",
 }
 
-@article{balepur2025mods,
-  title={MODS: Moderating a Mixture of Document Speakers to Summarize Debatable Queries in Document Collections},
-  author={Balepur, Nishant and Siu, Alexa and Lipka, Nedim and Dernoncourt, Franck and Sun, Tong and Boyd-Graber, Jordan and Mathur, Puneet},
-  journal={arXiv preprint arXiv:2502.00322},
-  year={2025},
-  abbr = "NAACL 2025",
-  bibtex_show={true},
-  url="https://arxiv.org/abs/2502.00322",
-  pdf="https://arxiv.org/pdf/2502.00322",
-  tldr="We propose a new task of answering debatable queries (Are EVs good?) from documents and use multi-agent summarization to reach SOTA",
-  abstract="Query-focused summarization (QFS) gives a summary of documents to answer a query. Past QFS work assumes queries have one answer, ignoring debatable ones (Is law school worth it?). We introduce Debatable QFS (DQFS), a task to create summaries that answer debatable queries via documents with opposing perspectives; summaries must comprehensively cover all sources and balance perspectives, favoring no side. These goals elude LLM QFS systems, which: 1) lack structured content plans, failing to guide LLMs to write balanced summaries, and 2) use the same query to retrieve contexts across documents, failing to cover all perspectives specific to each document's content. To overcome this, we design MODS, a multi-LLM framework mirroring human panel discussions. MODS treats documents as individual Speaker LLMs and has a Moderator LLM that picks speakers to respond to tailored queries for planned topics. Speakers use tailored queries to retrieve relevant contexts from their documents and supply perspectives, which are tracked in a rich outline, yielding a content plan to guide the final summary. Experiments on ConflictingQA with controversial web queries and DebateQFS, our new dataset of debate queries from Debatepedia, show MODS beats SOTA by 38-59% in topic paragraph coverage and balance, based on new citation metrics. Users also find MODS's summaries to be readable and more balanced."
+@inproceedings{balepur-etal-2025-reverse,
+    title = "Reverse Question Answering: Can an {LLM} Write a Question so Hard (or Bad) that it Can`t Answer?",
+    author = "Balepur, Nishant  and
+      Gu, Feng  and
+      Ravichander, Abhilasha  and
+      Feng, Shi  and
+      Boyd-Graber, Jordan Lee  and
+      Rudinger, Rachel",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 2: Short Papers)",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.naacl-short.5/",
+    pages = "44--64",
+    ISBN = "979-8-89176-190-2",
+    abbr = "NAACL 2025",
+    bibtex_show={true},
+    tldr="We find a surprising LLM weakness in reverse question answering: given an answer, can an LLM generate any valid question with that answer?",
+    abstract = "Question answering (QA)—producing correct answers for input questions—is popular, but we test a reverse question answering (RQA) task: given an input answer, generate a question with that answer. Past work tests QA and RQA separately, but we test them jointly, comparing their difficulty, aiding benchmark design, and assessing reasoning consistency. 16 LLMs run QA and RQA with trivia questions/answers, showing: 1) Versus QA, LLMs are much less accurate in RQA for numerical answers, but slightly more accurate in RQA for textual answers; 2) LLMs often answer their own invalid questions from RQA accurately in QA, so RQA errors are not from knowledge gaps alone; 3) RQA errors correlate with question difficulty and inversely correlate with answer frequencies in the Dolma corpus; and 4) LLMs struggle to give valid multi-hop questions. By finding question and answer types yielding RQA errors, we suggest improvements for LLM RQA reasoning."
+    thoughts="I think this paper has the weirdest / most surprising results. That is, I didn't think that so many LLMs wouldn't be able to generate questions for numbers when playing around with ChatGPT",
+    pdf="https://arxiv.org/pdf/2410.15512",
 }
 
-@article{balepur2024reverse,
-  title={Reverse Question Answering: Can an LLM Write a Question so Hard (or Bad) that it Can't Answer?},
-  author={Balepur, Nishant and Gu, Feng and Ravichander, Abhilasha and Feng, Shi and Boyd-Graber, Jordan and Rudinger, Rachel},
-  journal={arXiv preprint arXiv:2410.15512},
-  abbr = "NAACL 2025",
-  year={2024},
-  selected={false},
-  bibtex_show={true},
-  thoughts="I think this paper has the weirdest / most surprising results. That is, I didn't think that so many LLMs wouldn't be able to generate questions for numbers when playing around with ChatGPT",
-  url="https://arxiv.org/abs/2410.15512",
-  pdf="https://arxiv.org/pdf/2410.15512",
-  tldr="We find a surprising LLM weakness in reverse question answering: given an answer, can an LLM generate any valid question with that answer?",
-  abstract = "Question answering (QA)—producing correct answers for input questions—is popular, but we test a reverse question answering (RQA) task: given an input answer, generate a question with that answer. Past work tests QA and RQA separately, but we test them jointly, comparing their difficulty, aiding benchmark design, and assessing reasoning consistency. 16 LLMs run QA and RQA with trivia questions/answers, showing: 1) Versus QA, LLMs are much less accurate in RQA for numerical answers, but slightly more accurate in RQA for textual answers; 2) LLMs often answer their own invalid questions from RQA accurately in QA, so RQA errors are not from knowledge gaps alone; 3) RQA errors correlate with question difficulty and inversely correlate with answer frequencies in the Dolma corpus; and 4) LLMs struggle to give valid multi-hop questions. By finding question and answer types yielding RQA errors, we suggest improvements for LLM RQA reasoning."
+@inproceedings{balepur-etal-2025-mods,
+    title = "{M}o{DS}: Moderating a Mixture of Document Speakers to Summarize Debatable Queries in Document Collections",
+    author = "Balepur, Nishant  and
+      Siu, Alexa  and
+      Lipka, Nedim  and
+      Dernoncourt, Franck  and
+      Sun, Tong  and
+      Boyd-Graber, Jordan Lee  and
+      Mathur, Puneet",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.naacl-long.20/",
+    pages = "465--491",
+    ISBN = "979-8-89176-189-6",
+    abbr = "NAACL 2025",
+    bibtex_show={true},
+    tldr="We propose a new task of answering debatable queries (Are EVs good?) from documents and use multi-agent summarization to reach SOTA",
+    abstract="Query-focused summarization (QFS) gives a summary of documents to answer a query. Past QFS work assumes queries have one answer, ignoring debatable ones (Is law school worth it?). We introduce Debatable QFS (DQFS), a task to create summaries that answer debatable queries via documents with opposing perspectives; summaries must comprehensively cover all sources and balance perspectives, favoring no side. These goals elude LLM QFS systems, which: 1) lack structured content plans, failing to guide LLMs to write balanced summaries, and 2) use the same query to retrieve contexts across documents, failing to cover all perspectives specific to each document's content. To overcome this, we design MODS, a multi-LLM framework mirroring human panel discussions. MODS treats documents as individual Speaker LLMs and has a Moderator LLM that picks speakers to respond to tailored queries for planned topics. Speakers use tailored queries to retrieve relevant contexts from their documents and supply perspectives, which are tracked in a rich outline, yielding a content plan to guide the final summary. Experiments on ConflictingQA with controversial web queries and DebateQFS, our new dataset of debate queries from Debatepedia, show MODS beats SOTA by 38-59% in topic paragraph coverage and balance, based on new citation metrics. Users also find MODS's summaries to be readable and more balanced."
 }
 
 
