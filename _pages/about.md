@@ -24,7 +24,7 @@ Hi! My name is Nishant and I'm a second-year Ph.D. student at the University of 
 
 I mostly work on alignment (beyond preferences) and evaluation (beyond current benchmarks) in [LLMs](https://www.youtube.com/watch?v=u0DgoRVLTE8). I'm currently excited about three research questions, in descending order of excitement: 
 1. How can we teach models to **help users**?
-   [[flashcards (EMNLP'24)](https://arxiv.org/abs/2402.12291), [memorable study aids (EMNLP'24)](https://arxiv.org/abs/2406.15352), [personalized dpo (ACL'25)](https://arxiv.org/abs/2501.11549), [plans for problem-solving](https://github.com/nbalepur/nbalepur.github.io/blob/master/assets/pdf/Planorama.pdf)]
+   [[flashcards (EMNLP'24)](https://arxiv.org/abs/2402.12291), [memorable study aids (EMNLP'24)](https://arxiv.org/abs/2406.15352), [personalized dpo (ACL'25)](https://arxiv.org/abs/2501.11549), [multi-step plans (EMNLP'25)](https://github.com/nbalepur/nbalepur.github.io/blob/master/assets/pdf/Planorama.pdf)]
 2. How can we build evaluations to expose **model/dataset flaws**?
    [[eliminative reasoning (ACL'24)](https://arxiv.org/abs/2311.07532), [mcqa artifacts (ACL'24)](https://arxiv.org/abs/2402.12483), [benchmark cheating (ACL'24)](https://arxiv.org/abs/2407.01992), [mcqa plausibility (EMNLP'24)](https://arxiv.org/abs/2410.10854), [abductive reasoning (NAACL'25)](https://arxiv.org/abs/2410.15512), [mcqa generally sucks (ACL'25)](https://arxiv.org/abs/2502.14127)]
 3. How can we better synthesize **factual** sources?
