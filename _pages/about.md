@@ -22,7 +22,7 @@ nav_order: 1
 
 Hi! My name is Nishant and I'm a third Ph.D. student at the University of Maryland, where I am fortunate to be advised by Professors **[Jordan Boyd-Grayber](https://www.cs.umd.edu/~jbg/)** and **[Rachel Rudinger](https://rudinger.github.io/)**. I'm currently interning with [Ai2](https://allenai.org/) to improve [ScholarQA](https://scholarqa.allen.ai/chat) and joining [NYU](https://cims.nyu.edu/dynamic/) as a visiting Ph.D student with [Eunsol Choi](https://eunsol.github.io/).
 
-I mostly work on alignment (rewards beyond preferences) and evaluation (metrics beyond offline benchmarks) in [LLMs](https://www.youtube.com/watch?v=u0DgoRVLTE8). I'm currently excited about three research questions, in descending order of excitement: 
+I mostly work on alignment (rewards beyond preferences) and evaluation (metrics beyond offline benchmarks). I'm currently excited about three research questions, in descending order of excitement: 
 1. How can we build models that **help** (not replace) users?
    [[flashcards (EMNLP'24)](https://arxiv.org/abs/2402.12291), [memorable study aids (EMNLP'24)](https://arxiv.org/abs/2406.15352), [personalized dpo (ACL'25)](https://arxiv.org/abs/2501.11549), [multi-step plans (EMNLP'25)](https://github.com/nbalepur/nbalepur.github.io/blob/master/assets/pdf/Planorama.pdf)]
 2. How can we rigorously build evaluations to expose model flaws?
