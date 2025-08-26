@@ -20,7 +20,7 @@ social: true  # includes social icons at the bottom of the page
 nav_order: 1
 ---
 
-Hi! My name is Nishant and I'm a third Ph.D. student at the University of Maryland, where I am fortunate to be advised by Professors **[Jordan Boyd-Grayber](https://www.cs.umd.edu/~jbg/)** and **[Rachel Rudinger](https://rudinger.github.io/)**. I'm currently interning with [Ai2](https://allenai.org/) to personalize [ScholarQA](https://scholarqa.allen.ai/chat) and visiting [NYU](https://cims.nyu.edu/dynamic/) to work with [Eunsol Choi](https://eunsol.github.io/).
+Hi! My name is Nishant and I'm a third Ph.D. student at the University of Maryland, where I am fortunate to be advised by Professors **[Jordan Boyd-Grayber](https://www.cs.umd.edu/~jbg/)** and **[Rachel Rudinger](https://rudinger.github.io/)**. I'm currently interning with [Ai2](https://allenai.org/) to personalize [ScholarQA](https://scholarqa.allen.ai/chat) and visiting [NYU](https://cims.nyu.edu/dynamic/) as a researcher with [Eunsol Choi](https://eunsol.github.io/).
 
 I mostly work on alignment (rewards beyond preferences) and evaluation (metrics beyond correctness) to make LLM responses more helpful. I'm currently excited about three research questions, in descending order of excitement: 
 1. How can we build systems that **help** (not replace) users?
