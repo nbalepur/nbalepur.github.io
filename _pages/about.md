@@ -25,11 +25,11 @@ Hi! My name is Nishant and I'm a third-year Ph.D. candidate at the University of
 I mostly work on alignment (rewards beyond preferences) and evaluation (metrics beyond correctness) to make LLMs more helpful. I'm currently excited about three research questions, in descending order of excitement: 
 1. How can we build systems that **help** users?
    [[flashcards (EMNLP'24)](https://arxiv.org/abs/2402.12291), [memorable study aids (EMNLP'24)](https://arxiv.org/abs/2406.15352), [personalized dpo (ACL'25)](https://arxiv.org/abs/2501.11549), [multi-step plans (EMNLP'25)](https://nbalepur.github.io/assets/pdf/Planorama.pdf)]
-2. How can we rigorously build **evaluations** to expose model flaws?
-   [[eliminative reasoning (ACL'24)](https://arxiv.org/abs/2311.07532), [mcqa artifacts (ACL'24)](https://arxiv.org/abs/2402.12483), [benchmark cheating (ACL'24)](https://arxiv.org/abs/2407.01992), [mcqa plausibility (EMNLP'24)](https://arxiv.org/abs/2410.10854), [abductive reasoning (NAACL'25)](https://arxiv.org/abs/2410.15512), [mcqa edu theory (ACL'25)](https://arxiv.org/abs/2502.14127), [agents](https://www.datocms-assets.com/64837/1756485374-astabench-2025-08-29.pdf), [test-time shortcuts](https://nbalepur.github.io/assets/pdf/ttr_choices_only.pdf)]
+2. How can we rigorously **evaluate** model flaws?
+   [[eliminative reasoning (ACL'24)](https://arxiv.org/abs/2311.07532), [mcqa artifacts (ACL'24)](https://arxiv.org/abs/2402.12483), [benchmark cheating (ACL'24)](https://arxiv.org/abs/2407.01992), [mcqa plausibility (EMNLP'24)](https://arxiv.org/abs/2410.10854), [abductive reasoning (NAACL'25)](https://arxiv.org/abs/2410.15512), [mcqa edu theory (ACL'25)](https://arxiv.org/abs/2502.14127), [agents](https://www.datocms-assets.com/64837/1756485374-astabench-2025-08-29.pdf), [reasoning LLM shortcuts](https://arxiv.org/abs/2510.07761)]
 3. How can we synthesize **factual** sources?
    [[topic mining (ACL'23)](https://aclanthology.org/2023.findings-acl.14/), [expository text (EMNLP'23)](https://arxiv.org/abs/2305.03276), [fact transfer (EMNLP'23)](https://arxiv.org/abs/2310.14486), [debatable queries (NAACL'25)](https://www.arxiv.org/pdf/2502.00322)]
 
-I'm generally interested in research that is useful for humans and fun to read. If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
+I'm generally interested in research that is helpful for humans and fun to read. If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
 
 And if you've seen another "Balepur, N" during your literature search, you may be looking for [my sister](https://nainasb.github.io/) 😛
