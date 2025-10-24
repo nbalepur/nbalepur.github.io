@@ -22,7 +22,7 @@ nav_order: 1
 
 Hi! My name is Nishant and I'm a third-year Ph.D. candidate at the University of Maryland, where I am fortunate to be advised by Professors **[Jordan Boyd-Grayber](https://www.cs.umd.edu/~jbg/)** and **[Rachel Rudinger](https://rudinger.github.io/)**. I'm currently interning with [Ai2](https://allenai.org/) to personalize [ScholarQA](https://scholarqa.allen.ai/chat) and visiting [NYU](https://cims.nyu.edu/dynamic/) as a researcher with [Eunsol Choi](https://eunsol.github.io/).
 
-I mostly work on alignment (rewards beyond preferences) and evaluation (metrics beyond correctness) to make LLMs more helpful. I'm currently excited about three research questions, in descending order of excitement: 
+I want to build LLMs that actually help people, not just say what people want to hear. As a result, I often think about better ways to design evaluations offline and to capture downstream human feedback online. I'm currently excited about three research questions, in descending order of excitement: 
 1. How can we build systems that **help** users?
    [[flashcards (EMNLP'24)](https://arxiv.org/abs/2402.12291), [memorable study aids (EMNLP'24)](https://arxiv.org/abs/2406.15352), [personalized dpo (ACL'25)](https://arxiv.org/abs/2501.11549), [multi-step plans (EMNLP'25)](https://nbalepur.github.io/assets/pdf/Planorama.pdf)]
 2. How can we rigorously **evaluate** model flaws?
@@ -30,6 +30,6 @@ I mostly work on alignment (rewards beyond preferences) and evaluation (metrics 
 3. How can we synthesize **factual** sources?
    [[topic mining (ACL'23)](https://aclanthology.org/2023.findings-acl.14/), [expository text (EMNLP'23)](https://arxiv.org/abs/2305.03276), [fact transfer (EMNLP'23)](https://arxiv.org/abs/2310.14486), [debatable queries (NAACL'25)](https://www.arxiv.org/pdf/2502.00322)]
 
-I'm generally interested in research that is helpful for humans and fun to read. If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
+I'm generally interested in research that is helpful for humans and [fun to read](https://arxiv.org/abs/2510.19892). If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
 
 And if you've seen another "Balepur, N" during your literature search, you may be looking for [my sister](https://nainasb.github.io/) 😛
