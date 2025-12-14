@@ -20,16 +20,16 @@ social: true  # includes social icons at the bottom of the page
 nav_order: 1
 ---
 
-Hi! My name is Nishant and I'm a third-year Ph.D. candidate at the University of Maryland, where I am fortunate to be advised by Professors **[Jordan Boyd-Grayber](https://www.cs.umd.edu/~jbg/)** and **[Rachel Rudinger](https://rudinger.github.io/)**. I'm currently interning with [Ai2](https://allenai.org/) to personalize [ScholarQA](https://scholarqa.allen.ai/chat) and visiting [NYU](https://cims.nyu.edu/dynamic/) as a researcher with [Eunsol Choi](https://eunsol.github.io/).
+Hi! My name is Nishant and I'm a third-year Ph.D. candidate at the University of Maryland, advised by Professors **[Jordan Boyd-Grayber](https://www.cs.umd.edu/~jbg/)** and **[Rachel Rudinger](https://rudinger.github.io/)**. I'm also currently interning with [Ai2](https://allenai.org/) to personalize [ScholarQA](https://scholarqa.allen.ai/chat) and visiting [NYU](https://cims.nyu.edu/dynamic/) as a researcher with [Eunsol Choi](https://eunsol.github.io/).
 
-I want to build LLMs that actually help people, not just say what people want to hear. As a result, I often think about better ways to design evaluations offline and to capture downstream human feedback online. I'm currently excited about three research questions, in descending order of excitement: 
-1. How can we build systems that **help** users?
-   [[flashcards (EMNLP'24)](https://arxiv.org/abs/2402.12291), [memorable study aids (EMNLP'24)](https://arxiv.org/abs/2406.15352), [personalized dpo (ACL'25)](https://arxiv.org/abs/2501.11549), [multi-step plans (EMNLP'25)](https://nbalepur.github.io/assets/pdf/Planorama.pdf)]
-2. How can we rigorously **evaluate** model flaws?
-   [[eliminative reasoning (ACL'24)](https://arxiv.org/abs/2311.07532), [mcqa artifacts (ACL'24)](https://arxiv.org/abs/2402.12483), [benchmark cheating (ACL'24)](https://arxiv.org/abs/2407.01992), [mcqa plausibility (EMNLP'24)](https://arxiv.org/abs/2410.10854), [abductive reasoning (NAACL'25)](https://arxiv.org/abs/2410.15512), [mcqa edu theory (ACL'25)](https://arxiv.org/abs/2502.14127), [agents](https://www.datocms-assets.com/64837/1756485374-astabench-2025-08-29.pdf), [reasoning LLM shortcuts](https://arxiv.org/abs/2510.07761)]
-3. How can we synthesize **factual** sources?
-   [[topic mining (ACL'23)](https://aclanthology.org/2023.findings-acl.14/), [expository text (EMNLP'23)](https://arxiv.org/abs/2305.03276), [fact transfer (EMNLP'23)](https://arxiv.org/abs/2310.14486), [debatable queries (NAACL'25)](https://www.arxiv.org/pdf/2502.00322)]
+Language models are rewarded for being correct and generating responses humans prefer, but systems must do more to actually help users. As a result, I work on designing evaluation, feedback collection, and training protocols that consider user needs, grounded in the following research questions:
+1. How can we build systems that actually **help** users?
+   [[flashcards](https://arxiv.org/abs/2402.12291), [study aids](https://arxiv.org/abs/2406.15352), [plans for problem-solving](https://nbalepur.github.io/assets/pdf/Planorama.pdf)]
+2. How can we rigorously **evaluate** models?
+   [reasoning ([1](https://arxiv.org/abs/2311.07532), [2](https://arxiv.org/abs/2410.15512)), artifacts/shortcuts ([3](https://arxiv.org/abs/2402.12483), [4](https://arxiv.org/abs/2407.01992), [5](https://arxiv.org/abs/2510.07761)), benchmark errors ([6](https://arxiv.org/abs/2502.14127), [7](https://arxiv.org/abs/2410.10854), [8](https://drive.google.com/file/d/1KYxD-6e39MKgMt2HhQ-QQkRbXCEgKpVt/view)), agents ([9](https://www.arxiv.org/pdf/2502.00322), [10](https://www.datocms-assets.com/64837/1756485374-astabench-2025-08-29.pdf))]
+3. How can we **personalize** models to individual user needs?
+   [[personalized post-training](https://arxiv.org/abs/2501.11549), [personalized deep research](https://arxiv.org/abs/2501.11549)]
 
-I'm generally interested in research that is helpful for humans and [fun to read](https://arxiv.org/abs/2510.19892). If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
+The old Nishant worked on making NLP systems more factual [[12](https://aclanthology.org/2023.findings-acl.14/), [13](https://arxiv.org/abs/2305.03276), [14](https://arxiv.org/abs/2310.14486)], but I'm now more interested in research that is helpful for humans and [fun to read](https://arxiv.org/abs/2510.19892). If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
 
 And if you've seen another "Balepur, N" during your literature search, you may be looking for [my sister](https://nainasb.github.io/) 😛
