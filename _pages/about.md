@@ -30,6 +30,6 @@ Language models are rewarded for being correct and generating responses humans p
 3. How can we **personalize** models to individual user needs?
    [[personalized post-training](https://arxiv.org/abs/2501.11549), [personalized deep research](https://arxiv.org/abs/2501.11549)]
 
-The old Nishant worked on making NLP systems more factual [[12](https://aclanthology.org/2023.findings-acl.14/), [13](https://arxiv.org/abs/2305.03276), [14](https://arxiv.org/abs/2310.14486)], but I'm now more interested in research that is helpful for humans and [fun to read](https://arxiv.org/abs/2510.19892). If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
+The old Nishant worked on making NLP systems more factual [[11](https://aclanthology.org/2023.findings-acl.14/), [12](https://arxiv.org/abs/2305.03276), [13](https://arxiv.org/abs/2310.14486)], but I'm now more interested in research that is helpful for humans and [fun to read](https://arxiv.org/abs/2510.19892). If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
 
 And if you've seen another "Balepur, N" during your literature search, you may be looking for [my sister](https://nainasb.github.io/) 😛
