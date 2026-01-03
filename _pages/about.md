@@ -20,7 +20,7 @@ social: true  # includes social icons at the bottom of the page
 nav_order: 1
 ---
 
-Hi! My name is Nishant and I'm a third-year Ph.D. candidate at the University of Maryland, advised by Professors **[Jordan Boyd-Grayber](https://www.cs.umd.edu/~jbg/)** and **[Rachel Rudinger](https://rudinger.github.io/)**. I'm also currently interning with [Ai2](https://allenai.org/) to personalize [ScholarQA](https://scholarqa.allen.ai/chat) and visiting [NYU](https://cims.nyu.edu/dynamic/) as a researcher with [Eunsol Choi](https://eunsol.github.io/).
+Hi! My name is Nishant and I'm a third-year Ph.D. candidate at the University of Maryland, advised by Professors **[Jordan Boyd-Grayber](https://www.cs.umd.edu/~jbg/)** and **[Rachel Rudinger](https://rudinger.github.io/)**. I'm also currently interning with [Ai2](https://allenai.org/) to personalize [Asta](https://scholarqa.allen.ai/chat) and visiting [NYU](https://cims.nyu.edu/dynamic/) as a researcher with [Eunsol Choi](https://eunsol.github.io/).
 
 Language models are good at being correct and generating responses humans prefer, but they should do more to actually help users. I work on evaluation, feedback collection, and training protocols that consider these user needs, grounded in the following research questions:
 1. How can we build systems that actually **help** users?
@@ -30,6 +30,6 @@ Language models are good at being correct and generating responses humans prefer
 3. How can we **personalize** models to individual user needs?
    [[multi-perspective summarization](https://www.arxiv.org/pdf/2502.00322), [personalized post-training](https://arxiv.org/abs/2501.11549), [personalized deep research](https://drive.google.com/file/d/19gu1JyUNuXGNBGKOCRousJiliEIhTI4P/view?usp=sharing)]
 
-The old Nishant worked on making NLP systems more factual 🤓☝️ [[11](https://aclanthology.org/2023.findings-acl.14/), [12](https://arxiv.org/abs/2305.03276), [13](https://arxiv.org/abs/2310.14486)], but I'm now more interested in research that is helpful for humans 🤝 and [fun to read 🎉](https://arxiv.org/abs/2510.19892). If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
+The old Nishant worked on making NLP systems more factual 🤓☝️ [[11](https://aclanthology.org/2023.findings-acl.14/), [12](https://arxiv.org/abs/2305.03276), [13](https://arxiv.org/abs/2310.14486)], but I'm now more interested in research that helps humans 🤝 and is [fun to read 🎉](https://arxiv.org/abs/2510.19892). If you're interested in similar problems, don't hesitate to [reach out!](mailto:nbalepur@umd.edu)
 
 And if you've seen another "Balepur, N" during your literature search, you may be looking for [my sister](https://nainasb.github.io/) 😛
