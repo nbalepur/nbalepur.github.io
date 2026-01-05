@@ -75,7 +75,22 @@ function Sidebar() {
               onClick={(e) => {
                 e.preventDefault();
                 setActiveSection(section.id);
-                document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' });
+                
+                // Use a more robust scroll method with a small delay to ensure DOM is ready
+                setTimeout(() => {
+                  const element = document.getElementById(section.id);
+                  if (element) {
+                    // Update URL hash
+                    window.history.pushState(null, '', `#${section.id}`);
+                    
+                    // Use scrollIntoView with proper options for reliable scrolling
+                    element.scrollIntoView({ 
+                      behavior: 'smooth', 
+                      block: 'start',
+                      inline: 'nearest'
+                    });
+                  }
+                }, 10);
               }}
             >
               <span

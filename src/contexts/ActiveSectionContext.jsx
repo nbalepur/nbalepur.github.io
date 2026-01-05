@@ -82,13 +82,37 @@ export function ActiveSectionProvider({ children }) {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
+    // Handle hash URL on initial load
+    const handleHashNavigation = () => {
+      const hash = window.location.hash.slice(1); // Remove the # symbol
+      if (hash) {
+        const section = sections.find(s => s.id === hash);
+        if (section) {
+          setTimeout(() => {
+            const element = document.getElementById(hash);
+            if (element) {
+              element.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start',
+                inline: 'nearest'
+              });
+              setActiveSection(hash);
+            }
+          }, 100);
+        }
+      }
+    };
+
     // Set initial active section
     const setInitialSection = () => {
       updateActiveSection();
     };
 
+    // Handle hash navigation first, then set initial section
+    handleHashNavigation();
+    
     // Set initial section after a brief delay to ensure DOM is ready
-    const timeoutId = setTimeout(setInitialSection, 100);
+    const timeoutId = setTimeout(setInitialSection, 200);
 
     return () => {
       clearTimeout(timeoutId);
