@@ -37,6 +37,9 @@ jobs:
       - name: List build output
         run: ls -la dist/
       
+      - name: Check built index.html
+        run: cat dist/index.html
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
