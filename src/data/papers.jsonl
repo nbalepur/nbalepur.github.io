@@ -1,0 +1,827 @@
+{
+  "title": "BenchMarker: An Education-Inspired Toolkit for Highlighting Flaws in Multiple-Choice Benchmarks",
+  "authors": [
+    "Nishant Balepur",
+    "Bhavya Rajasekaran†",
+    "Jane Oh†",
+    "Michael Xie",
+    "Atrey Desai†",
+    "Vipul Gupta",
+    "Steven Moore",
+    "Eunsol Choi",
+    "Rachel Rudinger",
+    "Jordan Boyd-Graber"
+  ],
+  "venue": "Under Review",
+  "year": 2026,
+  "links": {
+    "pdf": "https://drive.google.com/file/d/1KYxD-6e39MKgMt2HhQ-QQkRbXCEgKpVt/view?usp=sharing",
+    "code": "https://github.com/nbalepur/mcqa-bench",
+    "video": "",
+    "poster": ""
+  },
+  "description": "A follow-up to our position paper, we implement insights from educational testing with LLM judges to automatically score the quality of MCQA benchmarks",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Education",
+    "Question Answering"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Complaining Paper",
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users",
+  "authors": [
+    "Nishant Balepur",
+    "Malachi Hamada",
+    "Varsha Kishore",
+    "Sergey Feldman",
+    "Amanpreet Singh",
+    "Pao Siangliulue",
+    "Joseph Chee Chang",
+    "Eunsol Choi",
+    "Jordan Boyd-Graber",
+    "Aakanksha Naik"
+  ],
+  "venue": "Under Review",
+  "year": 2025,
+  "links": {
+    "pdf": "https://drive.google.com/file/d/19gu1JyUNuXGNBGKOCRousJiliEIhTI4P/view?usp=sharing",
+    "code": "",
+    "video": "",
+    "demo": "ui-demos/mysqa.mp4",
+    "poster": ""
+  },
+  "description": "We build a personalized Deep Research system and show offline, simulated evaluations with LLM judges fail to capture what users value when interacting with our tool",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Personalization",
+    "Helpfulness"
+  ],
+  "domain": [
+    "Agents / RAG"
+  ],
+  "contributions": [
+    "Modeling",
+    "User Study",
+    "Evaluation",
+    "Dataset"
+  ],
+  "style": [
+    "Complaining Paper",
+    "Improvement Paper"
+  ],
+  "selected": true
+}
+
+{
+  "title": "Test-Time Reasoners Are Strategic Multiple-Choice Test-Takers",
+  "authors": [
+    "Nishant Balepur",
+    "Atrey Desai†",
+    "Rachel Rudinger"
+  ],
+  "venue": "Under Review",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2510.07761",
+    "code": "https://github.com/nbalepur/mcqa-shortcuts",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We reveal test-time reasoners can answer multiple-choice questions without the question, but not always in problematic ways, challenging prior assumptions of partial-input studies",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Question Answering",
+    "Education"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite",
+  "authors": [
+    "Jonathan Bragg",
+    "Mike D'Arcy",
+    "Nishant Balepur",
+    "Dan Bareket",
+    "Bhavana Dalvi",
+    "Sergey Feldman",
+    "Dany Haddad",
+    "Jena D. Hwang",
+    "Peter Jansen",
+    "Varsha Kishore",
+    "Bodhisattwa Prasad Majumder",
+    "Aakanksha Naik",
+    "Sigal Rahamimov",
+    "Kyle Richardson",
+    "Amanpreet Singh",
+    "Harshit Surana",
+    "Aryeh Tiktinsky",
+    "Rosni Vasu",
+    "Guy Wiener",
+    "Chloe Anastasiades",
+    "Stefan Candra",
+    "Jason Dunkelberger",
+    "Dan Emery",
+    "Rob Evans",
+    "Malachi Hamada",
+    "Regan Huff",
+    "Rodney Kinney",
+    "Matt Latzke",
+    "Jaron Lochner",
+    "Ruben Lozano-Aguilera",
+    "Cecile Nguyen",
+    "Smita Rao",
+    "Amber Tanaka",
+    "Brooke Vlahos",
+    "Peter Clark",
+    "Doug Downey",
+    "Yoav Goldberg",
+    "Ashish Sabharwal",
+    "Daniel S. Weld"
+  ],
+  "venue": "Under Review",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2510.21652",
+    "code": "https://github.com/allenai/asta-bench/",
+    "video": "",
+    "poster": ""
+  },
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Agents / RAG"
+  ],
+  "contributions": [
+    "Dataset",
+    "Evaluation"
+  ],
+  "style": [
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "Measuring Users' Mental Models of Speech Translation in Human-MT Collaboration",
+  "authors": [
+    "Hyojung Han",
+    "Nishant Balepur",
+    "Jordan Lee Boyd-Graber",
+    "Marine Carpuat"
+  ],
+  "venue": "Under Review",
+  "year": 2025,
+  "description": "We study how users can build mental models of speech translation systems in collaborative question answering",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Helpfulness"
+  ],
+  "domain": [
+    "Question Answering"
+  ],
+  "contributions": [
+    "User Study"
+  ],
+  "style": [
+    "Analysis Paper"
+  ],
+  "links": {
+    "code": "",
+    "pdf": "",
+    "poster": "",
+    "video": ""
+  }
+}
+
+{
+  "title": "A Good Plan is Hard to Find: Aligning Models with Preferences is Misaligned with What Helps Users",
+  "authors": [
+    "Nishant Balepur",
+    "Matthew Shu†",
+    "Yoo Yeon Sung",
+    "Seraphina Goldfarb-Tarrant",
+    "Shi Feng",
+    "Fumeng Yang",
+    "Rachel Rudinger",
+    "Jordan Lee Boyd-Graber"
+  ],
+  "venue": "EMNLP",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2509.18632",
+    "code": "https://github.com/Pinafore/plan-helpfulness",
+    "video": "https://www.youtube.com/watch?v=A8mVOYfJg5w",
+    "demo": "planorama.mp4",
+    "poster": "poster/planorama poster.pdf"
+  },
+  "description": "We show user preferences, reward models, and agent simulations all completely fail to predict what actually helps users",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Helpfulness"
+  ],
+  "domain": [
+    "Question Answering",
+    "Education",
+    "Agents / RAG"
+  ],
+  "contributions": [
+    "User Study",
+    "Evaluation",
+    "Dataset"
+  ],
+  "style": [
+    "Complaining Paper"
+  ],
+  "selected": true
+}
+
+{
+  "title": "Can They Dixit? Yes they Can! Dixit as a Playground for Multimodal Language Model Capabilities",
+  "authors": [
+    "Nishant Balepur",
+    "Dang Nguyen",
+    "Dayeon Ki"
+  ],
+  "venue": "Wordplay @ EMNLP",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2510.19892",
+    "code": "https://github.com/nbalepur/dixit",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We use the fantasy card game Dixit as a testbed to evaluate multimodal LLM capabilities",
+  "awards": "Spotlight",
+  "type": [
+    "Workshop"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [],
+  "contributions": [
+    "Dataset",
+    "Evaluation"
+  ],
+  "style": [
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "Which of These Best Describes Multiple Choice Evaluation with LLMs? A) Forced B) Flawed C) Fixable D) All of the Above",
+  "authors": [
+    "Nishant Balepur",
+    "Rachel Rudinger",
+    "Jordan Lee Boyd-Graber"
+  ],
+  "venue": "ACL",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2502.14127",
+    "code": "",
+    "video": "https://www.youtube.com/watch?v=XrA0jGuLIVQ",
+    "poster": "poster/MCQA poster.pdf"
+  },
+  "description": "We review and critique current multiple-choice evaluation practices, and borrow insights from education research to propose solutions",
+  "awards": "Oral at ACL 2025, Best Paper Award and Oral (1.5%) at MASC-SLL 2025",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Question Answering",
+    "Education"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Complaining Paper"
+  ],
+  "selected": true
+}
+
+{
+  "title": "Whose Boat Does it Float? Improving Personalization in Preference Tuning via Inferred User Personas",
+  "authors": [
+    "Nishant Balepur",
+    "Vishakh Padmakumar",
+    "Fumeng Yang",
+    "Shi Feng",
+    "Rachel Rudinger",
+    "Jordan Lee Boyd-Graber"
+  ],
+  "venue": "ACL",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2501.11549",
+    "code": "https://github.com/Pinafore/alignment-personalization",
+    "video": "https://www.youtube.com/watch?v=wuEIeydhamA",
+    "poster": "poster/Boat Poster.pdf"
+  },
+  "description": "We propose a data augmentation strategy of abductive persona inference to improve personalization in direct preference optimization",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Personalization"
+  ],
+  "domain": [],
+  "contributions": [
+    "Modeling"
+  ],
+  "style": [
+    "Improvement Paper"
+  ]
+}
+
+{
+  "title": "Reverse Question Answering: Can an LLM Write a Question so Hard (or Bad) that it Can't Answer?",
+  "authors": [
+    "Nishant Balepur",
+    "Feng Gu",
+    "Abhilasha Ravichander",
+    "Shi Feng",
+    "Jordan Lee Boyd-Graber",
+    "Rachel Rudinger"
+  ],
+  "venue": "NAACL",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2410.15512",
+    "code": "https://github.com/nbalepur/Reverse-QA",
+    "video": "https://www.youtube.com/watch?v=TT4Tim2UeRg&t=2s",
+    "poster": "poster/Reverse QA Poster.pdf"
+  },
+  "description": "We find a surprising LLM weakness in reverse question answering: given an answer, can an LLM generate any valid question with that answer?",
+  "awards": "Oral",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Question Answering"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "MoDS: Moderating a Mixture of Document Speakers to Summarize Debatable Queries in Document Collections",
+  "authors": [
+    "Nishant Balepur",
+    "Alexa Siu",
+    "Nedim Lipka",
+    "Franck Dernoncourt",
+    "Tong Sun",
+    "Jordan Lee Boyd-Graber",
+    "Puneet Mathur"
+  ],
+  "venue": "NAACL",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2502.00322",
+    "poster": "poster/MoDS.pdf"
+  },
+  "description": "We propose a new task of providing balanced answers to debatable queries (Are electriv vehciles a good purchase?) from documents with conflicting perspectives, and use multi-agent summarization to reach SOTA",
+  "awards": "Oral",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Personalization"
+  ],
+  "domain": [
+    "Agents / RAG"
+  ],
+  "contributions": [
+    "Modeling"
+  ],
+  "style": [
+    "Improvement Paper"
+  ]
+}
+
+{
+  "title": "A SMART Mnemonic Sounds like \"Glue Tonic\": Mixing LLMs with Student Feedback to Make Mnemonic Learning Stick",
+  "authors": [
+    "Nishant Balepur",
+    "Matthew Shu†",
+    "Alexander Hoyle",
+    "Alison Robey",
+    "Shi Feng",
+    "Seraphina Goldfarb-Tarrant",
+    "Jordan Lee Boyd-Graber"
+  ],
+  "venue": "EMNLP",
+  "year": 2024,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2406.15352.pdf",
+    "code": "https://github.com/nbalepur/Mnemonic",
+    "video": "https://www.youtube.com/watch?v=9_u697whJns&t=113s",
+    "poster": "poster/Mnemonic Poster.pdf"
+  },
+  "description": "We generate mnemonics by aligning an LLM using preferences from 47 GRE test-takers on the mnemonics they like and which mnemonics aid learning",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Helpfulness"
+  ],
+  "domain": [
+    "Education",
+    "Question Answering"
+  ],
+  "contributions": [
+    "User Study",
+    "Modeling",
+    "Dataset"
+  ],
+  "style": [
+    "Improvement Paper"
+  ],
+  "selected": true
+}
+
+{
+  "title": "KARL: Knowledge-Aware Retrieval and Representations aid Retention and Learning in Students",
+  "authors": [
+    "Matthew Shu*†",
+    "Nishant Balepur*",
+    "Shi Feng",
+    "Jordan Lee Boyd-Graber"
+  ],
+  "venue": "EMNLP",
+  "year": 2024,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2402.12291.pdf",
+    "code": "https://github.com/Pinafore/fact-repetition",
+    "video": "https://www.youtube.com/watch?v=5U4H3TPjQVU",
+    "poster": "poster/KARL Poster.pdf"
+  },
+  "description": "We design the first flashcard scheduler that uses LLMs and can look at the text on the flashcards, and show that our model can help 500+ students learn",
+  "is_first_author": true,
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Helpfulness"
+  ],
+  "domain": [
+    "Education"
+  ],
+  "contributions": [
+    "User Study",
+    "Dataset",
+    "Modeling"
+  ],
+  "style": [
+    "Improvement Paper"
+  ]
+}
+
+{
+  "title": "Plausibly Problematic Questions in Multiple-Choice Benchmarks for Commonsense Reasoning",
+  "authors": [
+    "Shramay Palta",
+    "Nishant Balepur",
+    "Peter Rankel",
+    "Sarah Wiegreffe",
+    "Marine Carpuat",
+    "Rachel Rudinger"
+  ],
+  "venue": "EMNLP",
+  "year": 2024,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2410.10854",
+    "url": "https://aclanthology.org/2024.findings-emnlp.198/",
+    "code": "",
+    "project": "",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We show that the gold answer in commonsense multiple-choice datasets is not always the one perceived to be the most plausible",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Question Answering"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Complaining Paper"
+  ]
+}
+
+{
+  "title": "The Prompt Report: A Systematic Survey of Prompting Techniques",
+  "authors": [
+    "Sander Schulhoff*",
+    "Michael Ilie*",
+    "Nishant Balepur",
+    "Konstantine Kahadze",
+    "Amanda Liu",
+    "Chenglei Si",
+    "Yinheng Li",
+    "Aayush Gupta",
+    "HyoJung Han",
+    "Sevien Schulhoff",
+    "Pranav Sandeep Dulepet",
+    "Saurav Vidyadhara",
+    "Dayeon Ki",
+    "Sweta Agrawal",
+    "Chau Pham",
+    "Gerson Kroiz",
+    "Feileen Li",
+    "Hudson Tao",
+    "Ashay Srivastava",
+    "Hevander Da Costa",
+    "Saloni Gupta",
+    "Megan L. Rogers",
+    "Inna Goncearenco",
+    "Giuseppe Sarli",
+    "Igor Galynker",
+    "Denis Peskoff",
+    "Marine Carpuat",
+    "Jules White",
+    "Shyamal Anadkat",
+    "Alexander Hoyle",
+    "Philip Resnik"
+  ],
+  "venue": "Technical Report",
+  "year": 2024,
+  "links": {
+    "arxiv": "https://arxiv.org/abs/2406.06608",
+    "pdf": "https://arxiv.org/pdf/2406.06608.pdf",
+    "code": "",
+    "project": "",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We survey current techniques and practices when prompting generative AI systems like ChatGPT",
+  "awards": "Huggingface #1 Paper of the Day",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [],
+  "domain": [],
+  "contributions": [],
+  "style": []
+}
+
+{
+  "title": "Artifacts or Abduction: How Do LLMs Answer Multiple-Choice Questions Without the Question?",
+  "authors": [
+    "Nishant Balepur",
+    "Abhilasha Ravichander",
+    "Rachel Rudinger"
+  ],
+  "venue": "ACL",
+  "year": 2024,
+  "links": {
+    "pdf": "https://aclanthology.org/2024.acl-long.555.pdf",
+    "code": "https://github.com/nbalepur/mcqa-artifacts",
+    "video": "",
+    "poster": "poster/Artifacts or Abduction Poster.pdf"
+  },
+  "description": "We find that LLMs don't need the question in multiple-choice question answering to do better than random chance, and explore how",
+  "awards": "Best Paper Award (4%) and Oral (7%) at MASC-SLL 2024",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Question Answering"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Analysis Paper"
+  ],
+  "selected": true
+}
+
+{
+  "title": "It's Not Easy Being Wrong: Large Language Models Struggle with Process of Elimination Reasoning",
+  "authors": [
+    "Nishant Balepur",
+    "Shramay Palta",
+    "Rachel Rudinger"
+  ],
+  "venue": "ACL",
+  "year": 2024,
+  "links": {
+    "pdf": "https://aclanthology.org/2024.findings-acl.604.pdf",
+    "code": "https://github.com/nbalepur/PoE",
+    "video": "https://www.youtube.com/watch?v=D95vBh4vG1Y",
+    "poster": "poster/PoE Poster.pdf"
+  },
+  "description": "We find a surprising weakness in LLMs: eliminating incorrect options in multiple-choice question answering",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Question Answering"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "Is Your Large Language Model Knowledgeable or a Choices-Only Cheater?",
+  "authors": [
+    "Nishant Balepur",
+    "Rachel Rudinger"
+  ],
+  "venue": "KnowLM @ ACL",
+  "year": 2024,
+  "links": {
+    "pdf": "https://aclanthology.org/2024.knowllm-1.2.pdf",
+    "code": "https://github.com/nbalepur/mcqa-artifacts",
+    "video": "",
+    "poster": "poster/Cheating Poster.pdf"
+  },
+  "description": "We study if the ability of LLMs to answer multiple-choice questions without the question is allowing models to cheat on benchmark leaderboards",
+  "type": [
+    "Workshop"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Question Answering"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "Expository Text Generation: Imitate, Retrieve, Paraphrase",
+  "authors": [
+    "Nishant Balepur",
+    "Jie Huang",
+    "Kevin Chen-Chuan Chang"
+  ],
+  "venue": "EMNLP",
+  "year": 2023,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2305.03276.pdf",
+    "code": "https://github.com/nbalepur/expository-text-generation",
+    "video": "https://youtu.be/6elNaka-JKM",
+    "poster": ""
+  },
+  "description": "We design an iterative planning, retrieval, and generation system to produce factual expository texts",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Factuality"
+  ],
+  "domain": [
+    "Agents / RAG",
+    "Information Extraction"
+  ],
+  "contributions": [
+    "Modeling",
+    "Dataset",
+    "Evaluation"
+  ],
+  "style": [
+    "Improvement Paper"
+  ]
+}
+
+{
+  "title": "Text Fact Transfer",
+  "authors": [
+    "Nishant Balepur",
+    "Jie Huang",
+    "Kevin Chen-Chuan Chang"
+  ],
+  "venue": "EMNLP",
+  "year": 2023,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2310.14486.pdf",
+    "code": "https://github.com/nbalepur/text-fact-transfer",
+    "video": "https://youtu.be/U01fVWUbIQw",
+    "poster": ""
+  },
+  "description": "We design a model to tackle the new task of text fact transfer, a complement to style transfer that seeks to alter facts without changing style",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Factuality"
+  ],
+  "domain": [
+    "Agents / RAG",
+    "Information Extraction"
+  ],
+  "contributions": [
+    "Modeling",
+    "Dataset",
+    "Evaluation"
+  ],
+  "style": [
+    "Improvement Paper"
+  ]
+}
+
+{
+  "title": "DynaMiTE: Discovering Explosive Topic Evolutions with User Guidance",
+  "authors": [
+    "Nishant Balepur",
+    "Shivam Agarwal",
+    "Karthik Venkat Ramanan",
+    "Susik Yoon",
+    "Diyi Yang",
+    "Jiawei Han"
+  ],
+  "venue": "ACL",
+  "year": 2023,
+  "links": {
+    "pdf": "https://aclanthology.org/2023.findings-acl.14.pdf",
+    "code": "https://github.com/nbalepur/DynaMiTE",
+    "video": "https://youtu.be/KAyd-QqYO6Y",
+    "poster": ""
+  },
+  "description": "We design a model to perform dynamic topic modeling while using guidance from user-provided topics of interest",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Factuality"
+  ],
+  "domain": [
+    "Information Extraction"
+  ],
+  "contributions": [
+    "Modeling",
+    "Evaluation"
+  ],
+  "style": [
+    "Improvement Paper"
+  ]
+}
+

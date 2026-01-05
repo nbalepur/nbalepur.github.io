@@ -1,0 +1,60 @@
+{
+  "highlights": [
+    {
+      "date": "2025-11-24",
+      "text": "Our workshop proposal for CHI 2026 got rejected"
+    },
+    {
+      "date": "2025-08-08",
+      "text": "One paper got bad reviews at EMNLP 2025, then desk rejected from AAAI 2025"
+    },
+    {
+      "date": "2025-07-07",
+      "text": "One paper rejected from COLM 2025 💪"
+    },
+    {
+      "date": "2025-06-11",
+      "text": "Our Schmidt Science Expression of Interest for AI Safety in the Inference-Time Compute Paradigm was rejected"
+    },
+    {
+      "date": "2025-02-13",
+      "text": "One paper got bad reviews in December ARR",
+      "paperTitle": "Whose Boat Does it Float? Improving Personalization in Preference Tuning via Inferred User Personas"
+    },
+    {
+      "date": "2024-12-19",
+      "text": "Didn't get intern/fellow offers after interviewing at Meta, Cohere, and Anthropic"
+    },
+    {
+      "date": "2024-06-15",
+      "text": "KAR³L is on its fourth resubmission 🫡",
+      "paperTitle": "KARL: Knowledge-Aware Retrieval and Representations aid Retention and Learning in Students"
+    },
+    {
+      "date": "2024-04-15", 
+      "text": "One paper not committed to ACL 2024",
+      "paperTitle": "KARL: Knowledge-Aware Retrieval and Representations aid Retention and Learning in Students"
+    },
+    {
+      "date": "2024-02-15",
+      "text": "Two papers not committed to NAACL 2024",
+      "paperLinks": {
+        "Two": "KARL: Knowledge-Aware Retrieval and Representations aid Retention and Learning in Students",
+        "papers": "It's Not Easy Being Wrong: Large Language Models Struggle with Process of Elimination Reasoning"
+      }
+    },
+    {
+      "date": "2024-02-10",
+      "text": "Banned on r/ACT for trying to advertise our KAR³L user study 😭"
+    },
+    {
+      "date": "2023-10-06",
+      "text": "One paper rejected from EMNLP 2023"
+    },
+    {
+      "date": "2023-03-20",
+      "text": "My first ever review score of 1 recieved on an ARR submission",
+      "paperTitle": "Expository Text Generation: Imitate, Retrieve, Paraphrase"
+    }
+  ]
+}

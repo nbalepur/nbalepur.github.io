@@ -1,0 +1,109 @@
+{
+  "highlights": [
+    {
+      "date": "2025-08-26",
+      "text": "We release AstaBench at Ai2, a more rigorous evaluation suite for AI agents. Check out our technical report and leaderboard!",
+      "paperLinks": {
+        "AstaBench": "AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite"
+      }
+    },
+    {
+      "date": "2025-08-20",
+      "text": "One paper accepted to EMNLP! We build an interface to help users solve complex questions with plans and show predicting which plans help humans is difficult for humans, reward models, and agents!",
+      "paperLinks": {
+        "paper": "A Good Plan is Hard to Find: Aligning Models with Preferences is Misaligned with What Helps Users"
+      }
+    },
+    {
+      "date": "2025-05-15",
+      "text": "Two papers accepted to ACL 2025! We design a simple technique to improve DPO's personalization and make our case for why MCQA is a terrible evaluation format (oral!)",
+      "paperLinks": {
+        "simple technique": "Whose Boat Does it Float? Improving Personalization in Preference Tuning via Inferred User Personas",
+        "MCQA is a terrible evaluation format": "Which of These Best Describes Multiple Choice Evaluation with LLMs? A) Forced B) Flawed C) Fixable D) All of the Above"
+      }
+    },
+    {
+      "date": "2025-05-06",
+      "text": "I passed my thesis proposal so I'm slightly less Ph-Desperate. Fun fact: my sister and I proposed our theses on the same day 😁"
+    },
+    {
+      "date": "2025-04-05",
+      "text": "Excited to give an oral presentation on why MCQA sucks at MASC-SLL 2025. Also humbled to win a best paper award!"
+    },
+    {
+      "date": "2025-03-24",
+      "text": "Humbled to be invited for talks at Imperial College London on building Helpful QA systems (slides) and Google Translate's Reading Group on improving MCQA evals (slides)"
+    },
+    {
+      "date": "2025-02-28",
+      "text": "Two exciting life updates! I plan to join: 1) Ai2 (Semantic Scholar) as a summer intern working on helpful scientific QA systems; and 2) NYU as a visiting researcher (AY 25-26) with Eunsol Choi to live with my amazing partner in NYC :)"
+    },
+    {
+      "date": "2025-02-20",
+      "text": "Tired of LLM evaluations with multiple choice questions? Our new position paper discusses these flaws and how insights from education can make evaluations more meaningful",
+      "paperLinks": {
+        "position paper": "Which of These Best Describes Multiple Choice Evaluation with LLMs? A) Forced B) Flawed C) Fixable D) All of the Above"
+      }
+    },
+    {
+      "date": "2025-01-22",
+      "text": "Two oral papers at NAACL 2025 (main)! One work shows LLMs are surprisingly weak at generating accurate questions [slides], while my Adobe internship project builds a multi-agent summarization model for debatable queries [slides]",
+      "paperLinks": {
+        "generating accurate questions": "Reverse Question Answering: Can an LLM Write a Question so Hard (or Bad) that it Can't Answer?",
+        "multi-agent summarization model": "MoDS: Moderating a Mixture of Document Speakers to Summarize Debatable Queries in Document Collections"
+      }
+    },
+    {
+      "date": "2024-09-19",
+      "text": "Three papers accepted to EMNLP on Aligning LLMs for Mnemonic Generation (main), NLP-Powered Flashcard Scheduling (main), and MCQA Quality Analysis (findings)!",
+      "paperLinks": {
+        "Mnemonic Generation": "A SMART Mnemonic Sounds like \"Glue Tonic\": Mixing LLMs with Student Feedback to Make Mnemonic Learning Stick",
+        "Flashcard Scheduling": "KARL: Knowledge-Aware Retrieval and Representations aid Retention and Learning in Students",
+        "MCQA Quality Analysis": "Plausibly Problematic Questions in Multiple-Choice Benchmarks for Commonsense Reasoning"
+      }
+    },
+    {
+      "date": "2024-05-16",
+      "text": "Presenting three papers on LLM MCQA reasoning at ACL 2024! We see if LLMs can answer MCQA questions without the question (main); 2) perform process of elimination (findings); and 3) cheat on MCQA leaderboards (KnowLM workshop)",
+      "paperLinks": {
+        "answer MCQA questions without the question": "Artifacts or Abduction: How Do LLMs Answer Multiple-Choice Questions Without the Question?",
+        "process of elimination": "It's Not Easy Being Wrong: Large Language Models Struggle with Process of Elimination Reasoning",
+        "cheat on MCQA leaderboards": "Is Your Large Language Model Knowledgeable or a Choices-Only Cheater?"
+      }
+    },
+    {
+      "date": "2024-05-03",
+      "text": "Presented our work Aritfacts or Abduction for MASC 2024 at Hopkins (1 of 5 selected orals). Also extremely grateful to be selected for 1 of 3 best paper awards!",
+      "paperLinks": {
+        "Aritfacts or Abduction": "Artifacts or Abduction: How Do LLMs Answer Multiple-Choice Questions Without the Question?"
+      }
+    },
+    {
+      "date": "2024-04-22",
+      "text": "Awarded a Cohere For AI Research Grant for our NLP+Education work with KAR³L. Excited for this collaboration!",
+      "externalLink": "https://cohere.com/blog/granting-access",
+      "linkText": "Cohere For AI Research Grant"
+    },
+    {
+      "date": "2023-10-07",
+      "text": "Two long papers were accepted to EMNLP 2023 main conference! See the papers here: Expository Text Generation: Imitate, Retrieve, Paraphrase and Text Fact Transfer",
+      "paperLinks": {
+        "Expository Text Generation: Imitate, Retrieve, Paraphrase": "Expository Text Generation: Imitate, Retrieve, Paraphrase",
+        "Text Fact Transfer": "Text Fact Transfer"
+      }
+    },
+    {
+      "date": "2023-05-01",
+      "text": "My first ever (first-authored) paper on user-guided dynamic topic mining was accepted to Findings of ACL 2023! See the paper here: DynaMiTE: Discovering Explosive Topic Evolutions with User Guidance",
+      "paperLinks": {
+        "DynaMiTE": "DynaMiTE: Discovering Explosive Topic Evolutions with User Guidance"
+      }
+    },
+    {
+      "date": "2023-03-29",
+      "text": "Extremely honored to recieve the NSF Graduate Research Fellowship. Thank you to everyone who made this possible!",
+      "externalLink": "https://www.nsfgrfp.org/",
+      "linkText": "NSF Graduate Research Fellowship"
+    }
+  ]
+}
