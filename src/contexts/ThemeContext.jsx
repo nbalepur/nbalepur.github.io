@@ -2,11 +2,24 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
-// Unified theme states: light, dark, winter (lighter), space (darker), coffee (warm/cozy)
-const UNIFIED_THEMES = ['light', 'winter', 'dark', 'space', 'coffee'];
+// Unified theme states: light, dark, winter (lighter), space (darker), coffee (warm/cozy), summer (warm/sunny), spring (cherry blossoms), autumn (darker with falling leaves)
+const UNIFIED_THEMES = ['light', 'dark', 'autumn', 'winter', 'spring', 'summer', 'space', 'coffee'];
 
 export function ThemeProvider({ children }) {
   const [unifiedTheme, setUnifiedTheme] = useState(() => {
+    // Check if this is the first visit in this session
+    const isFirstVisit = !sessionStorage.getItem('themeInitialized');
+    
+    if (isFirstVisit) {
+      // First visit in session - pick a random theme
+      const randomTheme = UNIFIED_THEMES[Math.floor(Math.random() * UNIFIED_THEMES.length)];
+      sessionStorage.setItem('themeInitialized', 'true');
+      // Save to localStorage for persistence across sessions
+      localStorage.setItem('unifiedTheme', randomTheme);
+      return randomTheme;
+    }
+    
+    // Not first visit - use saved theme from localStorage
     const saved = localStorage.getItem('unifiedTheme');
     return saved && UNIFIED_THEMES.includes(saved) ? saved : 'dark';
   });
@@ -24,6 +37,12 @@ export function ThemeProvider({ children }) {
         return { theme: 'space', isDark: true };
       case 'coffee':
         return { theme: 'coffee', isDark: false };
+      case 'summer':
+        return { theme: 'summer', isDark: false };
+      case 'spring':
+        return { theme: 'spring', isDark: false };
+      case 'autumn':
+        return { theme: 'autumn', isDark: true };
       default:
         return { theme: 'minimal', isDark: true };
     }
@@ -42,7 +61,7 @@ export function ThemeProvider({ children }) {
     }
 
     // Set theme classes
-    const allThemes = ['minimal', 'space', 'winter', 'coffee'];
+    const allThemes = ['minimal', 'space', 'winter', 'coffee', 'summer', 'spring', 'autumn'];
     allThemes.forEach(t => {
       document.documentElement.classList.remove(`theme-${t}`);
     });
@@ -71,7 +90,7 @@ export function ThemeProvider({ children }) {
       // Legacy support - keeping these for backward compatibility if needed
       toggleDarkMode: cycleTheme,
       setTheme: () => {}, // No-op for backward compatibility
-      themes: ['minimal', 'space', 'winter', 'coffee']
+      themes: ['minimal', 'space', 'winter', 'coffee', 'summer', 'spring', 'autumn']
     }}>
       {children}
     </ThemeContext.Provider>

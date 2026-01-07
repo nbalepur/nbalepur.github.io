@@ -34,7 +34,7 @@ export const sections = [
   },
   {
     id: 'awesome-student-mentees',
-    label: 'Awesome Mentees',
+    label: 'Stellar Mentees',
     component: AwesomeStudentMentees,
   },
   {

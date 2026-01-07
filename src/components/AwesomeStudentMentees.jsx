@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { useFilter } from '../contexts/FilterContext';
 
 function AwesomeStudentMentees({ title }) {
@@ -49,7 +50,7 @@ function AwesomeStudentMentees({ title }) {
     {
       name: 'Matthew Shu',
       displayName: 'Matthew Shu',
-      degree: 'B.S. Yale → M.S. Yale → ML @ Brain Co.',
+      degree: ['B.S. Yale', 'M.S. Yale', 'ML @ Brain Co.'],
       period: '2023-2025',
       research: 'LLMs for Education, Alignment',
       publications: 'Two papers at EMNLP 2024 (long, main); one paper at EMNLP 2025 (long, main)',
@@ -58,7 +59,7 @@ function AwesomeStudentMentees({ title }) {
     {
       name: 'Jerry He',
       displayName: 'Jerry He',
-      degree: 'HS Student → B.S. Georgia Tech',
+      degree: ['HS Student', 'B.S. Georgia Tech'],
       period: '2024-2025',
       research: 'LLMs for Education',
       publications: 'Submitted Project on LLMs+Education for Marriott\'s Ridge High School Gifted and Talented Research Program',
@@ -94,7 +95,22 @@ function AwesomeStudentMentees({ title }) {
             </div>
             <div className="space-y-1 text-sm">
               <p className="text-gray-700 dark:text-gray-300">
-                <span className="font-semibold">{student.degree}</span>
+                <span className="font-semibold">
+                  {Array.isArray(student.degree) ? (
+                    <span className="flex items-center flex-wrap gap-1">
+                      {student.degree.map((part, idx) => (
+                        <React.Fragment key={idx}>
+                          {idx > 0 && (
+                            <ArrowRight className="inline-block w-3 h-3 mx-1 text-gray-600 dark:text-gray-400" />
+                          )}
+                          <span>{part}</span>
+                        </React.Fragment>
+                      ))}
+                    </span>
+                  ) : (
+                    student.degree
+                  )}
+                </span>
               </p>
               <p className="text-gray-700 dark:text-gray-300">
                 <span className="font-semibold">Research:</span> {student.research}

@@ -7,6 +7,11 @@ function Tips({ title }) {
   const [isMouseOverGame, setIsMouseOverGame] = useState(false);
   const rafRef = useRef(null);
   const gameContainerRef = useRef(null);
+
+  // Helper to check if device supports hover
+  const supportsHover = () => {
+    return typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
+  };
   
   const handlePaperClick = (paperTitle, e) => {
     e.preventDefault();
@@ -147,8 +152,16 @@ function Tips({ title }) {
                 className={`overflow-hidden transition-all duration-300 ${
                   isGameExpanded ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0'
                 }`}
-                onMouseEnter={() => setIsMouseOverGame(true)}
-                onMouseLeave={() => setIsMouseOverGame(false)}
+                onMouseEnter={() => {
+                  if (supportsHover()) {
+                    setIsMouseOverGame(true);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (supportsHover()) {
+                    setIsMouseOverGame(false);
+                  }
+                }}
               >
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   <iframe

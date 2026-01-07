@@ -86,6 +86,13 @@
   border-color: #60a5fa !important; /* Lighter blue for dark winter theme */
 }
 
+/* Autumn Theme - Make dividing lines more visible (only in main content, not sidebar) */
+.dark[data-theme="autumn"] main .border-t.border-gray-700,
+.dark[data-theme="autumn"] main .border-t[class*="border-gray-700"],
+.dark[data-theme="autumn"] main > div .border-t {
+  border-color: #585123 !important; /* Dark olive green for dark autumn theme */
+}
+
 [data-theme="coffee"] {
   /* Coffee theme - Light (warm/cozy with tan background) */
   --theme-bg-primary: #d4c5a8;
@@ -104,6 +111,66 @@
   --theme-text-secondary: #c9b89a;
   --theme-border: #5d4a35;
   --theme-accent: #d4a574;
+}
+
+[data-theme="summer"] {
+  /* Summer theme - Light (warm, sunny with bright colors) */
+  --theme-bg-primary: #fff8e1; /* Warm cream/yellow */
+  --theme-bg-secondary: #fff3c4; /* Lighter yellow for sidebar/cards */
+  --theme-text-primary: #e65100; /* Deep orange */
+  --theme-text-secondary: #f57c00; /* Orange */
+  --theme-border: #ffcc02; /* Bright yellow */
+  --theme-accent: #ff6f00; /* Vibrant orange */
+}
+
+.dark[data-theme="summer"] {
+  /* Summer theme - Dark (warm evening vibes) */
+  --theme-bg-primary: #1a1208;
+  --theme-bg-secondary: #2d1f0f;
+  --theme-text-primary: #ffb74d;
+  --theme-text-secondary: #ffa726;
+  --theme-border: #ff8f00;
+  --theme-accent: #ff9800;
+}
+
+[data-theme="spring"] {
+  /* Spring theme - Light (soft pink and green) */
+  --theme-bg-primary: #fef2f8; /* Paler/lighter pink */
+  --theme-bg-secondary: #ffffff;
+  --theme-text-primary: #7c2d12; /* Warm brown */
+  --theme-text-secondary: #9a3412; /* Lighter brown */
+  --theme-border: #fecdd3; /* Light pink */
+  --theme-accent: #ec4899; /* Darker rich pink */
+}
+
+.dark[data-theme="spring"] {
+  /* Spring theme - Dark (soft pink and green) */
+  --theme-bg-primary: #1a0f14;
+  --theme-bg-secondary: #2d1a24;
+  --theme-text-primary: #fce7f3;
+  --theme-text-secondary: #f9a8d4;
+  --theme-border: #4a1e35;
+  --theme-accent: #ec4899; /* Darker rich pink */
+}
+
+[data-theme="autumn"] {
+  /* Autumn theme - Light (if needed) */
+  --theme-bg-primary: #f5ead5;
+  --theme-bg-secondary: #fef7e8;
+  --theme-text-primary: #5d4037;
+  --theme-text-secondary: #8b6914;
+  --theme-border: #d4a574;
+  --theme-accent: #b8860b;
+}
+
+.dark[data-theme="autumn"] {
+  /* Autumn theme - Dark (rich autumn palette: olive, goldenrod, peach, coral, deep brown) */
+  --theme-bg-primary: #1a1611; /* Very dark background - based on #772f1a */
+  --theme-bg-secondary: #2a1f18; /* Dark brown/olive - based on #585123 and #772f1a */
+  --theme-text-primary: #eec170; /* Light goldenrod yellow */
+  --theme-text-secondary: #f2a65a; /* Light orange/peach */
+  --theme-border: #585123; /* Dark olive green */
+  --theme-accent: #f58549; /* Coral/orange */
 }
 
 /* Scrollbar Styling - Minimal Theme Light */
@@ -321,6 +388,84 @@ body::-webkit-scrollbar-thumb:hover,
   background: #f0c896;
 }
 
+/* Scrollbar Styling - Summer Theme Light */
+[data-theme="summer"] html,
+[data-theme="summer"] body,
+[data-theme="summer"] * {
+  scrollbar-color: #ff6f00 #ffcc02;
+}
+
+[data-theme="summer"] html::-webkit-scrollbar-track,
+[data-theme="summer"] body::-webkit-scrollbar-track,
+[data-theme="summer"] *::-webkit-scrollbar-track {
+  background: #fff8e1;
+}
+
+[data-theme="summer"] html::-webkit-scrollbar-thumb,
+[data-theme="summer"] body::-webkit-scrollbar-thumb,
+[data-theme="summer"] *::-webkit-scrollbar-thumb {
+  background: #ff6f00;
+  border: 2px solid #fff8e1;
+}
+
+[data-theme="summer"] html::-webkit-scrollbar-thumb:hover,
+[data-theme="summer"] body::-webkit-scrollbar-thumb:hover,
+[data-theme="summer"] *::-webkit-scrollbar-thumb:hover {
+  background: #ff8f00;
+}
+
+/* Scrollbar Styling - Summer Theme Dark */
+.dark[data-theme="summer"] html,
+.dark[data-theme="summer"] body,
+.dark[data-theme="summer"] * {
+  scrollbar-color: #ff9800 #ff8f00;
+}
+
+.dark[data-theme="summer"] html::-webkit-scrollbar-track,
+.dark[data-theme="summer"] body::-webkit-scrollbar-track,
+.dark[data-theme="summer"] *::-webkit-scrollbar-track {
+  background: #1a1208;
+}
+
+.dark[data-theme="summer"] html::-webkit-scrollbar-thumb,
+.dark[data-theme="summer"] body::-webkit-scrollbar-thumb,
+.dark[data-theme="summer"] *::-webkit-scrollbar-thumb {
+  background: #ff9800;
+  border: 2px solid #1a1208;
+}
+
+.dark[data-theme="summer"] html::-webkit-scrollbar-thumb:hover,
+.dark[data-theme="summer"] body::-webkit-scrollbar-thumb:hover,
+.dark[data-theme="summer"] *::-webkit-scrollbar-thumb:hover {
+  background: #ffb74d;
+}
+
+/* Scrollbar Styling - Autumn Theme Dark */
+.dark[data-theme="autumn"] html,
+.dark[data-theme="autumn"] body,
+.dark[data-theme="autumn"] * {
+  scrollbar-color: #f58549 #585123;
+}
+
+.dark[data-theme="autumn"] html::-webkit-scrollbar-track,
+.dark[data-theme="autumn"] body::-webkit-scrollbar-track,
+.dark[data-theme="autumn"] *::-webkit-scrollbar-track {
+  background: #1a1611;
+}
+
+.dark[data-theme="autumn"] html::-webkit-scrollbar-thumb,
+.dark[data-theme="autumn"] body::-webkit-scrollbar-thumb,
+.dark[data-theme="autumn"] *::-webkit-scrollbar-thumb {
+  background: #f58549;
+  border: 2px solid #1a1611;
+}
+
+.dark[data-theme="autumn"] html::-webkit-scrollbar-thumb:hover,
+.dark[data-theme="autumn"] body::-webkit-scrollbar-thumb:hover,
+.dark[data-theme="autumn"] *::-webkit-scrollbar-thumb:hover {
+  background: #f2a65a;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -348,14 +493,7 @@ section[id] {
 .paper-card {
   position: relative;
   overflow: visible;
-}
-
-[data-theme="space"] .paper-card:hover {
-  z-index: 100;
-  background-image: linear-gradient(to bottom, #A02040, #e11d2e);
-  background-size: 4px 100%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
+  touch-action: manipulation; /* Reduce tap delay on touch devices */
 }
 
 .paper-card::before {
@@ -372,8 +510,59 @@ section[id] {
   border-radius: 0;
 }
 
-.paper-card:hover::before {
+.paper-card.card-active::before,
+.paper-card:active::before {
   opacity: 1;
+}
+
+@media (hover: hover) {
+  .paper-card:hover::before {
+    opacity: 1;
+  }
+
+  [data-theme="space"] .paper-card:hover {
+    z-index: 100;
+    background-image: linear-gradient(to bottom, #A02040, #e11d2e);
+    background-size: 4px 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+  }
+
+  /* Override for space theme - use ::before for left jet engine instead */
+  [data-theme="space"] .paper-card:hover::before {
+    left: 25%;
+    top: auto;
+    bottom: 0;
+    width: 50px;
+    height: 90px;
+    background: 
+      radial-gradient(ellipse 50% 100% at 50% 0%, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 220, 100, 0.95) 5%,
+        rgba(255, 180, 50, 0.9) 10%,
+        rgba(255, 140, 0, 0.85) 18%,
+        rgba(255, 100, 0, 0.75) 25%,
+        rgba(255, 60, 0, 0.65) 35%,
+        rgba(200, 50, 150, 0.5) 50%,
+        rgba(139, 92, 246, 0.4) 65%,
+        rgba(99, 102, 241, 0.25) 80%,
+        transparent 100%
+      );
+    border-radius: 0;
+    transform: translateX(-50%) translateY(100%);
+    filter: blur(5px);
+    animation: jetEngineFlame 0.25s ease-out infinite;
+    z-index: 100;
+  }
+}
+
+[data-theme="space"] .paper-card.card-active,
+[data-theme="space"] .paper-card:active {
+  z-index: 100;
+  background-image: linear-gradient(to bottom, #A02040, #e11d2e);
+  background-size: 4px 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
 }
 
 /* Override for space theme - use ::before for left jet engine instead */
@@ -403,7 +592,8 @@ section[id] {
   z-index: 100;
 }
 
-[data-theme="space"] .paper-card:hover::before {
+[data-theme="space"] .paper-card.card-active::before,
+[data-theme="space"] .paper-card:active::before {
   opacity: 1;
   width: 50px;
   height: 90px;
@@ -451,6 +641,47 @@ section[id] {
 .dark[data-theme="winter"] .bg-maroon-100,
 .dark[data-theme="winter"] .bg-maroon-900 {
   background-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+/* Winter Theme - Button backgrounds (light blue) */
+[data-theme="winter"] button.bg-white,
+[data-theme="winter"] button[class*="bg-white"],
+[data-theme="winter"] a.bg-white,
+[data-theme="winter"] a[class*="bg-white"] {
+  background-color: #7dd3fc !important; /* Sky blue */
+}
+
+[data-theme="winter"] button.bg-white:hover,
+[data-theme="winter"] button[class*="bg-white"]:hover,
+[data-theme="winter"] a.bg-white:hover,
+[data-theme="winter"] a[class*="bg-white"]:hover,
+[data-theme="winter"] button[class*="hover:bg-gray-50"]:hover,
+[data-theme="winter"] a[class*="hover:bg-gray-50"]:hover {
+  background-color: #38bdf8 !important; /* Brighter blue on hover */
+}
+
+.dark[data-theme="winter"] button.bg-white,
+.dark[data-theme="winter"] button[class*="bg-white"],
+.dark[data-theme="winter"] button.dark\:bg-gray-700,
+.dark[data-theme="winter"] button[class*="dark:bg-gray-700"],
+.dark[data-theme="winter"] a.bg-white,
+.dark[data-theme="winter"] a[class*="bg-white"],
+.dark[data-theme="winter"] a.dark\:bg-gray-700,
+.dark[data-theme="winter"] a[class*="dark:bg-gray-700"] {
+  background-color: #0369a1 !important; /* Darker blue for dark mode */
+}
+
+.dark[data-theme="winter"] button.bg-white:hover,
+.dark[data-theme="winter"] button[class*="bg-white"]:hover,
+.dark[data-theme="winter"] button.dark\:bg-gray-700:hover,
+.dark[data-theme="winter"] button[class*="dark:bg-gray-700"]:hover,
+.dark[data-theme="winter"] button[class*="hover:bg-gray-600"]:hover,
+.dark[data-theme="winter"] a.bg-white:hover,
+.dark[data-theme="winter"] a[class*="bg-white"]:hover,
+.dark[data-theme="winter"] a.dark\:bg-gray-700:hover,
+.dark[data-theme="winter"] a[class*="dark:bg-gray-700"]:hover,
+.dark[data-theme="winter"] a[class*="hover:bg-gray-600"]:hover {
+  background-color: #0284c7 !important; /* Lighter blue on hover */
 }
 
 [data-theme="winter"] .paper-card::before {
@@ -546,6 +777,288 @@ section[id] {
 [data-theme="coffee"] .dark\:text-gray-500,
 [data-theme="coffee"] .dark\:text-white {
   color: #000000 !important; /* Black for maximum contrast */
+}
+
+/* Space Theme - Button backgrounds (purple/indigo) */
+[data-theme="space"] button.bg-white,
+[data-theme="space"] button[class*="bg-white"],
+[data-theme="space"] a.bg-white,
+[data-theme="space"] a[class*="bg-white"] {
+  background-color: #c7d2fe !important; /* Light indigo */
+}
+
+[data-theme="space"] button.bg-white:hover,
+[data-theme="space"] button[class*="bg-white"]:hover,
+[data-theme="space"] a.bg-white:hover,
+[data-theme="space"] a[class*="bg-white"]:hover,
+[data-theme="space"] button[class*="hover:bg-gray-50"]:hover,
+[data-theme="space"] a[class*="hover:bg-gray-50"]:hover {
+  background-color: #a5b4fc !important; /* Brighter indigo on hover */
+}
+
+.dark[data-theme="space"] button.bg-white,
+.dark[data-theme="space"] button[class*="bg-white"],
+.dark[data-theme="space"] button.dark\:bg-gray-700,
+.dark[data-theme="space"] button[class*="dark:bg-gray-700"],
+.dark[data-theme="space"] a.bg-white,
+.dark[data-theme="space"] a[class*="bg-white"],
+.dark[data-theme="space"] a.dark\:bg-gray-700,
+.dark[data-theme="space"] a[class*="dark:bg-gray-700"] {
+  background-color: #4338ca !important; /* Deep indigo for dark mode */
+}
+
+.dark[data-theme="space"] button.bg-white:hover,
+.dark[data-theme="space"] button[class*="bg-white"]:hover,
+.dark[data-theme="space"] button.dark\:bg-gray-700:hover,
+.dark[data-theme="space"] button[class*="dark:bg-gray-700"]:hover,
+.dark[data-theme="space"] button[class*="hover:bg-gray-600"]:hover,
+.dark[data-theme="space"] a.bg-white:hover,
+.dark[data-theme="space"] a[class*="bg-white"]:hover,
+.dark[data-theme="space"] a.dark\:bg-gray-700:hover,
+.dark[data-theme="space"] a[class*="dark:bg-gray-700"]:hover,
+.dark[data-theme="space"] a[class*="hover:bg-gray-600"]:hover {
+  background-color: #6366f1 !important; /* Lighter indigo on hover */
+}
+
+/* Summer Theme - Replace maroon with orange */
+[data-theme="summer"] .text-maroon-600,
+[data-theme="summer"] .text-maroon-700,
+[data-theme="summer"] .text-maroon-400,
+[data-theme="summer"] .text-maroon-300,
+[data-theme="summer"] .text-maroon-800 {
+  color: #ff6f00 !important;
+}
+
+.dark[data-theme="summer"] .text-maroon-600,
+.dark[data-theme="summer"] .text-maroon-700,
+.dark[data-theme="summer"] .text-maroon-400,
+.dark[data-theme="summer"] .text-maroon-300,
+.dark[data-theme="summer"] .text-maroon-800 {
+  color: #ffb74d !important;
+}
+
+[data-theme="summer"] .text-maroon-600:hover,
+[data-theme="summer"] .text-maroon-700:hover,
+[data-theme="summer"] .hover\:text-maroon-700:hover,
+[data-theme="summer"] .hover\:text-maroon-300:hover,
+[data-theme="summer"] .hover\:text-maroon-800:hover {
+  color: #e65100 !important;
+}
+
+.dark[data-theme="summer"] .text-maroon-600:hover,
+.dark[data-theme="summer"] .text-maroon-700:hover,
+.dark[data-theme="summer"] .hover\:text-maroon-700:hover,
+.dark[data-theme="summer"] .hover\:text-maroon-400:hover,
+.dark[data-theme="summer"] .hover\:text-maroon-300:hover {
+  color: #ffcc02 !important;
+}
+
+[data-theme="summer"] .bg-maroon-100,
+[data-theme="summer"] .bg-maroon-900 {
+  background-color: #fff3c4 !important;
+}
+
+.dark[data-theme="summer"] .bg-maroon-100,
+.dark[data-theme="summer"] .bg-maroon-900 {
+  background-color: rgba(255, 152, 0, 0.3) !important;
+}
+
+/* Summer Theme - Button backgrounds (warm orange/amber) */
+[data-theme="summer"] button.bg-white,
+[data-theme="summer"] button[class*="bg-white"],
+[data-theme="summer"] a.bg-white,
+[data-theme="summer"] a[class*="bg-white"] {
+  background-color: #fbbf24 !important; /* Warm amber/golden yellow */
+}
+
+[data-theme="summer"] button.bg-white:hover,
+[data-theme="summer"] button[class*="bg-white"]:hover,
+[data-theme="summer"] a.bg-white:hover,
+[data-theme="summer"] a[class*="bg-white"]:hover,
+[data-theme="summer"] button[class*="hover:bg-gray-50"]:hover,
+[data-theme="summer"] a[class*="hover:bg-gray-50"]:hover {
+  background-color: #f59e0b !important; /* Deeper amber on hover */
+}
+
+.dark[data-theme="summer"] button.bg-white,
+.dark[data-theme="summer"] button[class*="bg-white"],
+.dark[data-theme="summer"] button.dark\:bg-gray-700,
+.dark[data-theme="summer"] button[class*="dark:bg-gray-700"],
+.dark[data-theme="summer"] a.bg-white,
+.dark[data-theme="summer"] a[class*="bg-white"],
+.dark[data-theme="summer"] a.dark\:bg-gray-700,
+.dark[data-theme="summer"] a[class*="dark:bg-gray-700"] {
+  background-color: #d97706 !important; /* Darker warm orange for dark mode */
+}
+
+.dark[data-theme="summer"] button.bg-white:hover,
+.dark[data-theme="summer"] button[class*="bg-white"]:hover,
+.dark[data-theme="summer"] button.dark\:bg-gray-700:hover,
+.dark[data-theme="summer"] button[class*="dark:bg-gray-700"]:hover,
+.dark[data-theme="summer"] button[class*="hover:bg-gray-600"]:hover,
+.dark[data-theme="summer"] a.bg-white:hover,
+.dark[data-theme="summer"] a[class*="bg-white"]:hover,
+.dark[data-theme="summer"] a.dark\:bg-gray-700:hover,
+.dark[data-theme="summer"] a[class*="dark:bg-gray-700"]:hover,
+.dark[data-theme="summer"] a[class*="hover:bg-gray-600"]:hover {
+  background-color: #f59e0b !important; /* Lighter orange on hover */
+}
+
+[data-theme="summer"] .paper-card::before {
+  background: linear-gradient(to bottom, #ff6f00, #ff8f00) !important;
+}
+
+.dark[data-theme="summer"] .paper-card::before {
+  background: linear-gradient(to bottom, #ff9800, #ffb74d) !important;
+}
+
+/* Spring Theme - Replace maroon with pink (matching border color) */
+[data-theme="spring"] .text-maroon-600,
+[data-theme="spring"] .text-maroon-700,
+[data-theme="spring"] .text-maroon-400,
+[data-theme="spring"] .text-maroon-300,
+[data-theme="spring"] .text-maroon-800 {
+  color: #ec4899 !important; /* Same as border gradient end */
+}
+
+.dark[data-theme="spring"] .text-maroon-600,
+.dark[data-theme="spring"] .text-maroon-700,
+.dark[data-theme="spring"] .text-maroon-400,
+.dark[data-theme="spring"] .text-maroon-300,
+.dark[data-theme="spring"] .text-maroon-800 {
+  color: #f472b6 !important; /* Lighter for dark mode */
+}
+
+[data-theme="spring"] .text-maroon-600:hover,
+[data-theme="spring"] .text-maroon-700:hover,
+[data-theme="spring"] .hover\:text-maroon-700:hover,
+[data-theme="spring"] .hover\:text-maroon-300:hover,
+[data-theme="spring"] .hover\:text-maroon-800:hover {
+  color: #db2777 !important; /* Slightly darker on hover */
+}
+
+.dark[data-theme="spring"] .text-maroon-600:hover,
+.dark[data-theme="spring"] .text-maroon-700:hover,
+.dark[data-theme="spring"] .hover\:text-maroon-700:hover,
+.dark[data-theme="spring"] .hover\:text-maroon-400:hover,
+.dark[data-theme="spring"] .hover\:text-maroon-300:hover {
+  color: #ec4899 !important; /* Darker on hover for dark mode */
+}
+
+[data-theme="spring"] .paper-card::before {
+  background: linear-gradient(to bottom, #f472b6, #ec4899) !important;
+}
+
+.dark[data-theme="spring"] .paper-card::before {
+  background: linear-gradient(to bottom, #f9a8d4, #f472b6) !important;
+}
+
+/* Spring Theme - Button backgrounds (soft pink) */
+[data-theme="spring"] button.bg-white,
+[data-theme="spring"] button[class*="bg-white"],
+[data-theme="spring"] a.bg-white,
+[data-theme="spring"] a[class*="bg-white"] {
+  background-color: #fbcfe8 !important; /* Soft pink */
+}
+
+[data-theme="spring"] button.bg-white:hover,
+[data-theme="spring"] button[class*="bg-white"]:hover,
+[data-theme="spring"] a.bg-white:hover,
+[data-theme="spring"] a[class*="bg-white"]:hover,
+[data-theme="spring"] button[class*="hover:bg-gray-50"]:hover,
+[data-theme="spring"] a[class*="hover:bg-gray-50"]:hover {
+  background-color: #f9a8d4 !important; /* Deeper pink on hover */
+}
+
+.dark[data-theme="spring"] button.bg-white,
+.dark[data-theme="spring"] button[class*="bg-white"],
+.dark[data-theme="spring"] button.dark\:bg-gray-700,
+.dark[data-theme="spring"] button[class*="dark:bg-gray-700"],
+.dark[data-theme="spring"] a.bg-white,
+.dark[data-theme="spring"] a[class*="bg-white"],
+.dark[data-theme="spring"] a.dark\:bg-gray-700,
+.dark[data-theme="spring"] a[class*="dark:bg-gray-700"] {
+  background-color: #be185d !important; /* Darker pink for dark mode */
+}
+
+.dark[data-theme="spring"] button.bg-white:hover,
+.dark[data-theme="spring"] button[class*="bg-white"]:hover,
+.dark[data-theme="spring"] button.dark\:bg-gray-700:hover,
+.dark[data-theme="spring"] button[class*="dark:bg-gray-700"]:hover,
+.dark[data-theme="spring"] button[class*="hover:bg-gray-600"]:hover,
+.dark[data-theme="spring"] a.bg-white:hover,
+.dark[data-theme="spring"] a[class*="bg-white"]:hover,
+.dark[data-theme="spring"] a.dark\:bg-gray-700:hover,
+.dark[data-theme="spring"] a[class*="dark:bg-gray-700"]:hover,
+.dark[data-theme="spring"] a[class*="hover:bg-gray-600"]:hover {
+  background-color: #db2777 !important; /* Lighter pink on hover */
+}
+
+/* Autumn Theme - Replace maroon with warm autumn colors (goldenrod, peach, coral, olive) */
+[data-theme="autumn"] .text-maroon-600,
+[data-theme="autumn"] .text-maroon-700,
+[data-theme="autumn"] .text-maroon-400,
+[data-theme="autumn"] .text-maroon-300,
+[data-theme="autumn"] .text-maroon-800 {
+  color: #b8860b !important;
+}
+
+.dark[data-theme="autumn"] .text-maroon-600,
+.dark[data-theme="autumn"] .text-maroon-700,
+.dark[data-theme="autumn"] .text-maroon-400,
+.dark[data-theme="autumn"] .text-maroon-300,
+.dark[data-theme="autumn"] .text-maroon-800 {
+  color: #f58549 !important; /* Coral/orange accent */
+}
+
+[data-theme="autumn"] .text-maroon-600:hover,
+[data-theme="autumn"] .text-maroon-700:hover,
+[data-theme="autumn"] .hover\:text-maroon-700:hover,
+[data-theme="autumn"] .hover\:text-maroon-300:hover,
+[data-theme="autumn"] .hover\:text-maroon-800:hover {
+  color: #cd853f !important;
+}
+
+.dark[data-theme="autumn"] .text-maroon-600:hover,
+.dark[data-theme="autumn"] .text-maroon-700:hover,
+.dark[data-theme="autumn"] .hover\:text-maroon-700:hover,
+.dark[data-theme="autumn"] .hover\:text-maroon-400:hover,
+.dark[data-theme="autumn"] .hover\:text-maroon-300:hover {
+  color: #f2a65a !important; /* Light orange/peach on hover */
+}
+
+[data-theme="autumn"] .paper-card::before {
+  background: linear-gradient(to bottom, #b8860b, #daa520) !important;
+}
+
+.dark[data-theme="autumn"] .paper-card::before {
+  background: linear-gradient(to bottom, #f58549, #f2a65a) !important; /* Coral to peach gradient */
+}
+
+/* Autumn Theme - Sidebar active item background colors (dark theme) */
+.dark[data-theme="autumn"] .bg-gray-700,
+.dark[data-theme="autumn"] .dark\:bg-gray-700,
+.dark[data-theme="autumn"] button.bg-gray-700,
+.dark[data-theme="autumn"] button.dark\:bg-gray-700,
+.dark[data-theme="autumn"] a.bg-gray-700,
+.dark[data-theme="autumn"] a.dark\:bg-gray-700 {
+  background-color: #585123 !important; /* Dark olive green highlight */
+}
+
+.dark[data-theme="autumn"] .bg-gray-800,
+.dark[data-theme="autumn"] .dark\:bg-gray-800,
+.dark[data-theme="autumn"] button.bg-gray-800,
+.dark[data-theme="autumn"] button.dark\:bg-gray-800,
+.dark[data-theme="autumn"] a.bg-gray-800,
+.dark[data-theme="autumn"] a.dark\:bg-gray-800 {
+  background-color: #2a1f18 !important; /* Dark brown/olive */
+}
+
+.dark[data-theme="autumn"] .hover\:bg-gray-700:hover,
+.dark[data-theme="autumn"] .dark\:hover\:bg-gray-700:hover,
+.dark[data-theme="autumn"] .hover\:bg-gray-800:hover,
+.dark[data-theme="autumn"] .dark\:hover\:bg-gray-800:hover {
+  background-color: rgba(88, 81, 35, 0.5) !important; /* Semi-transparent olive green */
 }
 
 /* Coffee theme - Button text (Group by buttons, etc.) */
@@ -822,7 +1335,7 @@ section[id] {
 }
 
 [data-theme="space"] ol li::before {
-  content: '⭐';
+  content: counter(star-counter) '.';
   position: absolute;
   left: 0;
   font-size: 1.2em;
@@ -854,6 +1367,85 @@ section[id] {
   }
 }
 
+/* Pulsating Sun Ball for Summer Theme */
+.radiating-sun {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-core {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #ffeb3b, #ffc107, #ff9800);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 30px rgba(255, 235, 59, 0.8),
+    0 0 60px rgba(255, 193, 7, 0.6),
+    0 0 90px rgba(255, 152, 0, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.radiation-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255, 235, 59, 0.6);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  opacity: 0;
+  animation: radiate 3s ease-out infinite;
+}
+
+.radiation-ring-1 {
+  animation-delay: 0s;
+  border-color: rgba(255, 235, 59, 0.5);
+}
+
+.radiation-ring-2 {
+  animation-delay: 1s;
+  border-color: rgba(255, 193, 7, 0.4);
+}
+
+.radiation-ring-3 {
+  animation-delay: 2s;
+  border-color: rgba(255, 152, 0, 0.3);
+}
+
+@keyframes radiate {
+  0% {
+    width: 60px;
+    height: 60px;
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 1023px) {
+  .radiating-sun {
+    display: none;
+  }
+}
+
 /* Coffee Theme - Animated Steam */
 
 .coffee-steam-container {
@@ -880,14 +1472,14 @@ section[id] {
 }
 
 .coffee-steam.steam-one {
-  animation: steam-one 6.5s ease-out infinite;
-  -webkit-animation: steam-one 6.5s ease-out infinite;
+  animation-name: steam-one;
+  -webkit-animation-name: steam-one;
   animation-timing-function: ease-out;
 }
 
 .coffee-steam.steam-two {
-  animation: steam-two 6.5s ease-out infinite;
-  -webkit-animation: steam-two 6.5s ease-out infinite;
+  animation-name: steam-two;
+  -webkit-animation-name: steam-two;
   animation-timing-function: ease-out;
 }
 
@@ -915,6 +1507,64 @@ section[id] {
   61.51%, 100% {transform: translateY(-600px) translateX(50px) scale(1.5); opacity: 0;}
 }
 
+/* Summer Theme - Simple background color transition */
+.heat-wave-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* Keep beneath content */
+  background: linear-gradient(135deg, 
+    rgba(255, 200, 50, 0.15), 
+    rgba(255, 140, 0, 0.2), 
+    rgba(255, 80, 0, 0.15)
+  );
+  background-size: 400% 400%;
+  animation: summerGradient 15s ease-in-out infinite;
+}
+
+@keyframes summerGradient {
+  0% {
+    background-position: 0% 50%;
+    background: linear-gradient(135deg, 
+      rgba(255, 220, 80, 0.18), 
+      rgba(255, 160, 0, 0.22), 
+      rgba(255, 100, 0, 0.15)
+    );
+  }
+  25% {
+    background-position: 50% 0%;
+    background: linear-gradient(135deg, 
+      rgba(255, 180, 50, 0.2), 
+      rgba(255, 120, 0, 0.25), 
+      rgba(255, 60, 0, 0.18)
+    );
+  }
+  50% {
+    background-position: 100% 50%;
+    background: linear-gradient(135deg, 
+      rgba(255, 140, 30, 0.22), 
+      rgba(255, 80, 0, 0.28), 
+      rgba(255, 50, 0, 0.2)
+    );
+  }
+  75% {
+    background-position: 50% 100%;
+    background: linear-gradient(135deg, 
+      rgba(255, 180, 50, 0.2), 
+      rgba(255, 120, 0, 0.25), 
+      rgba(255, 70, 0, 0.18)
+    );
+  }
+  100% {
+    background-position: 0% 50%;
+    background: linear-gradient(135deg, 
+      rgba(255, 220, 80, 0.18), 
+      rgba(255, 160, 0, 0.22), 
+      rgba(255, 100, 0, 0.15)
+    );
+  }
+}
+
 
 /* Sidebar z-index to be above penguin */
 .sidebar-desktop {
@@ -924,6 +1574,7 @@ section[id] {
 /* Penguin Animation */
 main {
   position: relative;
+  z-index: 1; /* Ensure main content is above cherry blossom branches */
 }
 
 .penguin-container {
@@ -935,7 +1586,7 @@ main {
   margin: 0;
   padding: 0;
   pointer-events: none;
-  z-index: 10;
+  z-index: 0; /* Behind all content */
   overflow: hidden;
 }
 
@@ -964,6 +1615,235 @@ main {
   }
   100% {
     transform: translateX(var(--penguin-distance, calc(100vw + 80px)));
+  }
+}
+
+/* Spring Theme - Cherry Blossom Branches and Falling Petals */
+
+.cherry-blossoms-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* Behind all content */
+  overflow: visible;
+}
+
+.cherry-blossom-branch {
+  position: absolute;
+  height: auto;
+  max-width: none; /* Allow dynamic sizing */
+  max-height: none; /* Allow dynamic sizing */
+  opacity: 0.3;
+  filter: drop-shadow(0 4px 6px rgba(236, 72, 153, 0.2));
+  z-index: 0; /* Behind all content */
+  object-fit: contain;
+}
+
+.cherry-blossom-branch-left {
+  /* Transform handled inline for centering */
+  transform-origin: center center;
+}
+
+.cherry-blossom-branch-right {
+  /* Transform handled inline for centering */
+  transform-origin: center center;
+}
+
+.falling-petals-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.falling-petal {
+  position: absolute;
+  color: #f472b6;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px rgba(244, 114, 182, 0.8), 0 0 10px rgba(244, 114, 182, 0.5);
+  animation: petalFall var(--fall-duration, 28s) linear infinite;
+  will-change: transform, opacity;
+  opacity: 0; /* Start invisible */
+}
+
+.dark .falling-petal {
+  color: #f9a8d4;
+  text-shadow: 0 0 5px rgba(249, 168, 212, 0.8), 0 0 10px rgba(249, 168, 212, 0.5);
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translateY(-120px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg);
+    opacity: 0.95;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(calc(100vh + 240px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Autumn Theme - Falling Leaves with U-Shaped Motion */
+
+.falling-leaves-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible; /* Allow leaves to come from outside viewport */
+}
+
+/* Leaf wrapper for wind gust transform */
+.leaf-wrapper {
+  position: absolute;
+  transform: translateX(var(--leaf-offset, 0px));
+  transition: none;
+  filter: drop-shadow(0 2px 4px rgba(139, 69, 19, 0.4));
+}
+
+.leaf-wrapper.wind-gust {
+  filter: drop-shadow(0 6px 12px rgba(139, 69, 19, 0.8));
+}
+
+/* CSS-driven gust for better perf: translates wrappers then returns */
+.falling-leaves-container.gusting .leaf-wrapper {
+  animation: windGustRight var(--gust-duration, 8000ms) ease-in-out;
+}
+
+@keyframes windGustRight {
+  0% {
+    transform: translateX(var(--leaf-offset, 0px));
+  }
+  50% {
+    transform: translateX(calc(var(--leaf-offset, 0px) + var(--gust-distance, 500px)));
+  }
+  100% {
+    transform: translateX(var(--leaf-offset, 0px));
+  }
+}
+
+.falling-leaf {
+  position: relative;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px rgba(218, 165, 32, 0.9), 0 0 10px rgba(184, 134, 11, 0.6);
+  will-change: transform, opacity;
+  opacity: 0; /* Start invisible */
+  filter: drop-shadow(0 2px 4px rgba(139, 69, 19, 0.4));
+  animation: leafFallStraight linear infinite;
+  transform-origin: center center;
+}
+
+/* Make leaves more translucent when visible */
+.falling-leaf {
+  opacity: 0.5 !important; /* More translucent - 50% opacity */
+}
+
+.dark .falling-leaf {
+  text-shadow: 0 0 5px rgba(238, 193, 112, 0.9), 0 0 10px rgba(245, 133, 73, 0.6); /* Goldenrod and coral */
+}
+
+/* Straight fall with gentle drift; wind gust handled on wrapper transform */
+@keyframes leafFallStraight {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.55;
+  }
+  60% {
+    transform: translateY(calc((100vh + 200px) * 0.6)) translateX(calc(var(--base-drift, 0px) * 0.6)) rotate(calc(var(--rotation-speed, 360) * 0.6deg));
+    opacity: 0.5;
+  }
+  85% {
+    transform: translateY(calc((100vh + 200px) * 0.85)) translateX(calc(var(--base-drift, 0px) * 0.85)) rotate(calc(var(--rotation-speed, 360) * 0.85deg));
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(calc(100vh + 200px)) translateX(var(--base-drift, 0px)) rotate(calc(var(--rotation-speed, 360) * 1deg));
+    opacity: 0;
+  }
+}
+
+/* Wind gust effect - enhanced shadow during gust */
+.falling-leaf.wind-gust {
+  filter: drop-shadow(0 4px 8px rgba(139, 69, 19, 0.6));
+}
+
+/* Disable hover effects on touch devices */
+/* Use (hover: none) to target devices that don't support true hover */
+/* This prevents hover states from being triggered by scroll wheel or touch on mobile */
+@media (hover: none) {
+  /* Disable hover transforms - this prevents scroll wheel from triggering hover */
+  *:hover {
+    transform: none !important;
+  }
+  
+  /* Disable hover shadows on paper cards and elements with hover:shadow classes */
+  .paper-card:hover,
+  [class*="hover:shadow"]:hover {
+    box-shadow: inherit !important;
+  }
+  
+  /* Disable hover background color changes - only for Tailwind hover:bg classes */
+  [class*="hover:bg-gray"]:hover,
+  [class*="hover:bg-white"]:hover,
+  [class*="hover:bg-black"]:hover {
+    background-color: unset !important;
+  }
+  
+  /* Disable hover text color changes - only for Tailwind hover:text classes */
+  [class*="hover:text-gray"]:hover,
+  [class*="hover:text-maroon"]:hover,
+  [class*="hover:text-white"]:hover,
+  [class*="hover:text-black"]:hover {
+    color: unset !important;
+  }
+  
+  /* Disable hover text decoration */
+  [class*="hover:underline"]:hover {
+    text-decoration: unset !important;
+  }
+  
+  /* Disable hover translate effects on paper cards */
+  [class*="hover:-translate"]:hover,
+  [class*="hover:translate"]:hover {
+    transform: none !important;
+  }
+  
+  /* Mobile click effect for paper cards - lift up on tap and stay up */
+  .paper-card.card-active,
+  .paper-card:active {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  /* Make paper cards appear clickable on mobile */
+  .paper-card {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none; /* Prevent text selection on tap */
   }
 }
 

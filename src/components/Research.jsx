@@ -78,6 +78,11 @@ function Research({ title }) {
   const [filterByTitle, setFilterByTitle] = useState(null);
   const [filterByAuthor, setFilterByAuthor] = useState(null);
 
+  // Helper to check if device supports hover
+  const supportsHover = () => {
+    return typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
+  };
+
   // Dynamically extract unique values for each aspect from the papers data
   const filterOptions = useMemo(() => {
     const options = {
@@ -483,7 +488,9 @@ function Research({ title }) {
               <div 
                 className="flex flex-row flex-wrap items-center gap-2 pivot-dropdown-options"
                 onMouseLeave={() => {
-                  setHoveredAspect(null);
+                  if (supportsHover()) {
+                    setHoveredAspect(null);
+                  }
                 }}
               >
                 {Object.keys(PIVOT_ASPECTS).map((aspect, index) => {
@@ -491,7 +498,11 @@ function Research({ title }) {
                   return (
                     <button
                       key={aspect}
-                      onMouseEnter={() => setHoveredAspect(aspect)}
+                      onMouseEnter={() => {
+                        if (supportsHover()) {
+                          setHoveredAspect(aspect);
+                        }
+                      }}
                       onClick={(e) => {
                         e.stopPropagation();
                         setHoveredAspect(null);

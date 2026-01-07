@@ -69,7 +69,8 @@
   ],
   "rqs": [
     "Personalization",
-    "Helpfulness"
+    "Helpfulness",
+    "Factuality"
   ],
   "domain": [
     "Agents / RAG"
@@ -431,7 +432,8 @@
     "Conference"
   ],
   "rqs": [
-    "Personalization"
+    "Personalization",
+    "Factuality"
   ],
   "domain": [
     "Agents / RAG"

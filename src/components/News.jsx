@@ -10,6 +10,21 @@ function News({ title }) {
   const positiveHighlights = positiveNewsData.highlights;
   const negativeHighlights = negativeNewsData.highlights;
 
+  // Helper to check if device supports hover
+  const supportsHover = () => {
+    return typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
+  };
+
+  // Helper to check if we're on mobile (below xl breakpoint)
+  const checkIsMobile = () => {
+    return typeof window !== 'undefined' && window.matchMedia('(max-width: 1279px)').matches;
+  };
+  
+  // Allow hover to work in both single column and multi-column layouts
+  const getIsNegativeVisible = () => {
+    return isHovering || isExpanded;
+  };
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const month = date.toLocaleString('default', { month: 'long' });
@@ -17,12 +32,24 @@ function News({ title }) {
     return `${month} ${year}`;
   };
 
-  const handlePaperClick = (paperTitle, e) => {
+  const handlePaperClick = (paperTitle, e, isNegativeSection = false) => {
     e.preventDefault();
+    // Don't navigate if clicking in negative section and it's not visible
+    if (isNegativeSection && !getIsNegativeVisible()) {
+      return;
+    }
     filterByPaperTitle(paperTitle);
   };
 
-  const renderTextWithLinks = (text, paperLinks) => {
+  const handleExternalLinkClick = (e, isNegativeSection = false) => {
+    // Don't navigate if clicking in negative section and it's not visible
+    if (isNegativeSection && !getIsNegativeVisible()) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
+  const renderTextWithLinks = (text, paperLinks, isNegativeSection = false) => {
     if (!paperLinks) return text;
 
     // Sort keys by length (longest first) to handle overlapping matches correctly
@@ -76,7 +103,7 @@ function News({ title }) {
         <a
           key={index}
           href="#"
-          onClick={(e) => handlePaperClick(match.paperTitle, e)}
+          onClick={(e) => handlePaperClick(match.paperTitle, e, isNegativeSection)}
           className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
         >
           {matchedText}
@@ -94,7 +121,7 @@ function News({ title }) {
     return elements.length > 0 ? elements : text;
   };
 
-  const renderHighlights = (highlights) => (
+  const renderHighlights = (highlights, isNegativeSection = false) => (
     <div className="space-y-3">
       {highlights.map((item, index) => {
         let textContent;
@@ -112,6 +139,7 @@ function News({ title }) {
                   href={item.externalLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => handleExternalLinkClick(e, isNegativeSection)}
                   className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
                 >
                   {linkText}
@@ -128,6 +156,7 @@ function News({ title }) {
                   href={item.externalLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => handleExternalLinkClick(e, isNegativeSection)}
                   className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
                 >
                   {linkText}
@@ -136,12 +165,12 @@ function News({ title }) {
             );
           }
         } else if (item.paperLinks) {
-          textContent = renderTextWithLinks(item.text, item.paperLinks);
+          textContent = renderTextWithLinks(item.text, item.paperLinks, isNegativeSection);
         } else if (item.paperTitle) {
           textContent = (
             <a
               href="#"
-              onClick={(e) => handlePaperClick(item.paperTitle, e)}
+              onClick={(e) => handlePaperClick(item.paperTitle, e, isNegativeSection)}
               className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
             >
               {item.text}
@@ -181,47 +210,46 @@ function News({ title }) {
         {/* Negative Highlights - Easter Egg */}
         <div 
           className="flex flex-col"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
+          onMouseEnter={() => {
+            if (supportsHover()) {
+              setIsHovering(true);
+            }
+          }}
+          onMouseLeave={() => {
+            if (supportsHover()) {
+              setIsHovering(false);
+            }
+          }}
         >
-          <div className="flex items-center justify-between mb-3">
+          <div className="mb-3">
             <div
-              className={`transition-opacity duration-300 ${isHovering || isExpanded ? 'opacity-100' : 'opacity-0'}`}
+              className={`transition-opacity duration-300 ${getIsNegativeVisible() ? 'opacity-100' : 'opacity-0'}`}
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Negative Results 😭</h3>
             </div>
-            {/* Mobile toggle button - visible only on mobile */}
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label={isExpanded ? 'Hide negative results' : 'Show negative results'}
-            >
-              <span className="text-xl text-gray-900 dark:text-white">{isExpanded ? '✕' : '👀'}</span>
-            </button>
           </div>
           <div 
             onClick={(e) => {
-              // Make entire div clickable on mobile (below xl breakpoint)
-              // On desktop, hover handles it, so we only toggle on click for mobile
-              const isMobile = window.matchMedia('(max-width: 1279px)').matches;
-              if (isMobile) {
+              // Make entire div clickable on mobile (below xl breakpoint) for touch devices
+              // Hover works in all layouts, but click provides an alternative for touch devices
+              if (checkIsMobile()) {
                 e.stopPropagation();
                 setIsExpanded(!isExpanded);
               }
             }}
             className={`paper-card min-h-[300px] transition-all duration-300 relative cursor-pointer xl:cursor-auto ${
-              isHovering || isExpanded
+              getIsNegativeVisible()
                 ? 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:-translate-y-1 hover:shadow-lg' 
                 : 'bg-transparent border border-dashed border-gray-300 dark:border-gray-600'
             }`}
           >
-            {!(isHovering || isExpanded) && (
+            {!getIsNegativeVisible() && (
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
                 <span className="text-4xl">👀</span>
               </div>
             )}
-            <div className={`overflow-y-auto max-h-[300px] pr-2 p-4 transition-opacity duration-300 ${isHovering || isExpanded ? 'opacity-100' : 'opacity-0'}`}>
-              {renderHighlights(negativeHighlights)}
+            <div className={`overflow-y-auto max-h-[300px] pr-2 p-4 transition-opacity duration-300 ${getIsNegativeVisible() ? 'opacity-100' : 'opacity-0'}`}>
+              {renderHighlights(negativeHighlights, true)}
             </div>
           </div>
         </div>
