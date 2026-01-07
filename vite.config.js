@@ -12,5 +12,18 @@ export default defineConfig({
   define: {
     global: 'globalThis',
   },
+  optimizeDeps: {
+    exclude: ['crypto-browserify']
+  },
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  }
 })
 
