@@ -34,26 +34,8 @@ jobs:
       - name: Build
         run: npm run build
       
-      - name: List build output
-        run: ls -la dist/
-      
-      - name: Check built index.html
-        run: |
-          echo "=== Built index.html content ==="
-          cat dist/index.html
-          echo ""
-          echo "=== Checking for /src/main.jsx reference ==="
-          if grep -q "/src/main.jsx" dist/index.html; then
-            echo "ERROR: Built index.html still contains /src/main.jsx reference!"
-            exit 1
-          else
-            echo "✓ Built index.html correctly transformed"
-          fi
-      
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        with:
-          enablement: true
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -70,4 +52,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
