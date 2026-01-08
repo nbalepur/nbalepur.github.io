@@ -10,7 +10,8 @@ import {
   Sparkles,
   Waves,
   Flower2,
-  Leaf
+  Leaf,
+  FileText
 } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useActiveSection } from '../contexts/ActiveSectionContext';
@@ -176,11 +177,7 @@ function Sidebar() {
         aria-label="Contact menu"
         title="Contact"
       >
-        {isContactMenuOpen ? (
-          <X className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
-        ) : (
-          <Menu className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
-        )}
+        <LinkIcon className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
       </button>
       
       {isContactMenuOpen && (
@@ -232,7 +229,8 @@ function Sidebar() {
               className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               onClick={() => setIsContactMenuOpen(false)}
             >
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">CV</span>
+              <FileText className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+              <span className="text-sm text-gray-700 dark:text-gray-300">CV</span>
             </a>
           </div>
         </div>
@@ -248,7 +246,11 @@ function Sidebar() {
         aria-label="Navigation menu"
         title="Navigation"
       >
-        <LinkIcon className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
+        {isNavigationOpen ? (
+          <X className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
+        ) : (
+          <Menu className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
+        )}
       </button>
       
       {isNavigationOpen && (
@@ -275,7 +277,7 @@ function Sidebar() {
   );
 
   const renderNavigation = () => (
-    <nav className="w-full pt-6 border-t border-gray-200 dark:border-gray-700 lg:block">
+    <nav className="w-full pt-6 pb-6 lg:pb-8 border-t border-gray-200 dark:border-gray-700 lg:block">
       <div className="grid grid-cols-2 lg:flex lg:flex-col lg:space-y-2 gap-2 lg:gap-0">
         {sections.map((section) => {
           const isActive = activeSection === section.id;
@@ -389,12 +391,8 @@ function Sidebar() {
             <p className={`text-gray-600 dark:text-gray-400 truncate transition-all duration-300 ${isScrolled ? 'text-xs' : 'text-sm'}`}>nbalepur [at] umd [dot] edu</p>
           </div>
           
-          {/* Contact Dropdown + Navigation Dropdown + Theme Toggle */}
-          <div className={`flex flex-shrink-0 transition-all duration-300 ${isScrolled ? 'gap-2' : 'gap-2.5'}`}>
-            {/* Contact Dropdown */}
-            {renderContactDropdown()}
-            {/* Navigation Dropdown */}
-            {renderNavigationDropdown()}
+          {/* Theme Toggle + Contact Dropdown + Navigation Dropdown */}
+          <div className={`flex flex-shrink-0 transition-all duration-300 ${isScrolled ? 'flex-row gap-2' : 'flex-col gap-2.5'}`}>
             {/* Theme Toggle */}
             <button
               onClick={(e) => {
@@ -407,13 +405,17 @@ function Sidebar() {
             >
               {getThemeIcon(unifiedTheme, isScrolled ? 'w-5 h-5' : 'w-6 h-6')}
             </button>
+            {/* Contact Dropdown */}
+            {renderContactDropdown()}
+            {/* Navigation Dropdown */}
+            {renderNavigationDropdown()}
           </div>
         </div>
       </aside>
 
       {/* Desktop Layout: Fixed sidebar on left */}
       <aside
-        className="sidebar-desktop hidden lg:flex lg:sticky lg:top-0 lg:h-screen lg:w-72 xl:w-80 border-r p-6 flex-col overflow-y-auto relative z-50 flex-shrink-0"
+        className="sidebar-desktop hidden lg:flex lg:sticky lg:top-0 lg:h-screen lg:w-72 xl:w-80 border-r px-6 pt-6 pb-8 flex-col overflow-y-auto relative z-50 flex-shrink-0"
         style={{ backgroundColor: 'var(--theme-bg-secondary, #ffffff)', borderRightColor: 'var(--theme-border, #e5e7eb)' }}
       >
         <div className="flex flex-col items-center space-y-6 flex-grow">
@@ -443,7 +445,7 @@ function Sidebar() {
         </div>
         
         {/* Theme Controls at Bottom */}
-        <div className="flex flex-col gap-2 lg:mt-auto items-center">
+        <div className="flex flex-col gap-2 lg:mt-8 items-center pb-2">
           {renderThemeToggle()}
         </div>
       </aside>
