@@ -23,12 +23,10 @@ function Sidebar() {
   const [isContactMenuOpen, setIsContactMenuOpen] = useState(false);
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const scrollTimeoutRef = useRef(null);
   const isUpdatingRef = useRef(false);
   const lastStableScrollYRef = useRef(0);
 
   useEffect(() => {
-    // Single threshold - no hysteresis since we're using debouncing
     const scrollThreshold = 50;
     
     const updateScrollState = () => {
@@ -46,10 +44,10 @@ function Sidebar() {
           isUpdatingRef.current = true;
           lastStableScrollYRef.current = currentScroll;
           
-          // Release the lock after transition completes (300ms matches CSS transition duration)
+          // Release the lock after transition completes (150ms matches CSS transition duration)
           setTimeout(() => {
             isUpdatingRef.current = false;
-          }, 350);
+          }, 200);
           
           return newState;
         }
@@ -59,16 +57,8 @@ function Sidebar() {
     };
 
     const handleScroll = () => {
-      // Clear any pending timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      
-      // Only update state after scrolling has stopped (debounced)
-      // This prevents feedback loops from layout shifts
-      scrollTimeoutRef.current = setTimeout(() => {
-        updateScrollState();
-      }, 100); // Wait 100ms after scroll stops
+      // Update immediately without debouncing
+      updateScrollState();
     };
 
     // Initialize
@@ -79,9 +69,6 @@ function Sidebar() {
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
     };
   }, []);
 
@@ -173,11 +160,11 @@ function Sidebar() {
     <div className="contact-dropdown relative">
       <button
         onClick={() => setIsContactMenuOpen(!isContactMenuOpen)}
-        className={`rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 flex items-center justify-center text-gray-700 dark:text-gray-300 ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`}
+        className={`rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-150 ease-out flex items-center justify-center text-gray-700 dark:text-gray-300 ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`}
         aria-label="Contact menu"
         title="Contact"
       >
-        <LinkIcon className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
+        <LinkIcon className={`transition-all duration-150 ease-out ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
       </button>
       
       {isContactMenuOpen && (
@@ -242,14 +229,14 @@ function Sidebar() {
     <div className="navigation-dropdown relative">
       <button
         onClick={() => setIsNavigationOpen(!isNavigationOpen)}
-        className={`rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 flex items-center justify-center text-gray-700 dark:text-gray-300 ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`}
+        className={`rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-150 ease-out flex items-center justify-center text-gray-700 dark:text-gray-300 ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`}
         aria-label="Navigation menu"
         title="Navigation"
       >
         {isNavigationOpen ? (
-          <X className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
+          <X className={`transition-all duration-150 ease-out ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
         ) : (
-          <Menu className={`transition-all duration-300 ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
+          <Menu className={`transition-all duration-150 ease-out ${isScrolled ? 'w-5 h-5' : 'w-6 h-6'}`} />
         )}
       </button>
       
@@ -367,32 +354,32 @@ function Sidebar() {
     <>
       {/* Mobile Layout: Sticky Header at top */}
       <aside 
-        className={`lg:hidden w-full border-b sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'p-3' : 'p-5'}`} 
+        className={`lg:hidden w-full border-b sticky top-0 z-50 transition-all duration-150 ease-out ${isScrolled ? 'p-3' : 'p-5'}`} 
         style={{ 
           backgroundColor: 'var(--theme-bg-secondary, #ffffff)', 
           borderBottomColor: 'var(--theme-border, #e5e7eb)'
         }}
       >
         {/* Top Row: Profile Image + Info + Menu/Theme Toggle */}
-        <div className={`flex items-center transition-all duration-300 ${isScrolled ? 'gap-2.5' : 'gap-4'}`}>
+        <div className={`flex items-center transition-all duration-150 ease-out ${isScrolled ? 'gap-2.5' : 'gap-4'}`}>
           {/* Photo */}
           <div className="flex-shrink-0">
             <img 
               src="/assets/images/profile.png" 
               alt="Photo" 
-              className={`rounded-full object-cover border border-gray-300 dark:border-gray-600 transition-all duration-300 ${isScrolled ? 'w-14 h-14' : 'w-28 h-28'}`}
+              className={`rounded-full object-cover border border-gray-300 dark:border-gray-600 transition-all duration-150 ease-out ${isScrolled ? 'w-14 h-14' : 'w-28 h-28'}`}
             />
           </div>
           
           {/* Name, Email, School Info */}
           <div className="flex flex-col flex-1 min-w-0">
-            <h1 className={`font-bold text-black dark:text-white truncate transition-all duration-300 ${isScrolled ? 'text-base' : 'text-xl'}`}>Nishant Balepur</h1>
-            <p className={`text-gray-600 dark:text-gray-400 truncate transition-all duration-300 ${isScrolled ? 'text-sm' : 'text-base'}`}>Ph.D. Candidate</p>
-            <p className={`text-gray-600 dark:text-gray-400 truncate transition-all duration-300 ${isScrolled ? 'text-xs' : 'text-sm'}`}>nbalepur [at] umd [dot] edu</p>
+            <h1 className={`font-bold text-black dark:text-white truncate transition-all duration-150 ease-out ${isScrolled ? 'text-base' : 'text-xl'}`}>Nishant Balepur</h1>
+            <p className={`text-gray-600 dark:text-gray-400 truncate transition-all duration-150 ease-out ${isScrolled ? 'text-sm' : 'text-base'}`}>Ph.D. Candidate</p>
+            <p className={`text-gray-600 dark:text-gray-400 truncate transition-all duration-150 ease-out ${isScrolled ? 'text-xs' : 'text-sm'}`}>nbalepur [at] umd [dot] edu</p>
           </div>
           
           {/* Theme Toggle + Contact Dropdown + Navigation Dropdown */}
-          <div className={`flex flex-shrink-0 transition-all duration-300 ${isScrolled ? 'flex-row gap-2' : 'flex-col gap-2.5'}`}>
+          <div className={`flex flex-shrink-0 transition-all duration-150 ease-out ${isScrolled ? 'flex-row gap-2' : 'flex-col gap-2.5'}`}>
             {/* Theme Toggle */}
             <button
               onClick={(e) => {
@@ -400,7 +387,7 @@ function Sidebar() {
                 e.stopPropagation();
                 cycleTheme();
               }}
-              className={`rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 flex items-center justify-center text-gray-700 dark:text-gray-300 ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`}
+              className={`rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-150 ease-out flex items-center justify-center text-gray-700 dark:text-gray-300 ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`}
               title={`Theme: ${themeLabels[unifiedTheme] || 'Theme'}`}
             >
               {getThemeIcon(unifiedTheme, isScrolled ? 'w-5 h-5' : 'w-6 h-6')}
