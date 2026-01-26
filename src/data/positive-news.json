@@ -1,7 +1,21 @@
 {
   "highlights": [
     {
-      "date": "2025-08-26",
+      "date": "2026-01-26",
+      "text": "AstaBench was accepted to ICLR 2026!",
+      "paperLinks": {
+        "AstaBench": "AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite"
+      }
+    },
+    {
+      "date": "2025-10-25",
+      "text": "Excited about our new preprint that analyzes the impressive strategies that test-time reasoning models employ when answering multiple-choice questions without the question 🕵️‍♂️",
+      "paperLinks": {
+        "new preprint": "Test-Time Reasoners Are Strategic Multiple-Choice Test-Takers"
+      }
+    },
+    {
+      "date": "2025-08-25",
       "text": "We release AstaBench at Ai2, a more rigorous evaluation suite for AI agents. Check out our technical report and leaderboard!",
       "paperLinks": {
         "AstaBench": "AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite"
