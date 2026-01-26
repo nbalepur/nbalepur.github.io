@@ -165,8 +165,8 @@
     "Ashish Sabharwal",
     "Daniel S. Weld"
   ],
-  "venue": "ICLR 2026",
-  "year": 2025,
+  "venue": "ICLR",
+  "year": 2026,
   "links": {
     "pdf": "https://arxiv.org/pdf/2510.21652",
     "code": "https://github.com/allenai/asta-bench/",
