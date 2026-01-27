@@ -92,7 +92,7 @@ function Sidebar() {
   const renderContactButtons = () => (
     <>
       <a 
-        href="https://scholar.google.com/citations?user=YOUR_ID" 
+        href="https://scholar.google.com/citations?user=G8_fojUAAAAJ" 
         target="_blank"
         rel="noopener noreferrer"
         className="w-12 h-12 rounded-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
@@ -171,7 +171,7 @@ function Sidebar() {
         <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 py-2 z-50">
           <div className="flex flex-col gap-2 px-2">
             <a 
-              href="https://scholar.google.com/citations?user=YOUR_ID" 
+              href="https://scholar.google.com/citations?user=G8_fojUAAAAJ" 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"

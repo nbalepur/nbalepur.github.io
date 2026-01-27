@@ -561,7 +561,7 @@ function Research({ title }) {
 
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
         <a 
-          href="https://scholar.google.com/citations?user=YOUR_ID" 
+          href="https://scholar.google.com/citations?user=G8_fojUAAAAJ" 
           target="_blank"
           rel="noopener noreferrer"
           className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 underline"
