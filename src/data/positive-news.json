@@ -1,6 +1,15 @@
 {
   "highlights": [
     {
+      "date": "2026-03-15",
+      "text": "Excited to share my internship work at Ai2 on building MyScholarQA: a personalized Deep Research assistant. Check out our demo!",
+      "paperLinks": {
+        "MyScholarQA": "Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users"
+      },
+      "externalLink": "https://personalized-scholarqa.apps.allenai.org/",
+      "linkText": "demo"
+    },
+    {
       "date": "2026-01-26",
       "text": "AstaBench was accepted to ICLR 2026!",
       "paperLinks": {

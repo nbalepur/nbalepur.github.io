@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useFilter } from '../contexts/FilterContext';
 import positiveNewsData from '../data/positive-news.json';
 import negativeNewsData from '../data/negative-news.json';
@@ -121,49 +121,105 @@ function News({ title }) {
     return elements.length > 0 ? elements : text;
   };
 
+  const externalLinkClass =
+    'text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline';
+
+  const externalLinkAnchor = (href, linkLabel, isNegativeSection) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={(e) => handleExternalLinkClick(e, isNegativeSection)}
+      className={externalLinkClass}
+    >
+      {linkLabel}
+    </a>
+  );
+
+  const renderExternalLinkInPlainText = (plainText, href, linkText, isNegativeSection) => {
+    const resolvedLinkText = linkText || href;
+    const linkIndex = plainText.indexOf(resolvedLinkText);
+    if (linkIndex !== -1) {
+      const beforeText = plainText.substring(0, linkIndex);
+      const afterText = plainText.substring(linkIndex + resolvedLinkText.length);
+      return (
+        <>
+          {beforeText}
+          {externalLinkAnchor(href, resolvedLinkText, isNegativeSection)}
+          {afterText}
+        </>
+      );
+    }
+    return (
+      <>
+        {plainText}{' '}
+        {externalLinkAnchor(href, resolvedLinkText, isNegativeSection)}
+      </>
+    );
+  };
+
+  /** Apply external link to plain-text segments only (preserves adjacent paper link nodes). */
+  const mergeExternalLinkIntoContent = (content, href, linkText, isNegativeSection) => {
+    const resolvedLinkText = linkText || href;
+    const wrapSegmentIfMatch = (plainText, key) => {
+      const linkIndex = plainText.indexOf(resolvedLinkText);
+      if (linkIndex === -1) return plainText;
+      const beforeText = plainText.substring(0, linkIndex);
+      const afterText = plainText.substring(linkIndex + resolvedLinkText.length);
+      return (
+        <Fragment key={key}>
+          {beforeText}
+          {externalLinkAnchor(href, resolvedLinkText, isNegativeSection)}
+          {afterText}
+        </Fragment>
+      );
+    };
+
+    if (typeof content === 'string') {
+      return renderExternalLinkInPlainText(content, href, linkText, isNegativeSection);
+    }
+    if (Array.isArray(content)) {
+      let foundExternal = false;
+      const mapped = content.map((part, idx) => {
+        if (typeof part !== 'string') return part;
+        if (part.indexOf(resolvedLinkText) !== -1) {
+          foundExternal = true;
+          return wrapSegmentIfMatch(part, idx);
+        }
+        return part;
+      });
+      if (!foundExternal) {
+        return (
+          <>
+            {mapped}
+            {' '}
+            {externalLinkAnchor(href, resolvedLinkText, isNegativeSection)}
+          </>
+        );
+      }
+      return <>{mapped}</>;
+    }
+    return content;
+  };
+
   const renderHighlights = (highlights, isNegativeSection = false) => (
     <div className="space-y-3">
       {highlights.map((item, index) => {
         let textContent;
-        if (item.externalLink) {
-          // Handle external links - replace linkText with actual link
-          const linkText = item.linkText || item.externalLink;
-          const linkIndex = item.text.indexOf(linkText);
-          if (linkIndex !== -1) {
-            const beforeText = item.text.substring(0, linkIndex);
-            const afterText = item.text.substring(linkIndex + linkText.length);
-            textContent = (
-              <>
-                {beforeText}
-                <a
-                  href={item.externalLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => handleExternalLinkClick(e, isNegativeSection)}
-                  className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
-                >
-                  {linkText}
-                </a>
-                {afterText}
-              </>
-            );
-          } else {
-            // If linkText not found, just show text with link at end
-            textContent = (
-              <>
-                {item.text}{' '}
-                <a
-                  href={item.externalLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => handleExternalLinkClick(e, isNegativeSection)}
-                  className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
-                >
-                  {linkText}
-                </a>
-              </>
-            );
-          }
+        if (item.paperLinks && item.externalLink) {
+          textContent = mergeExternalLinkIntoContent(
+            renderTextWithLinks(item.text, item.paperLinks, isNegativeSection),
+            item.externalLink,
+            item.linkText,
+            isNegativeSection
+          );
+        } else if (item.externalLink) {
+          textContent = renderExternalLinkInPlainText(
+            item.text,
+            item.externalLink,
+            item.linkText,
+            isNegativeSection
+          );
         } else if (item.paperLinks) {
           textContent = renderTextWithLinks(item.text, item.paperLinks, isNegativeSection);
         } else if (item.paperTitle) {

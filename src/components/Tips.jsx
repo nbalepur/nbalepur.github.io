@@ -79,14 +79,14 @@ function Tips({ title }) {
     {
       content: (
         <>
-          I've shifted from focusing on specific papers or deadlines to building useful artifacts (interfaces, tools, models, etc.) that can help people. This approach is personally more fulfilling, but I find it has frustrated my co-authors when I don't have concrete research questions planned until I see something concrete 😬
+          I've shifted from focusing on specific papers or deadlines to building useful artifacts (interfaces, tools, models, etc.) that can help people. This has made me much happier with my projects! And I think somehow, more productive 🤔
         </>
       )
     },
     {
       content: (
         <>
-          Sometimes I think people take AI research and paper writing a bit too seriously. It's totally fine to try and have fun while writing! I've found the papers I'm most motivated about are the ones where I could add the most easter eggs, like our self-referential{' '}
+          Sometimes I think people take paper writing a bit too seriously. Try to have fun! The papers I'm most proud of are the ones where I could add the most jokes, like our self-referential{' '}
           <a 
             href="#" 
             onClick={(e) => handlePaperClick("Which of These Best Describes Multiple Choice Evaluation with LLMs? A) Forced B) Flawed C) Fixable D) All of the Above", e)}
@@ -107,7 +107,7 @@ function Tips({ title }) {
             onClick={toggleGame}
             className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
           >
-            adding games in our interfaces
+            adding games as loading screens
           </button>
           .
         </>
@@ -117,7 +117,7 @@ function Tips({ title }) {
     {
       content: (
         <>
-          Without good reviews, publishing is meaningless, and I think reviewing is something we can all improve at. I wrote a{' '}
+          Publishing can only survive with dedicated reviewers, and I think reviewing is something we can all improve at. I wrote a{' '}
           <a 
             href="/assets/pdf/review-advice.pdf"
             target="_blank"
@@ -126,7 +126,7 @@ function Tips({ title }) {
           >
             short guide
           </a>
-          {' '}with my reviewing experience that might be helpful.
+          {' '}with my reviewing experience that my mentees find helpful.
         </>
       )
     }

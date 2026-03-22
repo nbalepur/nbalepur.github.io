@@ -37,7 +37,7 @@ function App() {
       <div className="flex flex-col lg:flex-row min-h-screen">
         <Sidebar />
         {/* Main Content */}
-        <main className="w-full flex-1 px-4 lg:px-16 xl:px-24 2xl:px-32 pt-8 lg:pt-16 pb-8">
+        <main className="w-full flex-1 px-4 lg:px-16 xl:px-24 2xl:px-32 pt-8 lg:pt-16 pb-3">
           {sections.map((section, index) => {
             const Component = section.component;
             return (
@@ -49,6 +49,9 @@ function App() {
               </div>
             );
           })}
+          <footer className="mt-4 pt-3 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
+            I love Cursor {'<3'}
+          </footer>
         </main>
       </div>
     </div>

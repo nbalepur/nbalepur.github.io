@@ -1,4 +1,166 @@
 {
+  "title": "DRACULA: Hunting for Action-Level User Feedback for Deep Research Agents",
+  "authors": [
+    "Nishant Balepur",
+    "Malachi Hamada", "Varsha Kishore", "Sergey Feldman", "Amanpreet Singh", "Pao Siangliulue", "Joseph Chee Chang", "Rachel Rudinger", "Eunsol Choi", "Jordan Lee Boyd-Graber", "Doug Downey", "Aakanksha Naik"
+  ],
+  "venue": "Under Review",
+  "year": 2026,
+  "links": {
+    "pdf": "https://drive.google.com/file/d/17jpMdHKsb9JhhQUyTaop-8tXQHXOAW7e/view?usp=sharing",
+    "code": "",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We collect the first dataset on decision-level feedback in Deep Research Agents, showing models cannot predict the decisions users want, but can execute them well once specified",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Personalization",
+    "Helpfulness"
+  ],
+  "domain": [
+    "Agents / RAG",
+    "Question Answering"
+  ],
+  "contributions": [
+    "Modeling",
+    "User Study",
+    "Evaluation",
+    "Dataset"
+  ],
+  "style": [
+    "Improvement Paper",
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "Check The Scoreboard: An Analysis of Scoring Schemes on Multiple-Choice Evaluation",
+  "authors": [
+    "Nishant Balepur",
+    "Paiheng Xu",
+    "Wei Ai",
+    "Eunsol Choi",
+    "Rachel Rudinger",
+    "Jordan Boyd-Graber"
+  ],
+  "venue": "Under Review",
+  "year": 2026,
+  "links": {
+    "pdf": "https://drive.google.com/file/d/1nQcxTckOVxaG446MNJRqvl8AaJYBXQ_e/view?usp=sharing",
+    "code": "https://github.com/nbalepur/mcqa-scoring",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We analyze ways to score LLMs in multiple-choice question answering, showing different approaches test different abilities and better reflect the models users prefer",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Benchmarking"
+  ],
+  "domain": [
+    "Education",
+    "Question Answering"
+  ],
+  "contributions": [
+    "Evaluation"
+  ],
+  "style": [
+    "Improvement Paper",
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users",
+  "authors": [
+    "Nishant Balepur",
+    "Malachi Hamada",
+    "Varsha Kishore",
+    "Sergey Feldman",
+    "Amanpreet Singh",
+    "Pao Siangliulue",
+    "Joseph Chee Chang",
+    "Eunsol Choi",
+    "Jordan Boyd-Graber",
+    "Aakanksha Naik"
+  ],
+  "venue": "Under Review",
+  "year": 2025,
+  "links": {
+    "pdf": "https://arxiv.org/abs/2603.16120",
+    "code": "https://github.com/allenai/personalized-scholarqa-eval",
+    "video": "https://personalized-scholarqa.apps.allenai.org/",
+    "demo": "ui-demos/mysqa.mp4",
+    "poster": ""
+  },
+  "description": "We build a personalized Deep Research system and show offline, simulated evaluations with LLM judges fail to capture what users value when interacting with our tool",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Personalization",
+    "Helpfulness",
+    "Factuality"
+  ],
+  "domain": [
+    "Agents / RAG",
+    "Question Answering"
+  ],
+  "contributions": [
+    "Modeling",
+    "User Study",
+    "Evaluation",
+    "Dataset"
+  ],
+  "style": [
+    "Complaining Paper",
+    "Improvement Paper"
+  ],
+  "selected": true
+}
+
+{
+  "title": "VibeJam: An Open Platform for User Studies on Agentic Vibe Coding",
+  "authors": [
+    "Nishant Balepur",
+    "Connor Baumler",
+    "Valerie Chen",
+    "Eunsol Choi",
+    "Rachel Rudinger",
+    "Jordan Boyd-Graber"
+  ],
+  "venue": "Under Review",
+  "year": 2026,
+  "links": {
+    "pdf": "https://arxiv.org/pdf/2510.07761",
+    "code": "https://github.com/nbalepur/mcqa-shortcuts",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We build the first open platform for running user studies on vibe coding. Results coming soon 👀",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Helpfulness"
+  ],
+  "domain": [
+    "Question Answering",
+    "Programming"
+  ],
+  "contributions": [
+    "User Study"
+  ],
+  "style": [
+    "Analysis Paper"
+  ]
+}
+
+{
   "title": "BenchMarker: An Education-Inspired Toolkit for Highlighting Flaws in Multiple-Choice Benchmarks",
   "authors": [
     "Nishant Balepur",
@@ -38,54 +200,6 @@
     "Complaining Paper",
     "Analysis Paper"
   ]
-}
-
-{
-  "title": "Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users",
-  "authors": [
-    "Nishant Balepur",
-    "Malachi Hamada",
-    "Varsha Kishore",
-    "Sergey Feldman",
-    "Amanpreet Singh",
-    "Pao Siangliulue",
-    "Joseph Chee Chang",
-    "Eunsol Choi",
-    "Jordan Boyd-Graber",
-    "Aakanksha Naik"
-  ],
-  "venue": "Under Review",
-  "year": 2025,
-  "links": {
-    "pdf": "https://drive.google.com/file/d/19gu1JyUNuXGNBGKOCRousJiliEIhTI4P/view?usp=sharing",
-    "code": "",
-    "video": "",
-    "demo": "ui-demos/mysqa.mp4",
-    "poster": ""
-  },
-  "description": "We build a personalized Deep Research system and show offline, simulated evaluations with LLM judges fail to capture what users value when interacting with our tool",
-  "type": [
-    "Preprint"
-  ],
-  "rqs": [
-    "Personalization",
-    "Helpfulness",
-    "Factuality"
-  ],
-  "domain": [
-    "Agents / RAG"
-  ],
-  "contributions": [
-    "Modeling",
-    "User Study",
-    "Evaluation",
-    "Dataset"
-  ],
-  "style": [
-    "Complaining Paper",
-    "Improvement Paper"
-  ],
-  "selected": true
 }
 
 {
@@ -165,6 +279,7 @@
     "Ashish Sabharwal",
     "Daniel S. Weld"
   ],
+  "awards": "Oral",
   "venue": "ICLR",
   "year": 2026,
   "links": {
@@ -174,7 +289,7 @@
     "poster": ""
   },
   "type": [
-    "Preprint"
+    "Conference"
   ],
   "rqs": [
     "Benchmarking"
@@ -363,7 +478,7 @@
   "rqs": [
     "Personalization"
   ],
-  "domain": [],
+  "domain": ["Question Answering"],
   "contributions": [
     "Modeling"
   ],
@@ -436,7 +551,8 @@
     "Factuality"
   ],
   "domain": [
-    "Agents / RAG"
+    "Agents / RAG",
+    "Question Answering"
   ],
   "contributions": [
     "Modeling"

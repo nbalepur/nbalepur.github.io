@@ -268,6 +268,7 @@ function Research({ title }) {
       'Education': '🎓',
       'Question Answering': '🤔',
       'Agents / RAG': '🌐',
+      'Programming': '💻',
       
       // Paper Type
       'Conference': '🏛️',

@@ -11,17 +11,14 @@ export function ThemeProvider({ children }) {
     const isFirstVisit = !sessionStorage.getItem('themeInitialized');
     
     if (isFirstVisit) {
-      // First visit in session - pick a random theme
-      const randomTheme = UNIFIED_THEMES[Math.floor(Math.random() * UNIFIED_THEMES.length)];
+      const defaultTheme = 'light';
       sessionStorage.setItem('themeInitialized', 'true');
-      // Save to localStorage for persistence across sessions
-      localStorage.setItem('unifiedTheme', randomTheme);
-      return randomTheme;
+      localStorage.setItem('unifiedTheme', defaultTheme);
+      return defaultTheme;
     }
-    
-    // Not first visit - use saved theme from localStorage
+
     const saved = localStorage.getItem('unifiedTheme');
-    return saved && UNIFIED_THEMES.includes(saved) ? saved : 'dark';
+    return saved && UNIFIED_THEMES.includes(saved) ? saved : 'light';
   });
 
   // Derive theme and isDark from unified theme
@@ -44,7 +41,7 @@ export function ThemeProvider({ children }) {
       case 'autumn':
         return { theme: 'autumn', isDark: true };
       default:
-        return { theme: 'minimal', isDark: true };
+        return { theme: 'minimal', isDark: false };
     }
   };
 

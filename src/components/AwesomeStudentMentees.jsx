@@ -33,7 +33,7 @@ function AwesomeStudentMentees({ title }) {
       name: 'Bhavya Rajasekaran',
       displayName: 'Bhavya Rajasekaran',
       degree: 'B.S. UMD',
-      period: '2025-Present',
+      period: '2025',
       research: 'LLM Evaluation',
       publications: 'One paper under review at ARR',
       link: 'https://www.linkedin.com/in/bhavya-rajasekaran-475bbb202/'

@@ -21,18 +21,18 @@ function About({ title }) {
         </p>
         
         <p>
-          Language models are good at being correct and generating responses humans prefer, but they should do more to actually help users. I work on evaluation, feedback collection, and training protocols that consider these user needs, mainly by:
+          Language models are good at being correct and generating responses humans prefer, but these signals don't capture what actually helps users. I work on evaluation, feedback collection, and training protocols towards AI systems that helps users achieve their goals, mainly by:
         </p>
         
         <ol className="list-decimal list-outside space-y-2 ml-6">
           <li className="pl-2">
-            <button onClick={() => handleRQClick('Helpfulness')} className="text-left hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Building systems that are more <strong>helpful</strong> for users</button>
+            <button onClick={() => handleRQClick('Helpfulness')} className="text-left hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Optimizing systems on <strong>downstream user feedback</strong></button>
           </li>
           <li className="pl-2">
             <button onClick={() => handleRQClick('Benchmarking')} className="text-left hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Rigorously <strong>evaluating</strong> NLP systems</button>
           </li>
           <li className="pl-2">
-            <button onClick={() => handleRQClick('Personalization')} className="text-left hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Understanding how models should <strong>personalize</strong> to users</button>
+            <button onClick={() => handleRQClick('Personalization')} className="text-left hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Learning how models should <strong>personalize</strong> to users</button>
           </li>
         </ol>
         
