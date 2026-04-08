@@ -71,10 +71,10 @@ function Experience({ title }) {
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Allen Institute for Artificial Intelligence (Ai2)</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2025 - May 2026</span>
-            </div>
+            </div> 
             <p className="text-gray-700 dark:text-gray-300 mb-1">Research Scientist Intern: Semantic Scholar</p>
             <p className="mt-2 pl-3 border-l-2 border-beige-600 dark:border-beige-400 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              <span className="font-semibold">Outcome:</span> One paper submitted on <a href="#" onClick={(e) => handlePaperClick("Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">personalized deep research</a>, one paper submitted on <a href="#" onClick={(e) => handlePaperClick("AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">benchmarking scientific agents</a>.
+              <span className="font-semibold">Outcome:</span> One ACL paper on <a href="#" onClick={(e) => handlePaperClick("Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">personalized deep research</a>,  One paper submission on <a href="#" onClick={(e) => handlePaperClick("DRACULA: Hunting for Action-Level User Feedback for Deep Research Agents", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">learning from deep research feedback</a>, co-authored ICLR paper on <a href="#" onClick={(e) => handlePaperClick("AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">benchmarking scientific agents</a>.
             </p>
           </div>
 

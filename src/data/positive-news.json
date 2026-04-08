@@ -1,6 +1,16 @@
 {
   "highlights": [
     {
+      "date": "2026-04-06",
+      "text": "Four papers were accepted to ACL (main)! Covering topics on personalized deep research, MCQA quality control, test-time reasoning shortcuts, and human-AI machine translation. Grateful for having so many amazing collaborators!",
+      "paperLinks": {
+        "personalized deep research": "Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users",
+       "MCQA quality control": "BenchMarker: An Education-Inspired Toolkit for Highlighting Flaws in Multiple-Choice Benchmarks",
+       "test-time reasoning shortcuts": "Test-Time Reasoners Are Strategic Multiple-Choice Test-Takers",
+       "human-AI machine translation": "Measuring Users' Mental Models of Speech Translation in Human-MT Collaboration"
+      }
+    },
+    {
       "date": "2026-03-15",
       "text": "Excited to share my internship work at Ai2 on building MyScholarQA: a personalized Deep Research assistant. Check out our demo!",
       "paperLinks": {

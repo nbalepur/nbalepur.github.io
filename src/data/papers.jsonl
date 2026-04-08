@@ -88,8 +88,8 @@
     "Jordan Boyd-Graber",
     "Aakanksha Naik"
   ],
-  "venue": "Under Review",
-  "year": 2025,
+  "venue": "ACL",
+  "year": 2026,
   "links": {
     "pdf": "https://arxiv.org/abs/2603.16120",
     "code": "https://github.com/allenai/personalized-scholarqa-eval",
@@ -174,7 +174,7 @@
     "Rachel Rudinger",
     "Jordan Boyd-Graber"
   ],
-  "venue": "Under Review",
+  "venue": "ACL",
   "year": 2026,
   "links": {
     "pdf": "https://drive.google.com/file/d/1KYxD-6e39MKgMt2HhQ-QQkRbXCEgKpVt/view?usp=sharing",
@@ -209,8 +209,9 @@
     "Atrey Desai†",
     "Rachel Rudinger"
   ],
-  "venue": "Under Review",
-  "year": 2025,
+  "venue": "ACL",
+  "awards": "Oral",
+  "year": 2026,
   "links": {
     "pdf": "https://arxiv.org/pdf/2510.07761",
     "code": "https://github.com/nbalepur/mcqa-shortcuts",
@@ -234,6 +235,41 @@
   "style": [
     "Analysis Paper"
   ]
+}
+
+{
+  "title": "Measuring Users' Mental Models of Speech Translation in Human-MT Collaboration",
+  "authors": [
+    "Hyojung Han",
+    "Nishant Balepur",
+    "Jordan Lee Boyd-Graber",
+    "Marine Carpuat"
+  ],
+  "venue": "ACL",
+  "awards": "Oral",
+  "year": 2026,
+  "description": "We study how users can build mental models of speech translation systems in collaborative question answering",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Helpfulness"
+  ],
+  "domain": [
+    "Question Answering"
+  ],
+  "contributions": [
+    "User Study"
+  ],
+  "style": [
+    "Analysis Paper"
+  ],
+  "links": {
+    "code": "",
+    "pdf": "",
+    "poster": "",
+    "video": ""
+  }
 }
 
 {
@@ -304,40 +340,6 @@
   "style": [
     "Analysis Paper"
   ]
-}
-
-{
-  "title": "Measuring Users' Mental Models of Speech Translation in Human-MT Collaboration",
-  "authors": [
-    "Hyojung Han",
-    "Nishant Balepur",
-    "Jordan Lee Boyd-Graber",
-    "Marine Carpuat"
-  ],
-  "venue": "Under Review",
-  "year": 2025,
-  "description": "We study how users can build mental models of speech translation systems in collaborative question answering",
-  "type": [
-    "Preprint"
-  ],
-  "rqs": [
-    "Helpfulness"
-  ],
-  "domain": [
-    "Question Answering"
-  ],
-  "contributions": [
-    "User Study"
-  ],
-  "style": [
-    "Analysis Paper"
-  ],
-  "links": {
-    "code": "",
-    "pdf": "",
-    "poster": "",
-    "video": ""
-  }
 }
 
 {
