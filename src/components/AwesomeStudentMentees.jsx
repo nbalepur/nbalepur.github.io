@@ -14,7 +14,7 @@ function AwesomeStudentMentees({ title }) {
     {
       name: 'Michael Xie',
       displayName: 'Michael Xie',
-      degree: 'M.S. UMD',
+      degree: ['M.S. UMD', 'Ph.D. JHU'],
       period: '2025-Present',
       research: 'Personalized LLMs for Education, LLM Evaluation',
       publications: 'One paper at ACL 2026',
