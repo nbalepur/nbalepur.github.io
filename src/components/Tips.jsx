@@ -145,7 +145,7 @@ function Tips({ title }) {
         {tips.map((tip, index) => (
           <div 
             key={index} 
-            className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6"
           >
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               {tip.content}

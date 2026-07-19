@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import Sidebar from './components/Sidebar';
 import ThemeEffects from './components/ThemeEffects';
 import Penguin from './components/Penguin';
+import SiteNav from './components/SiteNav';
 import { sections } from './config/sections';
 
 function App() {
@@ -31,29 +31,31 @@ function App() {
   }, []);
 
   return (
-    <div className="app-container" style={{ backgroundColor: 'var(--theme-bg-primary, #f9fafb)' }}>
+    <div className="app-container min-h-screen" style={{ backgroundColor: 'var(--theme-bg-primary, #f9fafb)' }}>
       <ThemeEffects />
       <Penguin />
-      <div className="flex flex-col lg:flex-row min-h-screen">
-        <Sidebar />
-        {/* Main Content */}
-        <main className="w-full flex-1 px-4 lg:px-16 xl:px-24 2xl:px-32 pt-8 lg:pt-16 pb-3">
-          {sections.map((section, index) => {
-            const Component = section.component;
-            return (
-              <div
-                key={section.id}
-                className={index > 0 ? "pt-16 pb-4 border-t border-gray-200 dark:border-gray-700" : "pb-4"}
-              >
-                <Component title={section.label} />
-              </div>
-            );
-          })}
-          <footer className="mt-4 pt-3 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
-            I love Cursor {'<3'}
-          </footer>
-        </main>
-      </div>
+      <main className="relative z-10 mx-auto w-full max-w-4xl px-4 sm:px-6 pt-8 sm:pt-12 pb-8">
+        <SiteNav />
+        {sections.map((section, index) => {
+          const Component = section.component;
+          const isAbout = section.id === 'about';
+          return (
+            <div
+              key={section.id}
+              className={
+                index > 0
+                  ? 'pt-12 pb-4 border-t border-gray-200 dark:border-gray-700'
+                  : 'pb-4'
+              }
+            >
+              <Component title={isAbout ? undefined : section.label} />
+            </div>
+          );
+        })}
+        <footer className="mt-4 pt-3 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
+          This website was created by <s>vibe coding</s> human-AI collaboration.
+        </footer>
+      </main>
     </div>
   );
 }

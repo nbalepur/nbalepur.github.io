@@ -17,7 +17,7 @@ function Experience({ title }) {
       <div className="mb-6">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Education</h3>
         <div className="space-y-4">
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">University of Maryland, College Park</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">Aug 2023 - May 2027 (Expected)</span>
@@ -31,7 +31,7 @@ function Experience({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">New York University</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">Aug 2025 - May 2026</span>
@@ -42,7 +42,7 @@ function Experience({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">University of Illinois at Urbana-Champaign</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">Aug 2019 - May 2023</span>
@@ -56,7 +56,7 @@ function Experience({ title }) {
       <div>
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Industry Research</h3>
         <div className="space-y-4">
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Microsoft Research (MSR)</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2026 - Aug 2026</span>
@@ -67,7 +67,7 @@ function Experience({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Allen Institute for Artificial Intelligence (Ai2)</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2025 - May 2026</span>
@@ -78,7 +78,7 @@ function Experience({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Adobe</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2024 - Aug 2024</span>
@@ -89,7 +89,7 @@ function Experience({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Meta</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2022 - Aug 2022</span>

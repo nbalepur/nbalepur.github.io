@@ -66,6 +66,8 @@ const parseJsonl = (jsonlText) => {
     .map(block => JSON.parse(block.trim()));
 };
 
+const INITIAL_PAPER_COUNT = 3;
+
 function Research({ title }) {
   const papers = useMemo(() => parseJsonl(papersJsonl), []);
   const { registerFilterFunction } = useFilter();
@@ -77,6 +79,7 @@ function Research({ title }) {
   const [hoveredAspect, setHoveredAspect] = useState(null);
   const [filterByTitle, setFilterByTitle] = useState(null);
   const [filterByAuthor, setFilterByAuthor] = useState(null);
+  const [showAllPapers, setShowAllPapers] = useState(false);
 
   // Helper to check if device supports hover
   const supportsHover = () => {
@@ -278,7 +281,7 @@ function Research({ title }) {
       // Research Questions
       'Benchmarking': '📊',
       'Factuality': '🤓',
-      'Helpfulness': '🤝',
+      'Human-AI Collaboration': '🤝',
       'Personalization': '🎨',
       
       // Contributions
@@ -458,6 +461,17 @@ function Research({ title }) {
 
   const tabs = getTabs();
 
+  // Collapse the list again when filters change
+  useEffect(() => {
+    setShowAllPapers(false);
+  }, [pivotAspect, activeTab, hoveredAspect, filterByTitle, filterByAuthor]);
+
+  const hasMorePapers = filteredPapers.length > INITIAL_PAPER_COUNT;
+  const visiblePapers = showAllPapers || !hasMorePapers
+    ? filteredPapers
+    : filteredPapers.slice(0, INITIAL_PAPER_COUNT);
+  const hiddenCount = filteredPapers.length - INITIAL_PAPER_COUNT;
+
   return (
     <section id="research" className="mb-12">
       <div className="mb-6">
@@ -578,8 +592,10 @@ function Research({ title }) {
             <p className="text-gray-500 dark:text-gray-400">No papers match the selected filter.</p>
           </div>
         ) : (
-          filteredPapers.map((paper, index) => (
-          <div key={paper.title} data-paper-title={paper.title} className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <>
+          {visiblePapers.map((paper, index) => (
+          <React.Fragment key={paper.title}>
+          <div data-paper-title={paper.title} className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="mb-2">
               {paper.image && (
                 <div className="mb-3">
@@ -778,7 +794,24 @@ function Research({ title }) {
               </div>
             )}
           </div>
-          ))
+
+          {hasMorePapers && index === INITIAL_PAPER_COUNT - 1 && (
+            <button
+              type="button"
+              onClick={() => setShowAllPapers((prev) => !prev)}
+              className="group flex w-full items-center gap-3 py-2 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors bg-transparent border-0 cursor-pointer"
+              aria-expanded={showAllPapers}
+            >
+              <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-300 dark:group-hover:bg-gray-600 transition-colors" />
+              <span className="shrink-0 tracking-wide lowercase">
+                {showAllPapers ? 'see less' : `see more (${hiddenCount})`}
+              </span>
+              <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-300 dark:group-hover:bg-gray-600 transition-colors" />
+            </button>
+          )}
+          </React.Fragment>
+          ))}
+          </>
         )}
       </div>
     </section>

@@ -17,8 +17,7 @@
     "Preprint"
   ],
   "rqs": [
-    "Evaluation",
-    "Helpfulness"
+    "Human-AI Collaboration"
   ],
   "domain": [
     "Agents / RAG",
@@ -30,7 +29,8 @@
     "Evaluation"
   ],
   "style": [
-    "Analysis Paper"
+    "Analysis Paper",
+    "Complaining Paper"
   ]
 }
 
@@ -54,7 +54,7 @@
   ],
   "rqs": [
     "Personalization",
-    "Helpfulness"
+    "Human-AI Collaboration"
   ],
   "domain": [
     "Agents / RAG",
@@ -95,7 +95,7 @@
     "Preprint"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Education",
@@ -139,7 +139,7 @@
   ],
   "rqs": [
     "Personalization",
-    "Helpfulness",
+    "Human-AI Collaboration",
     "Factuality"
   ],
   "domain": [
@@ -183,7 +183,7 @@
     "Preprint"
   ],
   "rqs": [
-    "Helpfulness"
+    "Human-AI Collaboration"
   ],
   "domain": [
     "Question Answering",
@@ -225,7 +225,7 @@
     "Conference"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Education",
@@ -261,7 +261,7 @@
     "Conference"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Question Answering",
@@ -291,7 +291,7 @@
     "Conference"
   ],
   "rqs": [
-    "Helpfulness"
+    "Human-AI Collaboration"
   ],
   "domain": [
     "Question Answering"
@@ -366,7 +366,7 @@
     "Conference"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Agents / RAG"
@@ -406,7 +406,7 @@
     "Conference"
   ],
   "rqs": [
-    "Helpfulness"
+    "Human-AI Collaboration"
   ],
   "domain": [
     "Question Answering",
@@ -445,7 +445,7 @@
     "Workshop"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [],
   "contributions": [
@@ -478,7 +478,7 @@
     "Conference"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Question Answering",
@@ -490,7 +490,7 @@
   "style": [
     "Complaining Paper"
   ],
-  "selected": true
+  "selected": false
 }
 
 {
@@ -551,7 +551,7 @@
     "Conference"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Question Answering"
@@ -626,7 +626,7 @@
     "Conference"
   ],
   "rqs": [
-    "Helpfulness"
+    "Human-AI Collaboration"
   ],
   "domain": [
     "Education",
@@ -640,7 +640,7 @@
   "style": [
     "Improvement Paper"
   ],
-  "selected": true
+  "selected": false
 }
 
 {
@@ -665,7 +665,7 @@
     "Conference"
   ],
   "rqs": [
-    "Helpfulness"
+    "Human-AI Collaboration"
   ],
   "domain": [
     "Education"
@@ -705,7 +705,7 @@
     "Conference"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Question Answering"
@@ -795,7 +795,7 @@
     "Conference"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Question Answering"
@@ -829,7 +829,7 @@
     "Conference"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Question Answering"
@@ -861,7 +861,7 @@
     "Workshop"
   ],
   "rqs": [
-    "Benchmarking"
+    "Evaluation"
   ],
   "domain": [
     "Question Answering"

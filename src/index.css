@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 18px; /* try 17–20px */
+}
+
 @layer base {
   body {
     background-color: var(--theme-bg-primary, #f9fafb);
@@ -468,11 +472,13 @@ body::-webkit-scrollbar-thumb:hover,
 
 html {
   scroll-behavior: smooth;
+  /* Clear the sticky SiteNav when jumping to #anchors / scrollIntoView */
+  scroll-padding-top: 4.5rem;
 }
 
-/* Add scroll offset to all sections for better positioning when scrolling */
+/* Offset section targets so titles sit below the sticky header */
 section[id] {
-  scroll-margin-top: 1rem; /* 10px offset */
+  scroll-margin-top: 4.5rem;
 }
 
 @keyframes fadeIn {
@@ -513,47 +519,6 @@ section[id] {
 .paper-card.card-active::before,
 .paper-card:active::before {
   opacity: 1;
-}
-
-@media (hover: hover) {
-  .paper-card:hover::before {
-    opacity: 1;
-  }
-
-  [data-theme="space"] .paper-card:hover {
-    z-index: 100;
-    background-image: linear-gradient(to bottom, #A02040, #e11d2e);
-    background-size: 4px 100%;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-  }
-
-  /* Override for space theme - use ::before for left jet engine instead */
-  [data-theme="space"] .paper-card:hover::before {
-    left: 25%;
-    top: auto;
-    bottom: 0;
-    width: 50px;
-    height: 90px;
-    background: 
-      radial-gradient(ellipse 50% 100% at 50% 0%, 
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 220, 100, 0.95) 5%,
-        rgba(255, 180, 50, 0.9) 10%,
-        rgba(255, 140, 0, 0.85) 18%,
-        rgba(255, 100, 0, 0.75) 25%,
-        rgba(255, 60, 0, 0.65) 35%,
-        rgba(200, 50, 150, 0.5) 50%,
-        rgba(139, 92, 246, 0.4) 65%,
-        rgba(99, 102, 241, 0.25) 80%,
-        transparent 100%
-      );
-    border-radius: 0;
-    transform: translateX(-50%) translateY(100%);
-    filter: blur(5px);
-    animation: jetEngineFlame 0.25s ease-out infinite;
-    z-index: 100;
-  }
 }
 
 [data-theme="space"] .paper-card.card-active,
@@ -1148,14 +1113,6 @@ section[id] {
   z-index: 100;
   filter: blur(5px);
   animation: none;
-}
-
-[data-theme="space"] .paper-card:hover::before,
-[data-theme="space"] .paper-card:hover::after {
-  opacity: 1;
-  width: 50px;
-  height: 90px;
-  animation: jetEngineFlame 0.25s ease-out infinite;
 }
 
 @keyframes jetEngineFlame {
@@ -1887,8 +1844,7 @@ main {
     transform: none !important;
   }
   
-  /* Disable hover shadows on paper cards and elements with hover:shadow classes */
-  .paper-card:hover,
+  /* Disable hover shadows on elements with hover:shadow classes */
   [class*="hover:shadow"]:hover {
     box-shadow: inherit !important;
   }

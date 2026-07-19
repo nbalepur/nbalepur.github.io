@@ -74,7 +74,7 @@ function AwesomeStudentMentees({ title }) {
         {students.map((student, index) => (
           <div 
             key={index}
-            className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4"
           >
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">

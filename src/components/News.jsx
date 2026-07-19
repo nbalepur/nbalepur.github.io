@@ -1,29 +1,12 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { useFilter } from '../contexts/FilterContext';
 import positiveNewsData from '../data/positive-news.json';
 import negativeNewsData from '../data/negative-news.json';
 
 function News({ title }) {
-  const [isHovering, setIsHovering] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
   const { filterByPaperTitle } = useFilter();
   const positiveHighlights = positiveNewsData.highlights;
   const negativeHighlights = negativeNewsData.highlights;
-
-  // Helper to check if device supports hover
-  const supportsHover = () => {
-    return typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
-  };
-
-  // Helper to check if we're on mobile (below xl breakpoint)
-  const checkIsMobile = () => {
-    return typeof window !== 'undefined' && window.matchMedia('(max-width: 1279px)').matches;
-  };
-  
-  // Allow hover to work in both single column and multi-column layouts
-  const getIsNegativeVisible = () => {
-    return isHovering || isExpanded;
-  };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -32,33 +15,19 @@ function News({ title }) {
     return `${month} ${year}`;
   };
 
-  const handlePaperClick = (paperTitle, e, isNegativeSection = false) => {
+  const handlePaperClick = (paperTitle, e) => {
     e.preventDefault();
-    // Don't navigate if clicking in negative section and it's not visible
-    if (isNegativeSection && !getIsNegativeVisible()) {
-      return;
-    }
     filterByPaperTitle(paperTitle);
   };
 
-  const handleExternalLinkClick = (e, isNegativeSection = false) => {
-    // Don't navigate if clicking in negative section and it's not visible
-    if (isNegativeSection && !getIsNegativeVisible()) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  };
-
-  const renderTextWithLinks = (text, paperLinks, isNegativeSection = false) => {
+  const renderTextWithLinks = (text, paperLinks) => {
     if (!paperLinks) return text;
 
     // Sort keys by length (longest first) to handle overlapping matches correctly
     const linkKeys = Object.keys(paperLinks).sort((a, b) => b.length - a.length);
     
     // Create a regex pattern that matches whole words only
-    const parts = [];
     let lastIndex = 0;
-    const textLower = text.toLowerCase();
     
     // Find all matches with their positions
     const matches = [];
@@ -103,7 +72,7 @@ function News({ title }) {
         <a
           key={index}
           href="#"
-          onClick={(e) => handlePaperClick(match.paperTitle, e, isNegativeSection)}
+          onClick={(e) => handlePaperClick(match.paperTitle, e)}
           className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
         >
           {matchedText}
@@ -124,19 +93,18 @@ function News({ title }) {
   const externalLinkClass =
     'text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline';
 
-  const externalLinkAnchor = (href, linkLabel, isNegativeSection) => (
+  const externalLinkAnchor = (href, linkLabel) => (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={(e) => handleExternalLinkClick(e, isNegativeSection)}
       className={externalLinkClass}
     >
       {linkLabel}
     </a>
   );
 
-  const renderExternalLinkInPlainText = (plainText, href, linkText, isNegativeSection) => {
+  const renderExternalLinkInPlainText = (plainText, href, linkText) => {
     const resolvedLinkText = linkText || href;
     const linkIndex = plainText.indexOf(resolvedLinkText);
     if (linkIndex !== -1) {
@@ -145,7 +113,7 @@ function News({ title }) {
       return (
         <>
           {beforeText}
-          {externalLinkAnchor(href, resolvedLinkText, isNegativeSection)}
+          {externalLinkAnchor(href, resolvedLinkText)}
           {afterText}
         </>
       );
@@ -153,13 +121,13 @@ function News({ title }) {
     return (
       <>
         {plainText}{' '}
-        {externalLinkAnchor(href, resolvedLinkText, isNegativeSection)}
+        {externalLinkAnchor(href, resolvedLinkText)}
       </>
     );
   };
 
   /** Apply external link to plain-text segments only (preserves adjacent paper link nodes). */
-  const mergeExternalLinkIntoContent = (content, href, linkText, isNegativeSection) => {
+  const mergeExternalLinkIntoContent = (content, href, linkText) => {
     const resolvedLinkText = linkText || href;
     const wrapSegmentIfMatch = (plainText, key) => {
       const linkIndex = plainText.indexOf(resolvedLinkText);
@@ -169,14 +137,14 @@ function News({ title }) {
       return (
         <Fragment key={key}>
           {beforeText}
-          {externalLinkAnchor(href, resolvedLinkText, isNegativeSection)}
+          {externalLinkAnchor(href, resolvedLinkText)}
           {afterText}
         </Fragment>
       );
     };
 
     if (typeof content === 'string') {
-      return renderExternalLinkInPlainText(content, href, linkText, isNegativeSection);
+      return renderExternalLinkInPlainText(content, href, linkText);
     }
     if (Array.isArray(content)) {
       let foundExternal = false;
@@ -193,7 +161,7 @@ function News({ title }) {
           <>
             {mapped}
             {' '}
-            {externalLinkAnchor(href, resolvedLinkText, isNegativeSection)}
+            {externalLinkAnchor(href, resolvedLinkText)}
           </>
         );
       }
@@ -202,31 +170,29 @@ function News({ title }) {
     return content;
   };
 
-  const renderHighlights = (highlights, isNegativeSection = false) => (
+  const renderHighlights = (highlights) => (
     <div className="space-y-3">
       {highlights.map((item, index) => {
         let textContent;
         if (item.paperLinks && item.externalLink) {
           textContent = mergeExternalLinkIntoContent(
-            renderTextWithLinks(item.text, item.paperLinks, isNegativeSection),
+            renderTextWithLinks(item.text, item.paperLinks),
             item.externalLink,
-            item.linkText,
-            isNegativeSection
+            item.linkText
           );
         } else if (item.externalLink) {
           textContent = renderExternalLinkInPlainText(
             item.text,
             item.externalLink,
-            item.linkText,
-            isNegativeSection
+            item.linkText
           );
         } else if (item.paperLinks) {
-          textContent = renderTextWithLinks(item.text, item.paperLinks, isNegativeSection);
+          textContent = renderTextWithLinks(item.text, item.paperLinks);
         } else if (item.paperTitle) {
           textContent = (
             <a
               href="#"
-              onClick={(e) => handlePaperClick(item.paperTitle, e, isNegativeSection)}
+              onClick={(e) => handlePaperClick(item.paperTitle, e)}
               className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
             >
               {item.text}
@@ -252,60 +218,23 @@ function News({ title }) {
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{title}</h2>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+      <div className="flex flex-col gap-8">
         {/* Positive Highlights */}
         <div className="flex flex-col">
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Good News! 🎉</h3>
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg min-h-[300px]">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 min-h-[300px]">
             <div className="overflow-y-auto max-h-[300px] pr-2 p-4">
               {renderHighlights(positiveHighlights)}
             </div>
           </div>
         </div>
 
-        {/* Negative Highlights - Easter Egg */}
-        <div 
-          className="flex flex-col"
-          onMouseEnter={() => {
-            if (supportsHover()) {
-              setIsHovering(true);
-            }
-          }}
-          onMouseLeave={() => {
-            if (supportsHover()) {
-              setIsHovering(false);
-            }
-          }}
-        >
-          <div className="mb-3">
-            <div
-              className={`transition-opacity duration-300 ${getIsNegativeVisible() ? 'opacity-100' : 'opacity-0'}`}
-            >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Negative Results 😭</h3>
-            </div>
-          </div>
-          <div 
-            onClick={(e) => {
-              // Make entire div clickable on mobile (below xl breakpoint) for touch devices
-              // Hover works in all layouts, but click provides an alternative for touch devices
-              if (checkIsMobile()) {
-                e.stopPropagation();
-                setIsExpanded(!isExpanded);
-              }
-            }}
-            className={`paper-card min-h-[300px] transition-all duration-300 relative cursor-pointer xl:cursor-auto ${
-              getIsNegativeVisible()
-                ? 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:-translate-y-1 hover:shadow-lg' 
-                : 'bg-transparent border border-dashed border-gray-300 dark:border-gray-600'
-            }`}
-          >
-            {!getIsNegativeVisible() && (
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                <span className="text-4xl">👀</span>
-              </div>
-            )}
-            <div className={`overflow-y-auto max-h-[300px] pr-2 p-4 transition-opacity duration-300 ${getIsNegativeVisible() ? 'opacity-100' : 'opacity-0'}`}>
-              {renderHighlights(negativeHighlights, true)}
+        {/* Negative Highlights */}
+        <div className="flex flex-col">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Negative Results 😭</h3>
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 min-h-[300px]">
+            <div className="overflow-y-auto max-h-[300px] pr-2 p-4">
+              {renderHighlights(negativeHighlights)}
             </div>
           </div>
         </div>
@@ -315,4 +244,3 @@ function News({ title }) {
 }
 
 export default News;
-

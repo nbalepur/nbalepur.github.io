@@ -19,7 +19,7 @@ function ServiceAndAwards({ title }) {
       <div className="mb-6">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Fellowships and Grants</h3>
         <div className="space-y-4">
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">
                 <a 
@@ -38,7 +38,7 @@ function ServiceAndAwards({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">
                 <a 
@@ -57,7 +57,7 @@ function ServiceAndAwards({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">
                 <a 
@@ -82,7 +82,7 @@ function ServiceAndAwards({ title }) {
       <div className="mb-6">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Awards</h3>
         <div className="space-y-4">
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">MASC-SLL 2025 Best Paper Award</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">Apr 2025</span>
@@ -107,7 +107,7 @@ function ServiceAndAwards({ title }) {
             )}
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">MASC-SLL 2024 Best Paper Award</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2024</span>
@@ -132,7 +132,7 @@ function ServiceAndAwards({ title }) {
             )}
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">UIUC CS Graduation with Highest Honors</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2023</span>
@@ -142,7 +142,7 @@ function ServiceAndAwards({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">C.W. Gear Outstanding Undergraduate Student</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2022</span>
@@ -158,7 +158,7 @@ function ServiceAndAwards({ title }) {
       <div>
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Professional Service</h3>
         <div className="space-y-4">
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Conference Reviewer</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">2022-Present</span>
@@ -174,7 +174,7 @@ function ServiceAndAwards({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Conference Volunteer</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">2023, 2025</span>
@@ -184,7 +184,7 @@ function ServiceAndAwards({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Visiting Student Day Volunteer</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">Mar 2024, 2025</span>
@@ -194,7 +194,7 @@ function ServiceAndAwards({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">Winter Storm LLM Workshop</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">Jan 2023</span>
@@ -204,7 +204,7 @@ function ServiceAndAwards({ title }) {
             </p>
           </div>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
               <h4 className="font-semibold text-gray-900 dark:text-white">SIGNLL @ UIUC</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">Aug 2020 - May 2021</span>

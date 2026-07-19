@@ -381,7 +381,7 @@ function Sidebar() {
           {/* Theme Toggle + Contact Dropdown + Navigation Dropdown */}
           <div className={`flex flex-shrink-0 transition-all duration-150 ease-out ${isScrolled ? 'flex-row gap-2' : 'flex-col gap-2.5'}`}>
             {/* Theme Toggle */}
-            <button
+            {/* <button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -391,7 +391,7 @@ function Sidebar() {
               title={`Theme: ${themeLabels[unifiedTheme] || 'Theme'}`}
             >
               {getThemeIcon(unifiedTheme, isScrolled ? 'w-5 h-5' : 'w-6 h-6')}
-            </button>
+            </button> */}
             {/* Contact Dropdown */}
             {renderContactDropdown()}
             {/* Navigation Dropdown */}
@@ -432,9 +432,9 @@ function Sidebar() {
         </div>
         
         {/* Theme Controls at Bottom */}
-        <div className="flex flex-col gap-2 lg:mt-8 items-center pb-2">
+        {/* <div className="flex flex-col gap-2 lg:mt-8 items-center pb-2">
           {renderThemeToggle()}
-        </div>
+        </div> */}
       </aside>
     </>
   );

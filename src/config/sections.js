@@ -19,7 +19,7 @@ export const sections = [
   },
   {
     id: 'research',
-    label: 'Research',
+    label: 'Research Papers',
     component: Research,
   },
   {
@@ -39,7 +39,7 @@ export const sections = [
   },
   {
     id: 'tips',
-    label: 'Style',
+    label: 'Thoughts',
     component: Tips,
   },
 ];
