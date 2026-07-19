@@ -17,7 +17,7 @@ function AwesomeStudentMentees({ title }) {
       degree: 'M.S. UMD',
       period: '2025-Present',
       research: 'Personalized LLMs for Education, LLM Evaluation',
-      publications: 'One paper under review at ARR',
+      publications: 'One paper at ACL 2026',
       link: 'https://www.linkedin.com/in/michael-xie-29139b220/'
     },
     {
@@ -26,7 +26,7 @@ function AwesomeStudentMentees({ title }) {
       degree: 'B.S. UMD',
       period: '2025-Present',
       research: 'LLM Evaluation',
-      publications: 'One paper under review at ARR',
+      publications: 'One paper at ACL 2026',
       link: 'https://www.linkedin.com/in/jane-hj-oh/'
     },
     {
@@ -35,7 +35,7 @@ function AwesomeStudentMentees({ title }) {
       degree: 'B.S. UMD',
       period: '2025',
       research: 'LLM Evaluation',
-      publications: 'One paper under review at ARR',
+      publications: 'One paper at ACL 2026',
       link: 'https://www.linkedin.com/in/bhavya-rajasekaran-475bbb202/'
     },
     {
@@ -44,7 +44,7 @@ function AwesomeStudentMentees({ title }) {
       degree: 'B.S. UMD',
       period: '2024-Present',
       research: 'LLM Evaluation',
-      publications: 'One paper at MASC-SLL 2025 Workshop, Two papers under review at ARR',
+      publications: 'One paper at MASC-SLL 2025 Workshop, Two papers at ACL 2026',
       link: 'https://atreydesai.com/'
     },
     {

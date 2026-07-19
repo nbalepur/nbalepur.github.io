@@ -79,14 +79,14 @@ function Tips({ title }) {
     {
       content: (
         <>
-          I've shifted from focusing on specific papers or deadlines to building useful artifacts (interfaces, tools, models, etc.) that can help people. This has made me much happier with my projects! And I think somehow, more productive 🤔
+          I've changed my mindset from "What paper can we submit to X?" to "What would be a cool/useful finding to show". This has made me much happier with my projects! And ironically more productive
         </>
       )
     },
     {
       content: (
         <>
-          Sometimes I think people take paper writing a bit too seriously. Try to have fun! The papers I'm most proud of are the ones where I could add the most jokes, like our self-referential{' '}
+          Papers are too serious, have fun while you can! The papers I'm most proud of are the ones where I could add the most jokes, like our self-referential{' '}
           <a 
             href="#" 
             onClick={(e) => handlePaperClick("Which of These Best Describes Multiple Choice Evaluation with LLMs? A) Forced B) Flawed C) Fixable D) All of the Above", e)}
@@ -102,12 +102,18 @@ function Tips({ title }) {
           >
             structured like a step-by-step plan
           </a>
-          , and{' '}
+          , our <a 
+            href="#" 
+            onClick={(e) => handlePaperClick("DRACULA: Hunting for the Actions Users Want Deep Research Agents to Execute", e)}
+            className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
+          >
+            vampire-themed
+          </a> paper, and my Ai2 internship project where we{' '}
           <button
             onClick={toggleGame}
             className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
           >
-            adding games as loading screens
+            used games as loading screens
           </button>
           .
         </>

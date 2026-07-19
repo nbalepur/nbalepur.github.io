@@ -1,7 +1,33 @@
 {
   "highlights": [
     {
-      "date": "2025-2-09",
+      "date": "2026-6-12",
+      "text": "One workshop proposal rejected from NeurIPS"
+    },
+    {
+      "date": "2026-6-8",
+      "text": "The highest-effort paper of my PhD got terrible ARR scores (1, 1.5, 2.5) 😋",
+      "paperLinks": {
+        "paper": "(Im)Paired Programming: Coding Agents Improve Productivity but Harm Understanding"
+      }
+    },
+    {
+      "date": "2026-6-8",
+      "text": "One paper rejected from COLM 2026, but I think I'll attend anyway!",
+      "paperLinks": {
+        "paper": "DRACULA: Hunting for the Actions Users Want Deep Research Agents to Execute"
+      }
+    },
+    {
+      "date": "2026-4-30",
+      "text": "One paper rejected from ICML 2026"
+    },
+    {
+      "date": "2026-4-10",
+      "text": "I was not nominated for UMD's Google Fellowship"
+    },
+    {
+      "date": "2026-2-09",
       "text": "I did not win the Jane Street Fellowship 🥀"
     },
     {

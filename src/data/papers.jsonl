@@ -1,5 +1,41 @@
 {
-  "title": "DRACULA: Hunting for Action-Level User Feedback for Deep Research Agents",
+  "title": "(Im)Paired Programming: Coding Agents Improve Productivity but Harm Understanding",
+  "authors": [
+    "Nishant Balepur",
+    "Connor Baumler", "Valerie Chen", "Eunsol Choi", "Rachel Rudinger", "Jordan Boyd-Graber"
+  ],
+  "venue": "Under Review",
+  "year": 2026,
+  "links": {
+    "pdf": "https://drive.google.com/file/d/1cQZTwYHdyXSPY3iHQXycVi7p8PweSLle/view?usp=sharing",
+    "code": "https://github.com/nbalepur/impaired-programming",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We causally show and explain why users struggle to understand their code when working with coding agents",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Evaluation",
+    "Helpfulness"
+  ],
+  "domain": [
+    "Agents / RAG",
+    "Question Answering",
+    "Programming"
+  ],
+  "contributions": [
+    "User Study",
+    "Evaluation"
+  ],
+  "style": [
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "DRACULA: Hunting for the Actions Users Want Deep Research Agents to Execute",
   "authors": [
     "Nishant Balepur",
     "Malachi Hamada", "Varsha Kishore", "Sergey Feldman", "Amanpreet Singh", "Pao Siangliulue", "Joseph Chee Chang", "Rachel Rudinger", "Eunsol Choi", "Jordan Lee Boyd-Graber", "Doug Downey", "Aakanksha Naik"
@@ -7,8 +43,8 @@
   "venue": "Under Review",
   "year": 2026,
   "links": {
-    "pdf": "https://drive.google.com/file/d/1EOpybBGWVAb5R2s4bzeUFU6ux1cgjZIK/view?usp=sharing",
-    "code": "",
+    "pdf": "https://arxiv.org/pdf/2604.23815",
+    "code": "https://github.com/allenai/dracula",
     "video": "",
     "poster": ""
   },
@@ -99,7 +135,7 @@
   },
   "description": "We build a personalized Deep Research system and show offline, simulated evaluations with LLM judges fail to capture what users value when interacting with our tool",
   "type": [
-    "Preprint"
+    "Conference"
   ],
   "rqs": [
     "Personalization",
@@ -136,10 +172,11 @@
   "venue": "Under Review",
   "year": 2026,
   "links": {
-    "pdf": "https://arxiv.org/pdf/2510.07761",
-    "code": "https://github.com/nbalepur/mcqa-shortcuts",
+    "pdf": "https://drive.google.com/file/d/1_fNKPikfWGhQaEVPz6hC5fb3XN7y8J4E/view?usp=sharing",
+    "code": "https://github.com/nbalepur/vibe-jam",
     "video": "",
-    "poster": ""
+    "poster": "",
+    "demo": "ui-demos/vibejam.mp4"
   },
   "description": "We build the first open platform for running user studies on vibe coding. Results coming soon 👀",
   "type": [
@@ -150,7 +187,8 @@
   ],
   "domain": [
     "Question Answering",
-    "Programming"
+    "Programming",
+    "Agents / RAG"
   ],
   "contributions": [
     "User Study"
@@ -184,7 +222,7 @@
   },
   "description": "A follow-up to our position paper, we implement insights from educational testing with LLM judges to automatically score the quality of MCQA benchmarks",
   "type": [
-    "Preprint"
+    "Conference"
   ],
   "rqs": [
     "Benchmarking"
@@ -220,7 +258,7 @@
   },
   "description": "We reveal test-time reasoners can answer multiple-choice questions without the question, but not always in problematic ways, challenging prior assumptions of partial-input studies",
   "type": [
-    "Preprint"
+    "Conference"
   ],
   "rqs": [
     "Benchmarking"
@@ -250,7 +288,7 @@
   "year": 2026,
   "description": "We study how users can build mental models of speech translation systems in collaborative question answering",
   "type": [
-    "Preprint"
+    "Conference"
   ],
   "rqs": [
     "Helpfulness"
