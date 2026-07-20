@@ -79,7 +79,7 @@ function Tips({ title }) {
     {
       content: (
         <>
-          I've changed my mindset from "What paper can we submit to X?" to "What would be a cool/useful finding to show". This has made me much happier with my projects! And ironically more productive
+          I've changed my mindset from "What paper can write about X?" to "What would be a cool/useful idea to execute?". This has made me much happier with my projects, harder for me to weave results into a paper, and ironically, more productive!
         </>
       )
     },
