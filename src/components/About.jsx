@@ -1,4 +1,4 @@
-import React, { useId, useMemo, useState } from 'react';
+import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import papersJsonl from '../data/papers.jsonl?raw';
 import { useFilter } from '../contexts/FilterContext';
 import { collaborations } from '../data/collaborations';
@@ -11,15 +11,94 @@ const mentorLinkClass =
 const pubLinkClass =
   'text-gray-500 dark:text-gray-400 hover:underline';
 
+// Shared so only one org tooltip is open at a time (important on mobile).
+let closeOpenOrgTooltip = null;
+
+function usePreferHover() {
+  const [preferHover, setPreferHover] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  });
+
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const sync = () => setPreferHover(mq.matches);
+    sync();
+    mq.addEventListener?.('change', sync);
+    // First real touch → permanently prefer tap (covers iOS sticky-hover quirks)
+    const onTouch = () => setPreferHover(false);
+    window.addEventListener('touchstart', onTouch, { once: true, passive: true });
+    return () => {
+      mq.removeEventListener?.('change', sync);
+      window.removeEventListener('touchstart', onTouch);
+    };
+  }, []);
+
+  return preferHover;
+}
+
 function Org({ orgKey }) {
   const org = collaborations[orgKey];
   const tooltipId = useId();
+  const rootRef = useRef(null);
+  const closeTimerRef = useRef(null);
   const [open, setOpen] = useState(false);
+  const preferHover = usePreferHover();
 
   const pubs = useMemo(
     () => (org ? papersForMentors(papers, org.mentors) : []),
     [org]
   );
+
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current != null) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const openTooltip = () => {
+    clearCloseTimer();
+    setOpen(true);
+  };
+
+  const scheduleClose = () => {
+    clearCloseTimer();
+    // Brief grace period so the pointer can cross into the tooltip / links.
+    closeTimerRef.current = setTimeout(() => setOpen(false), 220);
+  };
+
+  useEffect(() => () => clearCloseTimer(), []);
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const close = () => {
+      clearCloseTimer();
+      setOpen(false);
+    };
+    // Close any other open org tooltip first.
+    if (closeOpenOrgTooltip && closeOpenOrgTooltip !== close) {
+      closeOpenOrgTooltip();
+    }
+    closeOpenOrgTooltip = close;
+
+    const onPointerDown = (e) => {
+      if (rootRef.current && !rootRef.current.contains(e.target)) {
+        close();
+      }
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') close();
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      if (closeOpenOrgTooltip === close) closeOpenOrgTooltip = null;
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
 
   if (!org) return null;
 
@@ -28,86 +107,109 @@ function Org({ orgKey }) {
   const hasTip = Boolean(org.tip);
   const hasContent = hasTip || hasMentors || hasPubs;
 
+  const tooltipBody = hasTip && !hasMentors ? (
+    <span className="block">{org.tip}</span>
+  ) : (
+    <span className="block">
+      {hasMentors &&
+        org.mentors.map((m, i) => (
+          <span key={m.name}>
+            {i > 0 && ', '}
+            {m.url ? (
+              <a
+                href={m.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={mentorLinkClass}
+              >
+                {m.name}
+              </a>
+            ) : (
+              m.name
+            )}
+          </span>
+        ))}
+      {hasPubs && (
+        <span>
+          {' '}(
+          {pubs.map((p, i) => (
+            <span key={p.title}>
+              {i > 0 && ', '}
+              {p.pdf ? (
+                <a
+                  href={p.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={pubLinkClass}
+                >
+                  {p.label}
+                </a>
+              ) : (
+                <span>{p.label}</span>
+              )}
+            </span>
+          ))}
+          )
+        </span>
+      )}
+    </span>
+  );
+
   return (
     <span
-      className="relative whitespace-nowrap"
-      onMouseEnter={() => hasContent && setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      onFocus={() => hasContent && setOpen(true)}
-      onBlur={() => setOpen(false)}
+      ref={rootRef}
+      className="relative inline whitespace-nowrap align-baseline"
+      onMouseEnter={() => {
+        if (hasContent && preferHover) openTooltip();
+      }}
+      onMouseLeave={() => {
+        if (preferHover) scheduleClose();
+      }}
     >
       <button
         type="button"
-        className="inline p-0 m-0 bg-transparent border-0 cursor-help text-inherit font-inherit leading-[inherit] border-b border-dotted border-maroon-700/40 dark:border-maroon-400/40 hover:border-maroon-700 dark:hover:border-maroon-400 transition-colors"
+        className="inline p-0 m-0 bg-transparent border-0 cursor-help text-inherit font-inherit leading-[inherit] align-baseline"
         aria-describedby={hasContent && open ? tooltipId : undefined}
+        aria-expanded={hasContent ? open : undefined}
+        onClick={(e) => {
+          if (!hasContent || preferHover) return;
+          e.preventDefault();
+          e.stopPropagation();
+          setOpen((v) => !v);
+        }}
       >
         <img
           src={`/assets/icons/${org.icon}`}
           alt=""
           aria-hidden="true"
-          className="inline-block h-[1.05em] w-[1.05em] object-contain rounded-sm align-[-0.15em] mr-1"
+          className="inline-block h-[1em] w-[1em] object-contain rounded-sm align-[-0.125em] mr-1"
         />
-        {org.name}
+        <span className="org-mark-name">{org.name}</span>
       </button>
 
       {hasContent && open && (
         <span
           id={tooltipId}
           role="tooltip"
-          className="absolute left-1/2 bottom-full z-30 mb-1.5 w-max max-w-[18rem] -translate-x-1/2 rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-left text-xs leading-snug text-gray-700 dark:text-gray-200 shadow-lg normal-case font-normal whitespace-normal after:absolute after:left-0 after:right-0 after:top-full after:h-2 after:content-['']"
+          className={[
+            'z-30',
+            // Padding (not margin) bridges the gap so the pointer stays in-hover
+            // while moving between the org mark and the tooltip body.
+            preferHover
+              ? 'absolute left-1/2 bottom-full -translate-x-1/2 pb-2'
+              : 'absolute left-0 top-full pt-1.5',
+          ].join(' ')}
         >
-          {hasTip && !hasMentors ? (
-            <span className="block">{org.tip}</span>
-          ) : (
-            <span className="block">
-              {hasMentors &&
-                org.mentors.map((m, i) => (
-                  <span key={m.name}>
-                    {i > 0 && ', '}
-                    {m.url ? (
-                      <a
-                        href={m.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={mentorLinkClass}
-                      >
-                        {m.name}
-                      </a>
-                    ) : (
-                      m.name
-                    )}
-                  </span>
-                ))}
-              {hasPubs && (
-                <span>
-                  {' '}(
-                  {pubs.map((p, i) => (
-                    <span key={p.title}>
-                      {i > 0 && ', '}
-                      {p.pdf ? (
-                        <a
-                          href={p.pdf}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={pubLinkClass}
-                        >
-                          {p.label}
-                        </a>
-                      ) : (
-                        <span>{p.label}</span>
-                      )}
-                    </span>
-                  ))}
-                  )
-                </span>
-              )}
-            </span>
-          )}
+          <span className="relative block w-max max-w-[min(18rem,calc(100vw-2rem))] rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-left text-xs leading-snug text-gray-700 dark:text-gray-200 shadow-lg normal-case font-normal whitespace-normal">
+            {tooltipBody}
 
-          <span
-            aria-hidden="true"
-            className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-white dark:border-t-gray-900"
-          />
+            {preferHover && (
+              <span
+                aria-hidden="true"
+                className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-white dark:border-t-gray-900"
+              />
+            )}
+          </span>
         </span>
       )}
     </span>
@@ -193,31 +295,36 @@ function About() {
 
   return (
     <section id="about" className="mb-4">
-      {/* Photo + name/first paragraph */}
-      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 sm:items-start">
-        <div className="flex-shrink-0 mx-auto sm:mx-0">
+      {/* Photo + name/first paragraph — photo height matches the text block on desktop */}
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 sm:items-stretch">
+        <div className="flex-shrink-0 mx-auto sm:mx-0 w-36 aspect-square sm:aspect-auto sm:w-40 sm:self-stretch rounded-2xl overflow-hidden">
           <img
             src="/assets/images/profile.png"
             alt="Nishant Balepur"
-            className="w-36 h-36 sm:w-40 sm:h-40 rounded-2xl object-cover"
+            className="w-full h-full object-cover scale-[1.2] origin-center"
           />
         </div>
 
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 flex flex-col">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
                 Nishant Balepur
               </h1>
-              <p className="mt-1 text-maroon-700 dark:text-maroon-400 text-base sm:text-lg">
-                NLP Research @ University of Maryland
+              <p className="mt-1 text-base sm:text-lg text-gray-500 dark:text-gray-400 inline-flex items-center gap-1.5 flex-wrap">
+                <span>NLP Researcher, New York City</span>
+                <span className="inline-flex items-center gap-1" aria-label="Q, B, and G subway lines">
+                  <img src="/assets/icons/q.svg" alt="" aria-hidden="true" className="h-[0.9em] w-[0.9em]" />
+                  <img src="/assets/icons/b.svg" alt="" aria-hidden="true" className="h-[0.9em] w-[0.9em]" />
+                  <img src="/assets/icons/g.svg" alt="" aria-hidden="true" className="h-[0.9em] w-[0.9em]" />
+                </span>
               </p>
             </div>
             <SocialLinks />
           </div>
 
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            I'm a fourth-year Ph.D. candidate at the <Org orgKey="umd" /> working with Professors{' '}
+            I'm a fourth-year Ph.D. candidate at the <Org orgKey="umd" /> advised by Professors{' '}
             <a href="https://users.umiacs.umd.edu/~ying/" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">Jordan Boyd-Graber</a>
             {' '}and{' '}
             <a href="https://rudinger.github.io/" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">Rachel Rudinger</a>
@@ -234,13 +341,13 @@ function About() {
 
         <ol className="list-decimal list-outside space-y-2 ml-6">
           <li className="pl-2">
-            <button onClick={() => handleRQClick('Helpfulness')} className="text-left hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Learning from <strong>user feedback</strong> in AI interactions</button>
+            <button onClick={() => handleRQClick('Human-AI Collaboration')} className="text-left underline sm:no-underline sm:hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Learning from <strong>user feedback</strong> in AI interactions</button>
           </li>
           <li className="pl-2">
-            <button onClick={() => handleRQClick('Benchmarking')} className="text-left hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Rigorously <strong>evaluating</strong> AI systems</button>
+            <button onClick={() => handleRQClick('Evaluation')} className="text-left underline sm:no-underline sm:hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Rigorously <strong>evaluating</strong> AI systems</button>
           </li>
           <li className="pl-2">
-            <button onClick={() => handleRQClick('Personalization')} className="text-left hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Testing how AI should <strong>personalize</strong> to users</button>
+            <button onClick={() => handleRQClick('Personalization')} className="text-left underline sm:no-underline sm:hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Testing how AI should <strong>personalize</strong> to users</button>
           </li>
         </ol>
 
@@ -249,7 +356,7 @@ function About() {
         </p>
 
         <p>
-          And if you&apos;re searching for the office hours of &quot;Professor Balepur&quot;, you probably want <a href="https://nainasb.github.io/" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">my sister</a> 😉
+          And if you&apos;re searching for the office hours of <i>Professor</i> Balepur, you probably want <a href="https://nainasb.github.io/" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">my sister</a> 😉
         </p>
       </div>
     </section>

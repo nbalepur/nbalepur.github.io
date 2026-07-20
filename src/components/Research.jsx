@@ -261,7 +261,12 @@ function Research({ title }) {
 
   // Get emoji for a specific tab name
   const getTabEmoji = (tab) => {
-    // Map each tab name to a specific emoji
+    const aspectToUse = hoveredAspect || pivotAspect;
+    // "Evaluation" is both an RQ and a Contribution — disambiguate by aspect
+    if (tab === 'Evaluation') {
+      return aspectToUse === 'Contribution' ? '📈' : '📊';
+    }
+
     const emojiMap = {
       // Selected tabs
       'Selected': '⭐',
@@ -279,14 +284,12 @@ function Research({ title }) {
       'Workshop': '🔧',
       
       // Research Questions
-      'Benchmarking': '📊',
       'Factuality': '🤓',
       'Human-AI Collaboration': '🤝',
       'Personalization': '🎨',
       
       // Contributions
       'Dataset': '📦',
-      'Evaluation': '📈',
       'Modeling': '🤖',
       'User Study': '👥',
       

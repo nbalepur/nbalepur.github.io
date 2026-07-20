@@ -12,7 +12,7 @@ const SHORT_LABEL_ALIASES = {
   'Language Models Dont Know What You Want': 'MyScholarQA',
   'A SMART Mnemonic Sounds like "Glue Tonic"': 'SMART Mnemonics',
   'A Good Plan is Hard to Find': 'A Good Plan is Hard to Find',
-  '(Im)Paired Programming': '(Im)Paired Programming',
+  '(Im)Paired Programming': 'Impaired Programming',
 };
 
 export function shortPaperLabel(title) {
