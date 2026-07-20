@@ -53,7 +53,7 @@ function App() {
           );
         })}
         <footer className="mt-4 pt-3 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
-          This website was created by <s>vibe coding</s> human-AI collaboration.
+          This website was proudly created by <s>vibe coding</s> collaborating with Cursor :)
         </footer>
       </main>
     </div>
