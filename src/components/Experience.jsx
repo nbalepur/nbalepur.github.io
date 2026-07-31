@@ -63,7 +63,7 @@ function Experience({ title }) {
             </div>
             <p className="text-gray-700 dark:text-gray-300 mb-1">Incoming Research Intern: AI Interaction and Learning</p>
             <p className="mt-2 pl-3 border-l-2 border-beige-600 dark:border-beige-400 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              <span className="font-semibold">Outcome:</span> 🤷
+              <span className="font-semibold">Outcome:</span> Breaking Coding Agents (WIP 👀)
             </p>
           </div>
 

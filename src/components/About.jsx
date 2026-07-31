@@ -105,7 +105,8 @@ function Org({ orgKey }) {
   const hasMentors = org.mentors?.length > 0;
   const hasPubs = pubs.length > 0;
   const hasTip = Boolean(org.tip);
-  const hasContent = hasTip || hasMentors || hasPubs;
+  const hasPubsNote = Boolean(org.pubsNote);
+  const hasContent = hasTip || hasMentors || hasPubs || hasPubsNote;
 
   const tooltipBody = hasTip && !hasMentors ? (
     <span className="block">{org.tip}</span>
@@ -129,26 +130,28 @@ function Org({ orgKey }) {
             )}
           </span>
         ))}
-      {hasPubs && (
+      {(hasPubs || hasPubsNote) && (
         <span>
           {' '}(
-          {pubs.map((p, i) => (
-            <span key={p.title}>
-              {i > 0 && ', '}
-              {p.pdf ? (
-                <a
-                  href={p.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={pubLinkClass}
-                >
-                  {p.label}
-                </a>
-              ) : (
-                <span>{p.label}</span>
-              )}
-            </span>
-          ))}
+          {hasPubs
+            ? pubs.map((p, i) => (
+                <span key={p.title}>
+                  {i > 0 && ', '}
+                  {p.pdf ? (
+                    <a
+                      href={p.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={pubLinkClass}
+                    >
+                      {p.label}
+                    </a>
+                  ) : (
+                    <span>{p.label}</span>
+                  )}
+                </span>
+              ))
+            : org.pubsNote}
           )
         </span>
       )}

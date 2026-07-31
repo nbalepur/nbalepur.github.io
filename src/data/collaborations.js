@@ -16,6 +16,7 @@ export const collaborations = {
       { name: 'Tobias Schnabel', url: 'https://www.microsoft.com/en-us/research/people/toschnab/' },
       { name: 'Kiran Tomlinson', url: 'https://www.kirantomlinson.com/' },
     ],
+    pubsNote: 'In Prep 👀',
   },
   ai2: {
     name: 'Ai2',
