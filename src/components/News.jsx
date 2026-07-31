@@ -146,9 +146,12 @@ function News({ title }) {
     if (typeof content === 'string') {
       return renderExternalLinkInPlainText(content, href, linkText);
     }
-    if (Array.isArray(content)) {
+    if (Array.isArray(content) || React.isValidElement(content)) {
+      const parts = Array.isArray(content)
+        ? content
+        : React.Children.toArray(content.props?.children ?? content);
       let foundExternal = false;
-      const mapped = content.map((part, idx) => {
+      const mapped = parts.map((part, idx) => {
         if (typeof part !== 'string') return part;
         if (part.indexOf(resolvedLinkText) !== -1) {
           foundExternal = true;
@@ -170,22 +173,36 @@ function News({ title }) {
     return content;
   };
 
+  const resolveExternalLinks = (item) => {
+    const links = { ...(item.externalLinks || {}) };
+    if (item.externalLink) {
+      links[item.linkText || item.externalLink] = item.externalLink;
+    }
+    return links;
+  };
+
+  const applyExternalLinks = (content, externalLinks) => {
+    const entries = Object.entries(externalLinks || {});
+    return entries.reduce(
+      (acc, [linkText, href]) => mergeExternalLinkIntoContent(acc, href, linkText),
+      content
+    );
+  };
+
   const renderHighlights = (highlights) => (
     <div className="space-y-3">
       {highlights.map((item, index) => {
+        const externalLinks = resolveExternalLinks(item);
+        const hasExternal = Object.keys(externalLinks).length > 0;
+
         let textContent;
-        if (item.paperLinks && item.externalLink) {
-          textContent = mergeExternalLinkIntoContent(
+        if (item.paperLinks && hasExternal) {
+          textContent = applyExternalLinks(
             renderTextWithLinks(item.text, item.paperLinks),
-            item.externalLink,
-            item.linkText
+            externalLinks
           );
-        } else if (item.externalLink) {
-          textContent = renderExternalLinkInPlainText(
-            item.text,
-            item.externalLink,
-            item.linkText
-          );
+        } else if (hasExternal) {
+          textContent = applyExternalLinks(item.text, externalLinks);
         } else if (item.paperLinks) {
           textContent = renderTextWithLinks(item.text, item.paperLinks);
         } else if (item.paperTitle) {
