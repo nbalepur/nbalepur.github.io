@@ -61,9 +61,9 @@ function Experience({ title }) {
               <h4 className="font-semibold text-gray-900 dark:text-white">Microsoft Research (MSR)</h4>
               <span className="text-gray-600 dark:text-gray-400 text-sm">May 2026 - Aug 2026</span>
             </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-1">Incoming Research Intern: AI Interaction and Learning</p>
+            <p className="text-gray-700 dark:text-gray-300 mb-1">Research Intern: AI Interaction and Learning</p>
             <p className="mt-2 pl-3 border-l-2 border-beige-600 dark:border-beige-400 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              <span className="font-semibold">Outcome:</span> Breaking Coding Agents (WIP 👀)
+              <span className="font-semibold">Outcome:</span> One paper submission on <a href="#" onClick={(e) => handlePaperClick("Programming is Not Just Editing! Coding Agents Can Struggle to Understand Code", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">coding agent understanding</a>.
             </p>
           </div>
 

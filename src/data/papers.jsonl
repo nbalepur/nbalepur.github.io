@@ -1,4 +1,39 @@
 {
+  "title": "Programming is Not Just Editing! Coding Agents Can Struggle to Understand Code",
+  "authors": [
+    "Nishant Balepur",
+    "Kiran Tomlinson",
+    "Tobias Schnabel"
+  ],
+  "venue": "Under Review",
+  "year": 2026,
+  "links": {
+    "pdf": "https://drive.google.com/file/d/1YoPENe0Rb1zSIncedwqfCpuZM0SEpfjt/view",
+    "code": "",
+    "video": "",
+    "poster": ""
+  },
+  "description": "We introduce Cabra, a controlled framework showing coding agents struggle with understanding code beyond making edits",
+  "type": [
+    "Preprint"
+  ],
+  "rqs": [
+    "Evaluation"
+  ],
+  "domain": [
+    "Agents / RAG"
+  ],
+  "contributions": [
+    "Evaluation",
+    "Dataset"
+  ],
+  "style": [
+    "Analysis Paper",
+    "Complaining Paper"
+  ]
+}
+
+{
   "title": "(Im)Paired Programming: Coding Agents Improve Productivity but Harm Understanding",
   "authors": [
     "Nishant Balepur",
@@ -21,8 +56,7 @@
   ],
   "domain": [
     "Agents / RAG",
-    "Question Answering",
-    "Programming"
+    "Question Answering"
   ],
   "contributions": [
     "User Study",
@@ -187,7 +221,6 @@
   ],
   "domain": [
     "Question Answering",
-    "Programming",
     "Agents / RAG"
   ],
   "contributions": [

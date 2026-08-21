@@ -275,8 +275,7 @@ function Research({ title }) {
       // Domain
       'Education': '🎓',
       'Question Answering': '🤔',
-      'Agents / RAG': '🌐',
-      'Programming': '💻',
+      'Agents / RAG': '🧰',
       
       // Paper Type
       'Conference': '🏛️',
