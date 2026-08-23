@@ -1,8 +1,16 @@
 {
   "highlights": [
     {
+      "date": "2026-08-20",
+      "text": "Two papers accepted to EMNLP! We study scoring schemes from education for rigorous LLM evaluation, and release a demo to study human-agent collaboration in web development",
+      "paperLinks": {
+        "scoring schemes": "Check The Scoreboard: An Analysis of Scoring Schemes on Multiple-Choice Evaluation",
+        "demo": "VibeJam: A User Study Platform for Web Development with Agents"
+      }
+    },
+    {
       "date": "2026-07-31",
-      "text": "Invited talk at CAMEL-AI on BenchMarker. See the slides here!",
+      "text": "Invited to give a talk at CAMEL-AI on benchmarking benchmarks with BenchMarker. See the slides here!",
       "paperLinks": {
         "Benchmarker": "BenchMarker: An Education-Inspired Toolkit for Highlighting Flaws in Multiple-Choice Benchmarks"
       },

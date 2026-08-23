@@ -547,20 +547,6 @@ button[aria-expanded="true"] .org-mark-name::after {
   border-radius: 0;
 }
 
-.paper-card.card-active::before,
-.paper-card:active::before {
-  opacity: 1;
-}
-
-[data-theme="space"] .paper-card.card-active,
-[data-theme="space"] .paper-card:active {
-  z-index: 100;
-  background-image: linear-gradient(to bottom, #A02040, #e11d2e);
-  background-size: 4px 100%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-}
-
 /* Override for space theme - use ::before for left jet engine instead */
 [data-theme="space"] .paper-card::before {
   left: 25%;
@@ -586,14 +572,6 @@ button[aria-expanded="true"] .org-mark-name::after {
   filter: blur(5px);
   animation: none;
   z-index: 100;
-}
-
-[data-theme="space"] .paper-card.card-active::before,
-[data-theme="space"] .paper-card:active::before {
-  opacity: 1;
-  width: 50px;
-  height: 90px;
-  animation: jetEngineFlame 0.25s ease-out infinite;
 }
 
 /* Winter Theme - Replace maroon with light blue */
@@ -1905,19 +1883,9 @@ main {
   [class*="hover:translate"]:hover {
     transform: none !important;
   }
-  
-  /* Mobile click effect for paper cards - lift up on tap and stay up */
-  .paper-card.card-active,
-  .paper-card:active {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-  }
-  
-  /* Make paper cards appear clickable on mobile */
+
   .paper-card {
-    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    user-select: none; /* Prevent text selection on tap */
   }
 }
 

@@ -1,5 +1,5 @@
 {
-  "title": "Programming is Not Just Editing! Coding Agents Can Struggle to Understand Code",
+  "title": "Programming is Not Just Editing! The Importance of Code Understanding in Agents",
   "authors": [
     "Nishant Balepur",
     "Kiran Tomlinson",
@@ -13,7 +13,7 @@
     "video": "",
     "poster": ""
   },
-  "description": "We introduce Cabra, a controlled framework showing coding agents struggle with understanding code beyond making edits",
+  "description": "We introduce Cabra, a controlled framework showing coding agents struggle with understanding code to edit beyond making edits",
   "type": [
     "Preprint"
   ],
@@ -116,7 +116,7 @@
     "Rachel Rudinger",
     "Jordan Boyd-Graber"
   ],
-  "venue": "Under Review",
+  "venue": "EMNLP",
   "year": 2026,
   "links": {
     "pdf": "https://drive.google.com/file/d/1nQcxTckOVxaG446MNJRqvl8AaJYBXQ_e/view?usp=sharing",
@@ -124,9 +124,9 @@
     "video": "",
     "poster": ""
   },
-  "description": "We analyze ways to score LLMs in multiple-choice question answering, showing different approaches test different abilities and better reflect the models users prefer",
+  "description": "Drawing on education research, introduce scoring schemes for LLM evaluation—how models respond and how they are scored—showing their design can shift LLM ranks, test different abilities, and predict the models users prefer",
   "type": [
-    "Preprint"
+    "Conference"
   ],
   "rqs": [
     "Evaluation"
@@ -140,6 +140,44 @@
   ],
   "style": [
     "Improvement Paper",
+    "Analysis Paper"
+  ]
+}
+
+{
+  "title": "VibeJam: A User Study Platform for Web Development with Agents",
+  "authors": [
+    "Nishant Balepur",
+    "Connor Baumler",
+    "Valerie Chen",
+    "Eunsol Choi",
+    "Rachel Rudinger",
+    "Jordan Boyd-Graber"
+  ],
+  "venue": "EMNLP Demo",
+  "year": 2026,
+  "links": {
+    "pdf": "https://drive.google.com/file/d/1_fNKPikfWGhQaEVPz6hC5fb3XN7y8J4E/view?usp=sharing",
+    "code": "https://github.com/nbalepur/vibe-jam",
+    "video": "",
+    "poster": "",
+    "demo": "ui-demos/vibejam.mp4"
+  },
+  "description": "We build the first open platform for running user studies on vibe coding. Results coming soon 👀",
+  "type": [
+    "Conference"
+  ],
+  "rqs": [
+    "Human-AI Collaboration"
+  ],
+  "domain": [
+    "Question Answering",
+    "Agents / RAG"
+  ],
+  "contributions": [
+    "User Study"
+  ],
+  "style": [
     "Analysis Paper"
   ]
 }
@@ -193,43 +231,6 @@
   "selected": true
 }
 
-{
-  "title": "VibeJam: An Open Platform for User Studies on Agentic Vibe Coding",
-  "authors": [
-    "Nishant Balepur",
-    "Connor Baumler",
-    "Valerie Chen",
-    "Eunsol Choi",
-    "Rachel Rudinger",
-    "Jordan Boyd-Graber"
-  ],
-  "venue": "Under Review",
-  "year": 2026,
-  "links": {
-    "pdf": "https://drive.google.com/file/d/1_fNKPikfWGhQaEVPz6hC5fb3XN7y8J4E/view?usp=sharing",
-    "code": "https://github.com/nbalepur/vibe-jam",
-    "video": "",
-    "poster": "",
-    "demo": "ui-demos/vibejam.mp4"
-  },
-  "description": "We build the first open platform for running user studies on vibe coding. Results coming soon 👀",
-  "type": [
-    "Preprint"
-  ],
-  "rqs": [
-    "Human-AI Collaboration"
-  ],
-  "domain": [
-    "Question Answering",
-    "Agents / RAG"
-  ],
-  "contributions": [
-    "User Study"
-  ],
-  "style": [
-    "Analysis Paper"
-  ]
-}
 
 {
   "title": "BenchMarker: An Education-Inspired Toolkit for Highlighting Flaws in Multiple-Choice Benchmarks",
@@ -723,7 +724,7 @@
     "Marine Carpuat",
     "Rachel Rudinger"
   ],
-  "venue": "EMNLP",
+  "venue": "EMNLP Findings",
   "year": 2024,
   "links": {
     "pdf": "https://arxiv.org/pdf/2410.10854",
@@ -849,7 +850,7 @@
     "Shramay Palta",
     "Rachel Rudinger"
   ],
-  "venue": "ACL",
+  "venue": "ACL Findings",
   "year": 2024,
   "links": {
     "pdf": "https://aclanthology.org/2024.findings-acl.604.pdf",
@@ -989,7 +990,7 @@
     "Diyi Yang",
     "Jiawei Han"
   ],
-  "venue": "ACL",
+  "venue": "ACL Findings",
   "year": 2023,
   "links": {
     "pdf": "https://aclanthology.org/2023.findings-acl.14.pdf",

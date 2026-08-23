@@ -1,35 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ThemeEffects from './components/ThemeEffects';
 import Penguin from './components/Penguin';
 import SiteNav from './components/SiteNav';
 import { sections } from './config/sections';
 
 function App() {
-  // Lightweight press feedback for cards (no hover, no sticky toggle)
-  useEffect(() => {
-    const clearActiveCards = () => {
-      document.querySelectorAll('.paper-card.card-active').forEach(card => {
-        card.classList.remove('card-active');
-      });
-    };
-
-    const handlePointerDown = (e) => {
-      const paperCard = e.target.closest('.paper-card');
-      if (!paperCard) return;
-      paperCard.classList.add('card-active');
-    };
-
-    document.addEventListener('pointerdown', handlePointerDown, { passive: true });
-    document.addEventListener('pointerup', clearActiveCards, { passive: true });
-    document.addEventListener('pointercancel', clearActiveCards, { passive: true });
-
-    return () => {
-      document.removeEventListener('pointerdown', handlePointerDown);
-      document.removeEventListener('pointerup', clearActiveCards);
-      document.removeEventListener('pointercancel', clearActiveCards);
-    };
-  }, []);
-
   return (
     <div className="app-container min-h-screen" style={{ backgroundColor: 'var(--theme-bg-primary, #f9fafb)' }}>
       <ThemeEffects />
