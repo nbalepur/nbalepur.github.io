@@ -1,6 +1,14 @@
 {
   "highlights": [
     {
+      "date": "2026-08-27",
+      "text": "Invited talk at Pangram on Understanding Understanding in Coding Agents. See the slides here! 🦊",
+      "externalLinks": {
+        "Pangram": "https://www.pangram.com/",
+        "here!": "/assets/slides/Pangram.pdf"
+      }
+    },
+    {
       "date": "2026-08-20",
       "text": "Two papers accepted to EMNLP! We study scoring schemes from education for rigorous LLM evaluation, and release a demo to study human-agent collaboration in web development",
       "paperLinks": {
