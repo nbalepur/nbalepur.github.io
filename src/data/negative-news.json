@@ -1,6 +1,13 @@
 {
   "highlights": [
     {
+      "date": "2026-09-01",
+      "text": "Our demo on VibeJam was desk rejected -> reverted -> accepted -> desk rejected again for having too long of an Appendix 😵‍💫. But it'll find it's home soon 🏡",
+      "paperLinks": {
+        "VibeJam": "VibeJam: A User Study Platform for Web Development with Agents"
+      }
+    },
+    {
       "date": "2026-8-20",
       "text": "One paper rejected from EMNLP ~:("
     },

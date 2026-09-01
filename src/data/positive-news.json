@@ -10,10 +10,9 @@
     },
     {
       "date": "2026-08-20",
-      "text": "Two papers accepted to EMNLP! We study scoring schemes from education for rigorous LLM evaluation, and release a demo to study human-agent collaboration in web development",
+      "text": "One paper accepted to EMNLP! We study scoring schemes from education for rigorous LLM evaluation",
       "paperLinks": {
-        "scoring schemes": "Check The Scoreboard: An Analysis of Scoring Schemes on Multiple-Choice Evaluation",
-        "demo": "VibeJam: A User Study Platform for Web Development with Agents"
+        "scoring schemes": "Check The Scoreboard: An Analysis of Scoring Schemes on Multiple-Choice Evaluation"
       }
     },
     {

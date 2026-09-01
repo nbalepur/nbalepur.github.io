@@ -154,7 +154,7 @@
     "Rachel Rudinger",
     "Jordan Boyd-Graber"
   ],
-  "venue": "EMNLP Demo",
+  "venue": "Under Review",
   "year": 2026,
   "links": {
     "pdf": "https://arxiv.org/abs/2608.29889",
@@ -165,7 +165,7 @@
   },
   "description": "We build the first open platform for running user studies on vibe coding. Results coming soon 👀",
   "type": [
-    "Conference"
+    "Preprint"
   ],
   "rqs": [
     "Human-AI Collaboration"
