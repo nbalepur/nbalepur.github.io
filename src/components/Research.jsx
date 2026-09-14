@@ -66,7 +66,7 @@ const parseJsonl = (jsonlText) => {
     .map(block => JSON.parse(block.trim()));
 };
 
-const INITIAL_PAPER_COUNT = 3;
+const INITIAL_PAPER_COUNT = 5;
 
 function Research({ title }) {
   const papers = useMemo(() => parseJsonl(papersJsonl), []);

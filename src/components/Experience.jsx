@@ -71,7 +71,7 @@ function Experience({ title }) {
             <p className="mt-0.5">Research Scientist Intern: Semantic Scholar</p>
             <p className="mt-1 pl-3 border-l-2 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 italic">
               <span className="font-semibold not-italic">Outcome:</span> One ACL paper on{' '}
-              <a href="#" onClick={(e) => handlePaperClick("Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users", e)} className={`${linkClass} not-italic`}>personalized deep research</a>, One paper submission on{' '}
+              <a href="#" onClick={(e) => handlePaperClick("Language Models Don't Know What You Want: Evaluating Personalization in Deep Research Needs Real Users", e)} className={`${linkClass} not-italic`}>personalized deep research</a>, One paper submission on{' '}
               <a href="#" onClick={(e) => handlePaperClick("DRACULA: Hunting for the Actions Users Want Deep Research Agents to Execute", e)} className={`${linkClass} not-italic`}>learning from deep research feedback</a>, co-authored ICLR paper on{' '}
               <a href="#" onClick={(e) => handlePaperClick("AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite", e)} className={`${linkClass} not-italic`}>benchmarking scientific agents</a>.
             </p>

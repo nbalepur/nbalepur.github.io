@@ -9,7 +9,7 @@ export function parsePapersJsonl(jsonlText) {
 
 /** Prefer a short display label (pre-colon title, with a few aliases). */
 const SHORT_LABEL_ALIASES = {
-  'Language Models Dont Know What You Want': 'MyScholarQA',
+  "Language Models Don't Know What You Want": 'MyScholarQA',
   'A SMART Mnemonic Sounds like "Glue Tonic"': 'SMART Mnemonics',
   'A Good Plan is Hard to Find': 'A Good Plan is Hard to Find',
   '(Im)Paired Programming': 'Impaired Programming',

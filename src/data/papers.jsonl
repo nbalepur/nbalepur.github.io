@@ -30,7 +30,8 @@
   "style": [
     "Analysis Paper",
     "Complaining Paper"
-  ]
+  ],
+  "selected": true
 }
 
 {
@@ -65,7 +66,8 @@
   "style": [
     "Analysis Paper",
     "Complaining Paper"
-  ]
+  ],
+  "selected": true
 }
 
 {
@@ -82,7 +84,7 @@
     "video": "",
     "poster": ""
   },
-  "description": "We collect the first dataset on decision-level feedback in Deep Research Agents, showing models cannot predict the decisions users want, but can execute them well once specified",
+  "description": "We collect the first dataset on decision-level feedback in Deep Research Agents, showing agents can't predict the decisions users want, but can execute them well once specified",
   "type": [
     "Preprint"
   ],
@@ -103,7 +105,8 @@
   "style": [
     "Improvement Paper",
     "Analysis Paper"
-  ]
+  ],
+  "selected": true
 }
 
 {
@@ -163,7 +166,7 @@
     "poster": "",
     "demo": "ui-demos/vibejam.mp4"
   },
-  "description": "We build the first open platform for running user studies on vibe coding. Results coming soon 👀",
+  "description": "We build the first open platform for running user studies on vibe coding",
   "type": [
     "Preprint"
   ],
@@ -183,7 +186,7 @@
 }
 
 {
-  "title": "Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users",
+  "title": "Language Models Don't Know What You Want: Evaluating Personalization in Deep Research Needs Real Users",
   "authors": [
     "Nishant Balepur",
     "Malachi Hamada",
@@ -310,9 +313,9 @@
 }
 
 {
-  "title": "Measuring Users' Mental Models of Speech Translation in Human-MT Collaboration",
+  "title": "Measuring Users' Mental Models of Speech Translation in Human-AI Collaboration",
   "authors": [
-    "Hyojung Han",
+    "HyoJung Han",
     "Nishant Balepur",
     "Jordan Lee Boyd-Graber",
     "Marine Carpuat"
@@ -338,7 +341,7 @@
   ],
   "links": {
     "code": "",
-    "pdf": "",
+    "pdf": "https://arxiv.org/pdf/2606.24644",
     "poster": "",
     "video": ""
   }
@@ -396,6 +399,7 @@
     "video": "",
     "poster": ""
   },
+  "description": "We introduce a scientific research task suite for rigorously benchmarking AI agents on realistic workflows beyond toy evaluations",
   "type": [
     "Conference"
   ],
@@ -558,7 +562,8 @@
   ],
   "style": [
     "Improvement Paper"
-  ]
+  ],
+  "selected": true
 }
 
 {
