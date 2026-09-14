@@ -93,6 +93,49 @@ function Tips({ title }) {
     {
       content: (
         <>
+          IMO, the two most important skills to develop now in research are{' '}
+          <a
+            href="https://chenhaot.com/papers/mirage_ai_scientist.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
+          >
+            taste
+          </a>
+          {' '}and presentation. Relatedly, it's important to{' '}
+          <a
+            href="https://www.cs.columbia.edu/~johnhew/lab/ai-policy.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
+          >
+            finish tasks alone at first
+          </a>
+          ,{' '}
+          <a
+            href="https://arxiv.org/abs/2607.26375"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
+          >
+            understand your work
+          </a>
+          , and{' '}
+          <a
+            href="https://eytanadar.medium.com/ai-native-phd-students-f9f6eebc1f91"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
+          >
+            forcing yourself to struggle
+          </a>
+          {' '}beyond just checking off tasks 
+        </>
+      )
+    },
+    {
+      content: (
+        <>
           Papers are too serious, have fun while you can! The papers I'm most proud of are the ones where I could add the most jokes, like our self-referential{' '}
           <a 
             href="#" 
