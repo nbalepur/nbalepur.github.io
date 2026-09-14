@@ -10,7 +10,7 @@ function News({ title }) {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const month = date.toLocaleString('default', { month: 'long' });
+    const month = date.toLocaleString('default', { month: 'short' });
     const year = date.getFullYear();
     return `${month} ${year}`;
   };
@@ -190,7 +190,7 @@ function News({ title }) {
   };
 
   const renderHighlights = (highlights) => (
-    <div className="space-y-3">
+    <div className="space-y-3.5">
       {highlights.map((item, index) => {
         const externalLinks = resolveExternalLinks(item);
         const hasExternal = Object.keys(externalLinks).length > 0;
@@ -220,9 +220,11 @@ function News({ title }) {
         }
 
         return (
-          <div key={index} className="flex items-start space-x-3">
-            <span className="text-sm text-gray-500 dark:text-gray-400 min-w-[100px]">{formatDate(item.date)}</span>
-            <span className="text-gray-700 dark:text-gray-300">{textContent}</span>
+          <div key={index} className="grid grid-cols-[88px_minmax(0,1fr)] gap-x-3 items-baseline">
+            <span className="text-[13.5px] text-gray-500 dark:text-gray-400 tabular-nums whitespace-nowrap">
+              {formatDate(item.date)}
+            </span>
+            <span className="text-[15px] leading-[1.55] text-gray-800 dark:text-gray-200">{textContent}</span>
           </div>
         );
       })}
@@ -232,27 +234,21 @@ function News({ title }) {
   return (
     <section id="news" className="mb-12">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{title}</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{title}</h2>
       </div>
 
-      <div className="flex flex-col gap-8">
-        {/* Positive Highlights */}
-        <div className="flex flex-col">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Good News! 🎉</h3>
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 min-h-[300px]">
-            <div className="overflow-y-auto max-h-[300px] pr-2 p-4">
-              {renderHighlights(positiveHighlights)}
-            </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="paper-card flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+          <h3 className="text-[16px] font-bold text-gray-900 dark:text-white px-4 pt-4 pb-2">Good News! 🎉</h3>
+          <div className="overflow-y-auto max-h-[320px] px-4 pb-4">
+            {renderHighlights(positiveHighlights)}
           </div>
         </div>
 
-        {/* Negative Highlights */}
-        <div className="flex flex-col">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Negative Results 😭</h3>
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 min-h-[300px]">
-            <div className="overflow-y-auto max-h-[300px] pr-2 p-4">
-              {renderHighlights(negativeHighlights)}
-            </div>
+        <div className="paper-card flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+          <h3 className="text-[16px] font-bold text-gray-900 dark:text-white px-4 pt-4 pb-2">Negative Results 😭</h3>
+          <div className="overflow-y-auto max-h-[320px] px-4 pb-4">
+            {renderHighlights(negativeHighlights)}
           </div>
         </div>
       </div>

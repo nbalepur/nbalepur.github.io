@@ -311,10 +311,10 @@ function About() {
         <div className="flex-1 min-w-0 flex flex-col">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
                 Nishant Balepur
               </h1>
-              <p className="mt-1 text-base sm:text-lg text-gray-500 dark:text-gray-400 inline-flex items-center gap-1.5 flex-wrap">
+              <p className="mt-1 text-[15px] text-gray-500 dark:text-gray-400 inline-flex items-center gap-1.5 flex-wrap">
                 <span>NLP Researcher, New York City</span>
                 <span className="inline-flex items-center gap-1" aria-label="Q, B, and G subway lines">
                   <img src="/assets/icons/q.svg" alt="" aria-hidden="true" className="h-[0.9em] w-[0.9em]" />
@@ -326,7 +326,7 @@ function About() {
             <SocialLinks />
           </div>
 
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-[15px] leading-[1.55] text-gray-700 dark:text-gray-300">
             I'm a fourth-year Ph.D. candidate at the <Org orgKey="umd" /> advised by Professors{' '}
             <a href="https://users.umiacs.umd.edu/~ying/" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">Jordan Boyd-Graber</a>
             {' '}and{' '}
@@ -337,9 +337,9 @@ function About() {
       </div>
 
       {/* Rest of bio — full width below the photo */}
-      <div className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+      <div className="mt-4 text-[15px] leading-[1.55] text-gray-700 dark:text-gray-300 space-y-3">
         <p>
-          Language models are often correct and generate responses humans prefer, but that doesn&apos;t mean they are helpful. I work on evaluations, feedback collection, and human-AI collaboration to help users achieve their goals, mainly by:
+          Language models are often correct and generate responses humans prefer, but that doesn&apos;t mean they are helpful. I work on training, evaluation, and human-AI collaboration to help users achieve their goals, mainly by:
         </p>
 
         <ol className="list-decimal list-outside space-y-2 ml-6">
@@ -350,7 +350,7 @@ function About() {
             <button onClick={() => handleRQClick('Evaluation')} className="text-left underline sm:no-underline sm:hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Rigorously <strong>evaluating</strong> AI systems</button>
           </li>
           <li className="pl-2">
-            <button onClick={() => handleRQClick('Personalization')} className="text-left underline sm:no-underline sm:hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Testing how AI should <strong>personalize</strong> to users</button>
+            <button onClick={() => handleRQClick('Personalization')} className="text-left underline sm:no-underline sm:hover:underline cursor-pointer bg-transparent border-none p-0 m-0 block">Designing methods for <strong>personalizing</strong> AI</button>
           </li>
         </ol>
 

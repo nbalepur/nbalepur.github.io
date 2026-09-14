@@ -149,22 +149,11 @@ function Research({ title }) {
     );
   };
 
-  const isActualVenue = (venue) => {
-    const nonActualVenues = ['Under Review', 'Technical Report'];
-    return !nonActualVenues.includes(venue);
-  };
-
-  const formatVenue = (venue, year) => {
-    if (isActualVenue(venue)) {
-      return (
-        <>
-          <span className="font-bold text-black dark:text-white">{venue}</span>{' '}
-          <span className="font-bold text-black dark:text-white">{year}</span>
-        </>
-      );
-    }
-    return `${venue} ${year}`;
-  };
+  const formatVenue = (venue, year) => (
+    <em className="text-gray-500 dark:text-gray-400 italic">
+      {venue} {year}
+    </em>
+  );
 
   const formatTitle = (title) => {
     // Check if this is the "Which of These" paper
@@ -468,16 +457,131 @@ function Research({ title }) {
     setShowAllPapers(false);
   }, [pivotAspect, activeTab, hoveredAspect, filterByTitle, filterByAuthor]);
 
-  const hasMorePapers = filteredPapers.length > INITIAL_PAPER_COUNT;
-  const visiblePapers = showAllPapers || !hasMorePapers
-    ? filteredPapers
-    : filteredPapers.slice(0, INITIAL_PAPER_COUNT);
-  const hiddenCount = filteredPapers.length - INITIAL_PAPER_COUNT;
+  const previewPapers = filteredPapers.slice(0, INITIAL_PAPER_COUNT);
+  const restPapers = filteredPapers.slice(INITIAL_PAPER_COUNT);
+  const hasMorePapers = restPapers.length > 0;
+  const hiddenCount = restPapers.length;
+
+  const renderPaper = (paper) => {
+    const pdfHref = paper.links?.pdf || paper.links?.url;
+    const youtubeId = extractYouTubeId(paper.links?.video);
+    const externalLinks = [
+      pdfHref && { href: pdfHref, label: 'Paper' },
+      paper.links?.code && { href: paper.links.code, label: 'Code' },
+      paper.links?.poster && { href: getPosterPath(paper.links.poster), label: 'Poster' },
+    ].filter(Boolean);
+    const expandable = [
+      youtubeId && { type: 'video', label: 'Embarrassing Video' },
+      paper.links?.demo && { type: 'demo', label: 'UI Demo' },
+      paper.description && { type: 'tldr', label: 'TL;DR' },
+    ].filter(Boolean);
+    const linkClass =
+      'inline-block mr-1.5 text-[13px] leading-snug text-maroon-600 dark:text-maroon-400 hover:underline';
+
+    return (
+      <article key={paper.title} data-paper-title={paper.title} className="py-4 first:pt-1">
+        <h3 className="text-[16px] font-bold text-gray-900 dark:text-white leading-snug mb-0.5">
+          {pdfHref ? (
+            <a
+              href={pdfHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              {formatTitle(paper.title)}
+            </a>
+          ) : (
+            formatTitle(paper.title)
+          )}
+        </h3>
+        <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.48]">
+          {formatAuthors(paper.authors)}
+        </p>
+        <p className="text-[15px] leading-[1.48] mt-0.5">
+          {formatVenue(paper.venue, paper.year)}
+          {paper.awards && (
+            <>
+              <span className="text-gray-400 dark:text-gray-500"> · </span>
+              <span className="text-maroon-600 dark:text-maroon-400 font-medium not-italic">
+                {paper.awards}
+              </span>
+            </>
+          )}
+        </p>
+        {(externalLinks.length > 0 || expandable.length > 0) && (
+          <p className="mt-1">
+            {externalLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                [{item.label}]
+              </a>
+            ))}
+            {expandable.map((item) => (
+              <button
+                key={item.type}
+                type="button"
+                onClick={() => toggleContentExpansion(paper.title, item.type)}
+                className={`${linkClass} bg-transparent border-0 p-0 cursor-pointer ${
+                  isContentExpanded(paper.title, item.type) ? 'font-semibold' : ''
+                }`}
+                aria-label={isContentExpanded(paper.title, item.type) ? `Hide ${item.label}` : `Show ${item.label}`}
+              >
+                [{item.label}]
+              </button>
+            ))}
+          </p>
+        )}
+
+        {youtubeId && (
+          <div className={`overflow-hidden transition-all duration-300 ${
+            isContentExpanded(paper.title, 'video') ? 'max-h-[600px] opacity-100 mt-3' : 'max-h-0 opacity-0'
+          }`}>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${youtubeId}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
+
+        {paper.links?.demo && (
+          <div className={`overflow-hidden transition-all duration-300 ${
+            isContentExpanded(paper.title, 'demo') ? 'max-h-[600px] opacity-100 mt-3' : 'max-h-0 opacity-0'
+          }`}>
+            <DemoVideo
+              src={getDemoPath(paper.links.demo)}
+              isExpanded={isContentExpanded(paper.title, 'demo')}
+            />
+          </div>
+        )}
+
+        {paper.description && (
+          <div className={`overflow-hidden transition-all duration-300 ${
+            isContentExpanded(paper.title, 'tldr') ? 'max-h-[300px] opacity-100 mt-3' : 'max-h-0 opacity-0'
+          }`}>
+            <p className="pl-3 border-l-2 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 text-sm leading-relaxed italic">
+              {paper.description}
+            </p>
+          </div>
+        )}
+      </article>
+    );
+  };
 
   return (
     <section id="research" className="mb-12">
       <div className="mb-6">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
         
         {/* Controls: Group by selector and filter tabs */}
         <div className="mb-6">
@@ -588,231 +692,33 @@ function Research({ title }) {
         . * means equal contribution, † means mentored student.
       </p>
 
-      <div className="space-y-4" style={{ overflow: 'visible' }}>
+      <div style={{ overflow: 'visible' }}>
         {filteredPapers.length === 0 ? (
-          <div className="text-center py-8 bg-gray-100 dark:bg-gray-700">
-            <p className="text-gray-500 dark:text-gray-400">No papers match the selected filter.</p>
-          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400 py-4">No papers match the selected filter.</p>
         ) : (
           <>
-          {visiblePapers.map((paper, index) => (
-          <React.Fragment key={paper.title}>
-          <div data-paper-title={paper.title} className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
-            <div className="mb-2">
-              {paper.image && (
-                <div className="mb-3">
-                  <img 
-                    src={paper.image} 
-                    alt={paper.title}
-                    className="w-full h-auto rounded-lg border border-gray-200 dark:border-gray-700"
-                  />
-                </div>
-              )}
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                {(paper.links?.pdf || paper.links?.url) ? (
-                  <a
-                    href={paper.links?.pdf || paper.links?.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-900 dark:text-white hover:underline"
-                  >
-                    {formatTitle(paper.title)}
-                  </a>
-                ) : (
-                  formatTitle(paper.title)
-                )}
-              </h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
-                {formatAuthors(paper.authors)}
-              </p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                {formatVenue(paper.venue, paper.year)}
-                {paper.awards && (
-                  <>
-                    <span className="text-gray-400 dark:text-gray-500"> • </span>
-                    <span className="text-maroon-600 dark:text-maroon-400 font-semibold not-italic">
-                      {paper.awards}
-                    </span>
-                  </>
-                )}
-              </p>
+            <div className="divide-y divide-gray-200 dark:divide-gray-700">
+              {previewPapers.map(renderPaper)}
             </div>
-            
-            <div className="flex flex-wrap items-center gap-1 mt-2 text-sm text-gray-600 dark:text-gray-400">
-              {/* Links that open in new tabs: Paper, Code, Poster */}
-              {[
-                (paper.links?.pdf || paper.links?.url) && {
-                  type: 'link',
-                  href: paper.links?.pdf || paper.links?.url,
-                  label: 'Paper',
-                  icon: (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                    </svg>
-                  )
-                },
-                paper.links?.code && {
-                  type: 'link',
-                  href: paper.links.code,
-                  label: 'Code',
-                  icon: (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                  )
-                },
-                paper.links?.poster && {
-                  type: 'link',
-                  href: getPosterPath(paper.links.poster),
-                  label: 'Poster',
-                  icon: (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  )
-                }
-              ].filter(Boolean).map((item, idx, arr) => (
-                <React.Fragment key={idx}>
-                  {idx > 0 && <span className="mx-1.5 text-gray-400 dark:text-gray-500">/</span>}
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-gray-900 dark:hover:text-gray-200 flex items-center gap-1"
-                  >
-                    {item.icon}
-                    {item.label}
-                  </a>
-                </React.Fragment>
-              ))}
-              
-              {/* Separator bullet if we have both links and expandable content */}
-              {[
-                ...((paper.links?.pdf || paper.links?.url) ? [1] : []),
-                ...(paper.links?.code ? [1] : []),
-                ...(paper.links?.poster ? [1] : [])
-              ].filter(Boolean).length > 0 && [
-                ...(paper.links?.video && extractYouTubeId(paper.links.video) ? [1] : []),
-                ...(paper.links?.demo ? [1] : []),
-                ...(paper.description ? [1] : [])
-              ].filter(Boolean).length > 0 && (
-                <>
-                  <span className="mx-1.5 text-gray-400 dark:text-gray-500">•</span>
-                </>
-              )}
-
-              {/* Expandable content: Video, Demo, TL;DR */}
-              {[
-                paper.links?.video && extractYouTubeId(paper.links.video) && {
-                  type: 'button',
-                  onClick: () => toggleContentExpansion(paper.title, 'video'),
-                  label: 'Embarrassing Video',
-                  isExpanded: isContentExpanded(paper.title, 'video'),
-                  icon: (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  )
-                },
-                paper.links?.demo && {
-                  type: 'button',
-                  onClick: () => toggleContentExpansion(paper.title, 'demo'),
-                  label: 'UI Demo',
-                  isExpanded: isContentExpanded(paper.title, 'demo'),
-                  icon: (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                  )
-                },
-                paper.description && {
-                  type: 'button',
-                  onClick: () => toggleContentExpansion(paper.title, 'tldr'),
-                  label: 'TL;DR',
-                  isExpanded: isContentExpanded(paper.title, 'tldr'),
-                  icon: (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                  )
-                }
-              ].filter(Boolean).map((item, idx, arr) => (
-                <React.Fragment key={idx}>
-                  {idx > 0 && <span className="mx-1.5 text-gray-400 dark:text-gray-500">/</span>}
-                  <button
-                    onClick={item.onClick}
-                    className={`hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded flex items-center gap-1 ${item.isExpanded ? 'font-semibold' : ''}`}
-                    aria-label={item.isExpanded ? `Hide ${item.label}` : `Show ${item.label}`}
-                  >
-                    {item.icon}
-                    {item.label}
-                  </button>
-                </React.Fragment>
-              ))}
-            </div>
-            
-            {/* Expanded content sections - each content type expands independently */}
-            {/* YouTube Video */}
-            {paper.links?.video && extractYouTubeId(paper.links.video) && (
-              <div className={`overflow-hidden transition-all duration-300 ${
-                isContentExpanded(paper.title, 'video') ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0'
-              }`}>
-                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full rounded-lg"
-                    src={`https://www.youtube.com/embed/${extractYouTubeId(paper.links.video)}`}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
+            {hasMorePapers && (
+              <button
+                type="button"
+                onClick={() => setShowAllPapers((prev) => !prev)}
+                className="group flex w-full items-center gap-3 py-2.5 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors bg-transparent border-0 cursor-pointer"
+                aria-expanded={showAllPapers}
+              >
+                <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-300 dark:group-hover:bg-gray-600 transition-colors" />
+                <span className="shrink-0 tracking-wide lowercase">
+                  {showAllPapers ? 'see less' : `see more (${hiddenCount})`}
+                </span>
+                <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-300 dark:group-hover:bg-gray-600 transition-colors" />
+              </button>
+            )}
+            {showAllPapers && hasMorePapers && (
+              <div className="divide-y divide-gray-200 dark:divide-gray-700">
+                {restPapers.map(renderPaper)}
               </div>
             )}
-
-            {/* Demo Video */}
-            {paper.links?.demo && (
-              <div className={`overflow-hidden transition-all duration-300 ${
-                isContentExpanded(paper.title, 'demo') ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0'
-              }`}>
-                <DemoVideo
-                  src={getDemoPath(paper.links.demo)}
-                  isExpanded={isContentExpanded(paper.title, 'demo')}
-                />
-              </div>
-            )}
-
-            {/* TL;DR Description */}
-            {paper.description && (
-              <div className={`overflow-hidden transition-all duration-300 ${
-                isContentExpanded(paper.title, 'tldr') ? 'max-h-[300px] opacity-100 mt-4' : 'max-h-0 opacity-0'
-              }`}>
-                <div>
-                  <p className="pl-3 border-l-2 border-beige-600 dark:border-beige-400 text-gray-600 dark:text-gray-400 text-sm leading-relaxed italic">
-                    {paper.description}
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {hasMorePapers && index === INITIAL_PAPER_COUNT - 1 && (
-            <button
-              type="button"
-              onClick={() => setShowAllPapers((prev) => !prev)}
-              className="group flex w-full items-center gap-3 py-2 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors bg-transparent border-0 cursor-pointer"
-              aria-expanded={showAllPapers}
-            >
-              <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-300 dark:group-hover:bg-gray-600 transition-colors" />
-              <span className="shrink-0 tracking-wide lowercase">
-                {showAllPapers ? 'see less' : `see more (${hiddenCount})`}
-              </span>
-              <span className="h-px flex-1 bg-gray-200 dark:bg-gray-700 group-hover:bg-gray-300 dark:group-hover:bg-gray-600 transition-colors" />
-            </button>
-          )}
-          </React.Fragment>
-          ))}
           </>
         )}
       </div>

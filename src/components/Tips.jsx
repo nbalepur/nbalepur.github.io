@@ -79,7 +79,14 @@ function Tips({ title }) {
     {
       content: (
         <>
-          I've changed my mindset from "What paper can write about X?" to "What would be a cool/useful idea to execute?". This has made me much happier with my projects, harder for me to weave results into a paper, and ironically, more productive!
+          Over time, I've largely changed my approach to research. I have previously optimized for: 1) proposing new hard tasks and models to climb then; 2) probing simple and surprising model weaknesses; and 3) focusing solely on building useful artifacts. Now, I enjoy thinking about grander, pie in the sky, impossible-to-scope research questions
+        </>
+      )
+    },
+    {
+      content: (
+        <>
+          I am recently quite pessimistic about current research incentives (e.g., paper quantity), as they are too easy to climb with AI. I am actively thinking of how to implement better solutions (e.g., new forms of submissions like talks) — if you have ideas, let's chat! 
         </>
       )
     },
@@ -102,20 +109,20 @@ function Tips({ title }) {
           >
             structured like a step-by-step plan
           </a>
-          , our <a 
+          , and our <a 
             href="#" 
             onClick={(e) => handlePaperClick("DRACULA: Hunting for the Actions Users Want Deep Research Agents to Execute", e)}
             className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
           >
-            vampire-themed
-          </a> paper, and my Ai2 internship project where we{' '}
-          <button
-            onClick={toggleGame}
-            className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+            vampire
+          </a> and <a 
+            href="#" 
+            onClick={(e) => handlePaperClick("Programming is Not Just Editing! The Importance of Code Understanding in Agents", e)}
+       
+            className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
           >
-            used games as loading screens
-          </button>
-          .
+            goat
+          </a>-themed papers.
         </>
       ),
       hasGame: true
@@ -135,21 +142,34 @@ function Tips({ title }) {
           {' '}with my reviewing experience that my mentees find helpful.
         </>
       )
-    }
+    },
+
+    {
+      content: (
+        <>
+          Ph.D. is significantly more enjoyable with friends and hobbies. Beyond complaining, I enjoy getting bigger (😋🏋️‍♂️), climbing things (🧗‍♂️🥾), swinging rackets (🏸🎾), and           <a 
+            href="https://x.com/NishantBalepur/status/2054612790770339967?s=20"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
+          >
+            gossiping and loitering
+          </a>
+        </>
+      )
+    },
   ];
 
   return (
     <section id="tips" className="mb-12">
-      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
-      <div className="space-y-4">
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
+      <p className="text-[15px] leading-[1.55] text-gray-700 dark:text-gray-300 mb-4">
+        I try to keep this part of my website updated with my current thoughts about my Ph.D. and research :)
+      </p>
+      <ul className="list-disc list-outside space-y-3 ml-5 text-[15px] leading-[1.55] text-gray-700 dark:text-gray-300 marker:text-gray-400 dark:marker:text-gray-500">
         {tips.map((tip, index) => (
-          <div 
-            key={index} 
-            className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6"
-          >
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              {tip.content}
-            </p>
+          <li key={index}>
+            {tip.content}
             
             {/* Game iframe - expandable */}
             {tip.hasGame && (
@@ -181,9 +201,9 @@ function Tips({ title }) {
                 </div>
               </div>
             )}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

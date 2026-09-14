@@ -69,21 +69,18 @@ function AwesomeStudentMentees({ title }) {
 
   return (
     <section id="awesome-student-mentees" className="mb-12">
-      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
-      <div className="space-y-4">
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
+      <div className="divide-y divide-gray-200 dark:divide-gray-700">
         {students.map((student, index) => (
-          <div 
-            key={index}
-            className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4"
-          >
-            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-              <h4 className="font-semibold text-gray-900 dark:text-white">
+          <div key={index} className="py-3 first:pt-0">
+            <div className="flex items-baseline justify-between gap-x-4 gap-y-0.5 flex-wrap">
+              <h4 className="text-[16px] font-bold text-gray-900 dark:text-white leading-snug">
                 {student.link ? (
                   <a 
                     href={student.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-maroon-700 dark:text-maroon-400 hover:underline"
+                    className="text-maroon-600 dark:text-maroon-400 hover:underline"
                   >
                     {student.displayName}
                   </a>
@@ -91,41 +88,39 @@ function AwesomeStudentMentees({ title }) {
                   <span>{student.displayName}</span>
                 )}
               </h4>
-              <span className="text-gray-600 dark:text-gray-400 text-sm">{student.period}</span>
+              <span className="text-[13.5px] text-gray-500 dark:text-gray-400 tabular-nums whitespace-nowrap">{student.period}</span>
             </div>
-            <div className="space-y-1 text-sm">
-              <p className="text-gray-700 dark:text-gray-300">
-                <span className="font-semibold">
-                  {Array.isArray(student.degree) ? (
-                    <span className="flex items-center flex-wrap gap-1">
-                      {student.degree.map((part, idx) => (
-                        <React.Fragment key={idx}>
-                          {idx > 0 && (
-                            <ArrowRight className="inline-block w-3 h-3 mx-1 text-gray-600 dark:text-gray-400" />
-                          )}
-                          <span>{part}</span>
-                        </React.Fragment>
-                      ))}
-                    </span>
-                  ) : (
-                    student.degree
-                  )}
-                </span>
+            <div className="text-[15px] leading-[1.48] text-gray-700 dark:text-gray-300">
+              <p className="mt-0.5">
+                {Array.isArray(student.degree) ? (
+                  <span className="inline-flex items-center flex-wrap gap-1">
+                    {student.degree.map((part, idx) => (
+                      <React.Fragment key={idx}>
+                        {idx > 0 && (
+                          <ArrowRight className="inline-block w-3 h-3 mx-0.5 text-gray-500 dark:text-gray-400" />
+                        )}
+                        <span>{part}</span>
+                      </React.Fragment>
+                    ))}
+                  </span>
+                ) : (
+                  student.degree
+                )}
               </p>
-              <p className="text-gray-700 dark:text-gray-300">
-                <span className="font-semibold">Research:</span> {student.research}
+              <p className="mt-0.5 text-gray-500 dark:text-gray-400">
+                <span className="font-semibold text-gray-700 dark:text-gray-300">Research:</span> {student.research}
               </p>
-              <p className="text-gray-700 dark:text-gray-300">
+              <p className="mt-0.5 text-gray-500 dark:text-gray-400">
                 {student.name === 'Jerry He' ? (
                   <>
-                    <span className="font-semibold">Publications:</span> {student.publications}
+                    <span className="font-semibold text-gray-700 dark:text-gray-300">Publications:</span> {student.publications}
                   </>
                 ) : (
                   <>
                     <a 
                       href="#"
                       onClick={(e) => handleAuthorClick(student.name, e)}
-                      className="font-semibold text-maroon-700 dark:text-maroon-400 hover:text-maroon-800 dark:hover:text-maroon-300 hover:underline"
+                      className="font-semibold text-maroon-600 dark:text-maroon-400 hover:underline"
                     >
                       Publications:
                     </a>{' '}

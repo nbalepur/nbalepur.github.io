@@ -1,6 +1,20 @@
 import React from 'react';
 import { useFilter } from '../contexts/FilterContext';
 
+const linkClass = 'text-maroon-600 dark:text-maroon-400 hover:underline';
+
+function Entry({ title, dates, children }) {
+  return (
+    <div className="py-3 first:pt-0">
+      <div className="flex items-baseline justify-between gap-x-4 gap-y-0.5 flex-wrap">
+        <h4 className="text-[16px] font-bold text-gray-900 dark:text-white leading-snug">{title}</h4>
+        <span className="text-[13.5px] text-gray-500 dark:text-gray-400 tabular-nums whitespace-nowrap">{dates}</span>
+      </div>
+      <div className="text-[15px] leading-[1.48] text-gray-700 dark:text-gray-300">{children}</div>
+    </div>
+  );
+}
+
 function Experience({ title }) {
   const { filterByPaperTitle } = useFilter();
   
@@ -11,94 +25,72 @@ function Experience({ title }) {
   
   return (
     <section id="experience" className="mb-12">
-      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
       
-      {/* Education */}
-      <div className="mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Education</h3>
-        <div className="space-y-4">
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
-            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-              <h4 className="font-semibold text-gray-900 dark:text-white">University of Maryland, College Park</h4>
-              <span className="text-gray-600 dark:text-gray-400 text-sm">Aug 2023 - May 2027 (Expected)</span>
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-1">Ph.D. Computer Science • GPA: 4.00/4.00</p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm mb-1">
-              Advisors: <a href="https://users.umiacs.umd.edu/~ying/" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">Jordan Boyd-Graber</a>, <a href="https://rudinger.github.io/" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">Rachel Rudinger</a>
+      <div className="mb-8">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Education</h3>
+        <div className="divide-y divide-gray-200 dark:divide-gray-700">
+          <Entry title="University of Maryland, College Park" dates="Aug 2023 – May 2027 (Expected)">
+            <p className="mt-0.5">Ph.D. Computer Science • GPA: 4.00/4.00</p>
+            <p className="mt-0.5 text-gray-500 dark:text-gray-400">
+              Advisors:{' '}
+              <a href="https://users.umiacs.umd.edu/~ying/" target="_blank" rel="noopener noreferrer" className={linkClass}>Jordan Boyd-Graber</a>,{' '}
+              <a href="https://rudinger.github.io/" target="_blank" rel="noopener noreferrer" className={linkClass}>Rachel Rudinger</a>
             </p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Thesis (Proposed): <a href="/assets/pdf/thesis-proposal.pdf" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">Teaching AI to Answer Questions with Reasoning that Actually Helps You</a>
+            <p className="mt-0.5 text-gray-500 dark:text-gray-400">
+              Thesis (Proposed):{' '}
+              <a href="/assets/pdf/thesis-proposal.pdf" target="_blank" rel="noopener noreferrer" className={linkClass}>Teaching AI to Answer Questions with Reasoning that Actually Helps You</a>
             </p>
-          </div>
+          </Entry>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
-            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-              <h4 className="font-semibold text-gray-900 dark:text-white">New York University</h4>
-              <span className="text-gray-600 dark:text-gray-400 text-sm">Aug 2025 - May 2026</span>
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-1">Visiting Student</p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Host: <a href="https://eunsol.github.io/" target="_blank" rel="noopener noreferrer" className="text-maroon-700 dark:text-maroon-400 hover:underline">Eunsol Choi</a>
+          <Entry title="New York University" dates="Aug 2025 – May 2026">
+            <p className="mt-0.5">Visiting Student</p>
+            <p className="mt-0.5 text-gray-500 dark:text-gray-400">
+              Host: <a href="https://eunsol.github.io/" target="_blank" rel="noopener noreferrer" className={linkClass}>Eunsol Choi</a>
             </p>
-          </div>
+          </Entry>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
-            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-              <h4 className="font-semibold text-gray-900 dark:text-white">University of Illinois at Urbana-Champaign</h4>
-              <span className="text-gray-600 dark:text-gray-400 text-sm">Aug 2019 - May 2023</span>
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-1">B.S. Computer Science; B.S. Statistics • GPA: 4.00/4.00</p>
-          </div>
+          <Entry title="University of Illinois at Urbana-Champaign" dates="Aug 2019 – May 2023">
+            <p className="mt-0.5">B.S. Computer Science; B.S. Statistics • GPA: 4.00/4.00</p>
+          </Entry>
         </div>
       </div>
 
-      {/* Industry Research Experience */}
       <div>
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Industry Research</h3>
-        <div className="space-y-4">
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
-            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-              <h4 className="font-semibold text-gray-900 dark:text-white">Microsoft Research (MSR)</h4>
-              <span className="text-gray-600 dark:text-gray-400 text-sm">May 2026 - Aug 2026</span>
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-1">Research Intern: AI Interaction and Learning</p>
-            <p className="mt-2 pl-3 border-l-2 border-beige-600 dark:border-beige-400 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              <span className="font-semibold">Outcome:</span> One paper submission on <a href="#" onClick={(e) => handlePaperClick("Programming is Not Just Editing! The Importance of Code Understanding in Agents", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">coding agent evaluations</a>.
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Industry Research</h3>
+        <div className="divide-y divide-gray-200 dark:divide-gray-700">
+          <Entry title="Microsoft Research (MSR)" dates="May 2026 – Aug 2026">
+            <p className="mt-0.5">Research Intern: AI Interaction and Learning</p>
+            <p className="mt-1 pl-3 border-l-2 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 italic">
+              <span className="font-semibold not-italic">Outcome:</span> One paper submission on{' '}
+              <a href="#" onClick={(e) => handlePaperClick("Programming is Not Just Editing! The Importance of Code Understanding in Agents", e)} className={`${linkClass} not-italic`}>coding agent evaluations</a>.
             </p>
-          </div>
+          </Entry>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
-            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-              <h4 className="font-semibold text-gray-900 dark:text-white">Allen Institute for Artificial Intelligence (Ai2)</h4>
-              <span className="text-gray-600 dark:text-gray-400 text-sm">May 2025 - May 2026</span>
-            </div> 
-            <p className="text-gray-700 dark:text-gray-300 mb-1">Research Scientist Intern: Semantic Scholar</p>
-            <p className="mt-2 pl-3 border-l-2 border-beige-600 dark:border-beige-400 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              <span className="font-semibold">Outcome:</span> One ACL paper on <a href="#" onClick={(e) => handlePaperClick("Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">personalized deep research</a>,  One paper submission on <a href="#" onClick={(e) => handlePaperClick("DRACULA: Hunting for the Actions Users Want Deep Research Agents to Execute", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">learning from deep research feedback</a>, co-authored ICLR paper on <a href="#" onClick={(e) => handlePaperClick("AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">benchmarking scientific agents</a>.
+          <Entry title="Allen Institute for Artificial Intelligence (Ai2)" dates="May 2025 – May 2026">
+            <p className="mt-0.5">Research Scientist Intern: Semantic Scholar</p>
+            <p className="mt-1 pl-3 border-l-2 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 italic">
+              <span className="font-semibold not-italic">Outcome:</span> One ACL paper on{' '}
+              <a href="#" onClick={(e) => handlePaperClick("Language Models Dont Know What You Want: Evaluating Personalization in Deep Research Needs Real Users", e)} className={`${linkClass} not-italic`}>personalized deep research</a>, One paper submission on{' '}
+              <a href="#" onClick={(e) => handlePaperClick("DRACULA: Hunting for the Actions Users Want Deep Research Agents to Execute", e)} className={`${linkClass} not-italic`}>learning from deep research feedback</a>, co-authored ICLR paper on{' '}
+              <a href="#" onClick={(e) => handlePaperClick("AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite", e)} className={`${linkClass} not-italic`}>benchmarking scientific agents</a>.
             </p>
-          </div>
+          </Entry>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
-            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-              <h4 className="font-semibold text-gray-900 dark:text-white">Adobe</h4>
-              <span className="text-gray-600 dark:text-gray-400 text-sm">May 2024 - Aug 2024</span>
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-1">Research Scientist Intern: Document Intelligence</p>
-            <p className="mt-2 pl-3 border-l-2 border-beige-600 dark:border-beige-400 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              <span className="font-semibold">Outcome:</span> Patent, <a href="#" onClick={(e) => handlePaperClick("MoDS: Moderating a Mixture of Document Speakers to Summarize Debatable Queries in Document Collections", e)} className="text-maroon-600 dark:text-maroon-400 hover:underline">Paper at NAACL 2025 on multi-LLM QA</a>.
+          <Entry title="Adobe" dates="May 2024 – Aug 2024">
+            <p className="mt-0.5">Research Scientist Intern: Document Intelligence</p>
+            <p className="mt-1 pl-3 border-l-2 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 italic">
+              <span className="font-semibold not-italic">Outcome:</span> Patent,{' '}
+              <a href="#" onClick={(e) => handlePaperClick("MoDS: Moderating a Mixture of Document Speakers to Summarize Debatable Queries in Document Collections", e)} className={`${linkClass} not-italic`}>Paper at NAACL 2025 on multi-LLM QA</a>.
             </p>
-          </div>
+          </Entry>
 
-          <div className="paper-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4">
-            <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-              <h4 className="font-semibold text-gray-900 dark:text-white">Meta</h4>
-              <span className="text-gray-600 dark:text-gray-400 text-sm">May 2022 - Aug 2022</span>
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-1">Software Engineering Intern: Facebook Creators Well-being (Comment Safety)</p>
-            <p className="mt-2 pl-3 border-l-2 border-beige-600 dark:border-beige-400 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              <span className="font-semibold">Outcome:</span> 15% drop in negative interactions among Facebook's 1 billion users
+          <Entry title="Meta" dates="May 2022 – Aug 2022">
+            <p className="mt-0.5">Software Engineering Intern: Facebook Creators Well-being (Comment Safety)</p>
+            <p className="mt-1 pl-3 border-l-2 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 italic">
+              <span className="font-semibold not-italic">Outcome:</span> 15% drop in negative interactions among Facebook&apos;s 1 billion users
             </p>
-          </div>
+          </Entry>
         </div>
       </div>
     </section>
@@ -106,4 +98,3 @@ function Experience({ title }) {
 }
 
 export default Experience;
-
