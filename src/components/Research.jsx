@@ -48,13 +48,16 @@ const DemoVideo = ({ src, isExpanded }) => {
   );
 };
 
-const PIVOT_ASPECTS = {
-  'Selected': 'selected', // Special case for selected papers
-  'Paper Type': 'type',
-  'RQ': 'rqs',
-  'Domain': 'domain',
-  'Contribution': 'contributions',
-  'Vibe': 'style'
+const PAPER_FILTERS = [
+  'Selected',
+  'All',
+  'Evaluation',
+  'Human-AI Teams',
+  'Personalization',
+];
+
+const RQ_BY_FILTER = {
+  'Human-AI Teams': 'Human-AI Collaboration',
 };
 
 // Parse JSONL into array of papers
@@ -73,46 +76,10 @@ function Research({ title }) {
   const { registerFilterFunction } = useFilter();
   // Track expanded content types per paper: { "paperTitle": Set(["video", "demo", "poster", "tldr"]) }
   const [expandedContent, setExpandedContent] = useState(new Map());
-  const [pivotAspect, setPivotAspect] = useState('Selected');
   const [activeTab, setActiveTab] = useState('Selected');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [hoveredAspect, setHoveredAspect] = useState(null);
   const [filterByTitle, setFilterByTitle] = useState(null);
   const [filterByAuthor, setFilterByAuthor] = useState(null);
   const [showAllPapers, setShowAllPapers] = useState(false);
-
-  // Helper to check if device supports hover
-  const supportsHover = () => {
-    return typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
-  };
-
-  // Dynamically extract unique values for each aspect from the papers data
-  const filterOptions = useMemo(() => {
-    const options = {
-      type: new Set(),
-      rqs: new Set(),
-      domain: new Set(),
-      contributions: new Set(),
-      style: new Set()
-    };
-
-    papers.forEach(paper => {
-      if (paper.type) paper.type.forEach(val => options.type.add(val));
-      if (paper.rqs) paper.rqs.forEach(val => options.rqs.add(val));
-      if (paper.domain) paper.domain.forEach(val => options.domain.add(val));
-      if (paper.contributions) paper.contributions.forEach(val => options.contributions.add(val));
-      if (paper.style) paper.style.forEach(val => options.style.add(val));
-    });
-
-    // Convert Sets to sorted arrays
-    return {
-      type: Array.from(options.type).sort(),
-      rqs: Array.from(options.rqs).sort(),
-      domain: Array.from(options.domain).sort(),
-      contributions: Array.from(options.contributions).sort(),
-      style: Array.from(options.style).sort()
-    };
-  }, [papers]);
 
   const formatAuthors = (authors) => {
     if (authors.length === 0) return '';
@@ -248,79 +215,6 @@ function Research({ title }) {
   };
 
 
-  // Get emoji for a specific tab name
-  const getTabEmoji = (tab) => {
-    const aspectToUse = hoveredAspect || pivotAspect;
-    // "Evaluation" is both an RQ and a Contribution — disambiguate by aspect
-    if (tab === 'Evaluation') {
-      return aspectToUse === 'Contribution' ? '📈' : '📊';
-    }
-
-    const emojiMap = {
-      // Selected tabs
-      'Selected': '⭐',
-      '😎 Also Good': '😎',
-      
-      // Domain
-      'Education': '🎓',
-      'Question Answering': '🤔',
-      'Agents / RAG': '🧰',
-      
-      // Paper Type
-      'Conference': '🏛️',
-      'Preprint': '📄',
-      'Workshop': '🔧',
-      
-      // Research Questions
-      'Factuality': '🤓',
-      'Human-AI Collaboration': '🤝',
-      'Personalization': '🎨',
-      
-      // Contributions
-      'Dataset': '📦',
-      'Modeling': '🤖',
-      'User Study': '👥',
-      
-      // Vibe
-      'Analysis Paper': '🔍',
-      'Complaining Paper': '😡',
-      'Improvement Paper': '💪',
-
-      'Information Extraction': '⛏️',
-    };
-    
-    return emojiMap[tab] || '📌';
-  };
-
-  // Get available tabs based on the pivot aspect (or hovered aspect for preview)
-  const getTabs = () => {
-    const aspectToUse = hoveredAspect || pivotAspect;
-    if (aspectToUse === 'Selected') {
-      return ['Selected', '😎 Also Good'];
-    }
-    const aspectKey = PIVOT_ASPECTS[aspectToUse];
-    return filterOptions[aspectKey] || [];
-  };
-
-  // Handle pivot aspect change
-  const handlePivotChange = (newPivot) => {
-    setPivotAspect(newPivot);
-    setHoveredAspect(null);
-    setIsDropdownOpen(false);
-    // Reset all other filters
-    setFilterByTitle(null);
-    setFilterByAuthor(null);
-    // Auto-select first tab when pivot changes
-    if (newPivot === 'Selected') {
-      setActiveTab('Selected');
-    } else {
-      const aspectKey = PIVOT_ASPECTS[newPivot];
-      const firstTab = filterOptions[aspectKey]?.[0] || null;
-      setActiveTab(firstTab);
-    }
-  };
-
-
   // Handle tab selection
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -336,23 +230,18 @@ function Research({ title }) {
         // Filter by author
         setFilterByAuthor(author);
         setFilterByTitle(null);
-        setPivotAspect('Selected');
-        setActiveTab('😎 Also Good');
+        setActiveTab('All');
       } else if (title) {
         // Filter by title
         setFilterByTitle(title);
         setFilterByAuthor(null);
-        setPivotAspect('Selected');
-        setActiveTab('😎 Also Good');
+        setActiveTab('All');
       } else {
         // Normal filtering
         setFilterByTitle(null);
         setFilterByAuthor(null);
-        setPivotAspect(pivot);
-        setActiveTab(tab);
+        setActiveTab(tab === 'Human-AI Collaboration' ? 'Human-AI Teams' : tab);
       }
-      setHoveredAspect(null);
-      setIsDropdownOpen(false);
       // Scroll to research section
       setTimeout(() => {
         const researchSection = document.getElementById('research');
@@ -364,27 +253,16 @@ function Research({ title }) {
     registerFilterFunction(filterAndScroll);
   }, [registerFilterFunction]);
 
-  // Calculate paper count for each tab (using hovered aspect for preview)
+  // Calculate paper count for each filter.
   const getTabCount = (tab) => {
-    const aspectToUse = hoveredAspect || pivotAspect;
-    if (aspectToUse === 'Selected') {
-      if (tab === 'Selected') {
-        return papers.filter(paper => paper.selected === true).length;
-      } else if (tab === '😎 Also Good') {
-        return papers.length;
-      }
-      return 0;
+    if (tab === 'Selected') {
+      return papers.filter(paper => paper.selected === true).length;
     }
-    
-    const aspectKey = PIVOT_ASPECTS[aspectToUse];
-    if (aspectKey) {
-      return papers.filter(paper => {
-        const paperValues = paper[aspectKey] || [];
-        return paperValues.includes(tab);
-      }).length;
+    if (tab === 'All') {
+      return papers.length;
     }
-    
-    return 0;
+    const rq = RQ_BY_FILTER[tab] || tab;
+    return papers.filter(paper => (paper.rqs || []).includes(rq)).length;
   };
 
   const filteredPapers = useMemo(() => {
@@ -409,53 +287,20 @@ function Research({ title }) {
       return filtered.filter(paper => paper.title === filterByTitle);
     }
     
-    const aspectToUse = hoveredAspect || pivotAspect;
-    
-    // When hovering, use the first tab of that aspect (0th index)
-    let tabToUse = activeTab;
-    if (hoveredAspect) {
-      if (hoveredAspect === 'Selected') {
-        tabToUse = 'Selected';
-      } else {
-        const aspectKey = PIVOT_ASPECTS[hoveredAspect];
-        const firstTab = filterOptions[aspectKey]?.[0] || null;
-        tabToUse = firstTab;
-      }
+    if (activeTab === 'Selected') {
+      return filtered.filter(paper => paper.selected === true);
     }
-
-    // If no tab is selected, show all papers
-    if (!tabToUse) {
+    if (activeTab === 'All') {
       return filtered;
     }
-
-    // Handle Selected pivot aspect
-    if (aspectToUse === 'Selected') {
-      if (tabToUse === 'Selected') {
-        return filtered.filter(paper => paper.selected === true);
-      } else if (tabToUse === '😎 Also Good') {
-        return filtered;
-      }
-      return filtered;
-    }
-
-    // Filter by the selected aspect and tab value
-    const aspectKey = PIVOT_ASPECTS[aspectToUse];
-    if (aspectKey) {
-      filtered = filtered.filter(paper => {
-        const paperValues = paper[aspectKey] || [];
-        return paperValues.includes(tabToUse);
-      });
-    }
-
-    return filtered;
-  }, [papers, pivotAspect, activeTab, hoveredAspect, filterOptions, filterByTitle, filterByAuthor]);
-
-  const tabs = getTabs();
+    const rq = RQ_BY_FILTER[activeTab] || activeTab;
+    return filtered.filter(paper => (paper.rqs || []).includes(rq));
+  }, [papers, activeTab, filterByTitle, filterByAuthor]);
 
   // Collapse the list again when filters change
   useEffect(() => {
     setShowAllPapers(false);
-  }, [pivotAspect, activeTab, hoveredAspect, filterByTitle, filterByAuthor]);
+  }, [activeTab, filterByTitle, filterByAuthor]);
 
   const previewPapers = filteredPapers.slice(0, INITIAL_PAPER_COUNT);
   const restPapers = filteredPapers.slice(INITIAL_PAPER_COUNT);
@@ -583,82 +428,12 @@ function Research({ title }) {
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
         
-        {/* Controls: Group by selector and filter tabs */}
+        {/* Paper filters */}
         <div className="mb-6">
-          {/* Group by selector with horizontal dropdown */}
-          <div className="pivot-dropdown-container flex items-center gap-3 mb-4 flex-wrap">
-            <span className="text-sm uppercase tracking-wide font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">Group by:</span>
-            <div className="relative flex-shrink-0">
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="text-sm font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2 px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200 shadow-sm whitespace-nowrap"
-              >
-                <span>{pivotAspect}</span>
-                <svg 
-                  className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-            {/* Dropdown Options - horizontal row to the right of the button */}
-            {isDropdownOpen && (
-              <div 
-                className="flex flex-row flex-wrap items-center gap-2 pivot-dropdown-options"
-                onMouseLeave={() => {
-                  if (supportsHover()) {
-                    setHoveredAspect(null);
-                  }
-                }}
-              >
-                {Object.keys(PIVOT_ASPECTS).map((aspect, index) => {
-                  if (aspect === pivotAspect) return null;
-                  return (
-                    <button
-                      key={aspect}
-                      onMouseEnter={() => {
-                        if (supportsHover()) {
-                          setHoveredAspect(aspect);
-                        }
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setHoveredAspect(null);
-                        handlePivotChange(aspect);
-                      }}
-                      className={`text-sm font-bold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-md transition-all duration-200 shadow-sm whitespace-nowrap ${
-                        aspect === pivotAspect ? 'bg-gray-100 dark:bg-gray-700' : ''
-                      } animate-fade-in`}
-                      style={{
-                        animationDelay: `${index * 30}ms`,
-                        animationFillMode: 'both',
-                      }}
-                    >
-                      {aspect}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-
-          {/* Filter Tabs */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pb-1">
-            {tabs.map((tab, index) => {
-              let isActive = false;
-              if (hoveredAspect) {
-                // When hovering, highlight the first tab (0th index)
-                isActive = index === 0;
-              } else {
-                isActive = activeTab === tab;
-              }
+            {PAPER_FILTERS.map((tab) => {
+              const isActive = activeTab === tab;
               const count = getTabCount(tab);
-              // Check if tab already starts with an emoji (like '😎 Also Good')
-              const hasEmoji = /^[\p{Emoji}\u200d]+/u.test(tab);
-              const emoji = hasEmoji ? '' : getTabEmoji(tab) + ' ';
               return (
                 <button
                   key={tab}
@@ -672,7 +447,7 @@ function Research({ title }) {
                       : 'font-normal text-gray-400 dark:text-gray-500 border-transparent hover:text-gray-600 dark:hover:text-gray-400 hover:border-gray-300 dark:hover:border-gray-600'
                   }`}
                 >
-                  {emoji}{tab} ({count})
+                  {tab} ({count})
                 </button>
               );
             })}

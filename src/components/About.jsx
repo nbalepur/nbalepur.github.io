@@ -355,7 +355,7 @@ function About() {
         </ol>
 
         <p>
-          The old Nishant worked on making NLP systems <button onClick={handleFactualClick} className="hover:underline cursor-pointer bg-transparent border-none p-0 m-0">more factual</button>, but I&apos;m now more interested in research that helps humans and is fun to read. If you&apos;re interested in similar problems, don&apos;t hesitate to <a href="mailto:nbalepur@umd.edu" className="text-maroon-700 dark:text-maroon-400 hover:underline">reach out</a>!
+          I have worked on problems across domains (Question Answering, Coding, AI4Science, Education, Summarization) and models (LLMs, Agents, Retrievers) but broadly, I&apos;m interested in research that helps humans and is fun to read. If you&apos;re interested in similar problems, don&apos;t hesitate to <a href="mailto:nbalepur@umd.edu" className="text-maroon-700 dark:text-maroon-400 hover:underline">reach out</a>!
         </p>
 
         <p>
