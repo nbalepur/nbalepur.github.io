@@ -160,7 +160,7 @@ function Tips({ title }) {
             vampire
           </a> and <a 
             href="#" 
-            onClick={(e) => handlePaperClick("Code Understanding is a Bottleneck for Agents", e)}
+            onClick={(e) => handlePaperClick("Code Understanding is a Bottleneck for Coding Agents", e)}
        
             className="text-maroon-600 dark:text-maroon-400 hover:text-maroon-700 dark:hover:text-maroon-300 hover:underline"
           >
