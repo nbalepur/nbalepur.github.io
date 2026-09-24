@@ -63,7 +63,7 @@ function Experience({ title }) {
             <p className="mt-0.5">Research Intern: AI Interaction and Learning</p>
             <p className="mt-1 pl-3 border-l-2 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 italic">
               <span className="font-semibold not-italic">Outcome:</span> One paper submission on{' '}
-              <a href="#" onClick={(e) => handlePaperClick("Programming is Not Just Editing! The Importance of Code Understanding in Agents", e)} className={`${linkClass} not-italic`}>coding agent evaluations</a>.
+              <a href="#" onClick={(e) => handlePaperClick("Code Understanding is a Bottleneck for Agents", e)} className={`${linkClass} not-italic`}>coding agent evaluations</a>.
             </p>
           </Entry>
 

@@ -1,6 +1,14 @@
 {
   "highlights": [
     {
+      "date": "2026-09-24",
+      "text": "Gave a very very fun talk at Fondazione Bruno Kessler titled: Language Models Cheat on Multiple-Choice Benchmarks. Good!",
+      "externalLinks": {
+        "Fondazione Bruno Kessler": "https://www.fbk.eu/en/",
+        "Language Models Cheat on Multiple-Choice Benchmarks. Good!": "/assets/slides/FBK-MT.pdf"
+      }
+    },
+    {
       "date": "2026-08-27",
       "text": "Invited talk at Pangram on Understanding Understanding in Coding Agents. See the slides here! 🦊",
       "externalLinks": {

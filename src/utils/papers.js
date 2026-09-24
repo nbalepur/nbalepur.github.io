@@ -13,7 +13,7 @@ const SHORT_LABEL_ALIASES = {
   'A SMART Mnemonic Sounds like "Glue Tonic"': 'SMART Mnemonics',
   'A Good Plan is Hard to Find': 'A Good Plan is Hard to Find',
   '(Im)Paired Programming': 'Impaired Programming',
-  'Programming is Not Just Editing! The Importance of Code Understanding in Agents': 'CABRA',
+  'Code Understanding is a Bottleneck for Agents': 'CABRA',
 };
 
 export function shortPaperLabel(title) {
