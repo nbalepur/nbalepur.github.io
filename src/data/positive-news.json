@@ -1,6 +1,14 @@
 {
   "highlights": [
     {
+      "date": "2026-10-08",
+      "text": "Two preprints on coding agent evaluations that shows we're cooked: users don't understand the code they \"write\" with coding agents, and coding agents struggle to understand code too",
+      "paperLinks": {
+        "users don't understand the code they \"write\" with coding agents": "(Im)Paired Programming: Coding Agents Improve Productivity but Harm Understanding",
+        "coding agents struggle to understand code too": "Code Understanding is a Bottleneck for Coding Agents"
+      }
+    },
+    {
       "date": "2026-09-24",
       "text": "Gave a very very fun talk at Fondazione Bruno Kessler titled: Language Models Cheat on Multiple-Choice Benchmarks. Good!",
       "externalLinks": {
