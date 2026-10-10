@@ -1,6 +1,13 @@
 {
   "highlights": [
     {
+      "date": "2026-10-09",
+      "text": "Awarded a Maryland Language Science Grant ($2,000) to extend our study on understanding in coding agents! 🤑",
+      "paperLinks": {
+        "study": "(Im)Paired Programming: Coding Agents Improve Productivity but Harm Understanding"
+      }
+    },
+    {
       "date": "2026-10-08",
       "text": "Two preprints on coding agent evaluations that shows we're cooked: users don't understand the code they \"write\" with coding agents, and coding agents struggle to understand code too",
       "paperLinks": {
